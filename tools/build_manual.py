@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 """
-Converte o manual no arquivo Lua que o mod carrega no jogo.
+Converte o manual no arquivo Lua (e nas imagens) que o mod carrega no jogo.
 
     docs/<idioma>/...      guia oficial. A arvore de pastas E a arvore do jogo:
                            cada pasta vira uma secao, cada .md vira uma pagina.
     dicas/<idioma>/<id>.md dicas da comunidade de cada pagina (nao oficiais).
+    ```mermaid             fluxogramas: o GitHub desenha sozinho; para o jogo,
+                           viram PNG (tools/mermaid_png.py) gravados com o mod.
 
 Uso:
-    python tools/build_manual.py --check          # so valida (GitHub Actions)
-    python tools/build_manual.py --out <arquivo>  # gera o PA_ManualData.lua
+    python tools/build_manual.py --check        # so valida (GitHub Actions)
+    python tools/build_manual.py                # grava tudo na pasta do mod
+    python tools/build_manual.py --out x.lua --images pasta/
+                                                # grava em outro lugar (para ver
+                                                # as imagens dos diagramas)
 
-Sem --out, grava em ../PersonalAssistant/Contents/mods/PersonalAssistant/42/
-media/lua/client/PersonalAssistant/PA_ManualData.lua (pasta vizinha do mod).
+Sem --out/--images, grava na pasta vizinha do mod (../PersonalAssistant/...):
+    42/media/lua/client/PersonalAssistant/PA_ManualData.lua
+    42/media/textures/PA_Manual/d_*.png
+Precisa do Pillow:  pip install pillow
 
 Regras da arvore (ver CONTRIBUTING.md):
   - O numero no comeco do nome ("01-", "02-") so define a ordem; some no jogo.
@@ -29,12 +36,17 @@ import pathlib
 import re
 import sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import mermaid_png  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 TIPS = ROOT / "dicas"
 CONFIG = ROOT / "manual.config.json"
-DEFAULT_OUT = (ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant"
-               / "42" / "media" / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua")
+MOD_MEDIA = ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant" / "42" / "media"
+DEFAULT_OUT = MOD_MEDIA / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua"
+DEFAULT_IMAGES = MOD_MEDIA / "textures" / "PA_Manual"
+GAME_IMAGE_DIR = "media/textures/PA_Manual"   # caminho que o jogo usa no getTexture
 
 ROOT_ID = "inicio"
 MAX_TIP = 600              # caracteres por dica
@@ -47,6 +59,40 @@ ORDER_RE = re.compile(r"^(\d+)[-_ .]+")
 
 class ManualError(Exception):
     pass
+
+
+# ---------------------------------------------------------------------------
+# Diagramas
+# ---------------------------------------------------------------------------
+
+class Diagrams:
+    """Junta os diagramas do manual: valida, mede e gera os PNG."""
+
+    def __init__(self):
+        self.images = {}    # nome do arquivo -> imagem (PIL)
+
+    def add(self, source, where):
+        try:
+            g = mermaid_png.parse(source, where)
+            name = mermaid_png.image_name(source)
+            if name not in self.images:
+                self.images[name] = mermaid_png.render(g)
+        except mermaid_png.DiagramError as e:
+            raise ManualError(str(e))
+        except ImportError:
+            raise ManualError("os diagramas precisam do Pillow: pip install pillow")
+        img = self.images[name]
+        return f"<IMAGECENTRE:{GAME_IMAGE_DIR}/{name},{img.width},{img.height}>", g.labels()
+
+    def write(self, folder):
+        folder.mkdir(parents=True, exist_ok=True)
+        for old in folder.glob("d_*.png"):
+            if old.name not in self.images:
+                old.unlink()
+        for name, img in self.images.items():
+            target = folder / name
+            if not target.exists():
+                img.save(target, optimize=True)
 
 
 # ---------------------------------------------------------------------------
@@ -80,10 +126,12 @@ def plain_of(rich):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]*>", " ", rich)).strip()
 
 
-def convert(md, source):
-    """Retorna (titulo, texto rico). O titulo vem da linha '# '."""
+def convert(md, source, diagrams=None):
+    """Retorna (titulo, texto rico, texto extra para a busca). O titulo vem da linha '# '."""
     md = re.sub(r"<!--.*?-->", "", md, flags=re.S)
-    title, blocks, para = None, [], []
+    title, blocks, para, extra = None, [], [], []
+    fence, fence_lines = None, []
+    diagrams = diagrams if diagrams is not None else Diagrams()
 
     def flush():
         if para:
@@ -92,6 +140,22 @@ def convert(md, source):
 
     for raw in md.replace("\r\n", "\n").split("\n"):
         s = raw.strip()
+        if fence is not None:
+            if s.startswith("```"):
+                if fence == "mermaid":
+                    tag, labels = diagrams.add("\n".join(fence_lines), source)
+                    blocks.append(("img", tag))
+                    extra.append(labels)
+                else:
+                    blocks.append(("code", list(fence_lines)))
+                fence, fence_lines = None, []
+            else:
+                fence_lines.append(raw.rstrip())
+            continue
+        if s.startswith("```"):
+            flush()
+            fence = s[3:].strip().lower()
+            continue
         if not s:
             flush(); blocks.append(("gap", "")); continue
         if s.startswith("|"):
@@ -118,17 +182,21 @@ def convert(md, source):
             blocks[-1] = (kind, txt + " " + inline(s)); continue
         para.append(s)
     flush()
+    if fence is not None:
+        raise ManualError(f"{source}: bloco ``` sem fechar")
     if not title:
         raise ManualError(f"{source}: falta o titulo '# ...' no comeco do arquivo")
 
     out, prev = [f"<H1> {clean(title)} <LINE> <TEXT> "], "head"
     for kind, txt in blocks:
         if kind == "gap":
-            if prev != "head":
+            if prev not in ("head", "img"):
                 prev = "gap"
             continue
         if prev == "head" and kind not in ("h2", "h3"):
             sep = " "                      # o titulo ja termina com <LINE>
+        elif prev == "img":
+            sep = " <LINE> "               # a imagem ja termina com <LINE>
         elif prev in ("li", "ol", "p") and kind in ("li", "ol"):
             sep = " <LINE> "               # lista colada no paragrafo/item anterior
         else:
@@ -143,11 +211,15 @@ def convert(md, source):
             out.append(f"{sep} {txt}")
         elif kind == "tip":
             out.append(f"{sep}<RGB:{TIP}> {txt} <TEXT> ")
+        elif kind == "img":
+            out.append(f"{sep}{txt} <LINE> ")
+        elif kind == "code":
+            out.append(sep + " <LINE> ".join(f"<PUSHRGB:{CODE}> {clean(l.strip()) or '.'} <POPRGB>" for l in txt))
         else:
             out.append(f"{sep}{txt}")
         prev = kind
     text = re.sub(r"(<LINE> ){3,}", "<LINE> <LINE> ", "".join(out))
-    return clean(title), re.sub(r"[ \t]+", " ", text).strip()
+    return clean(title), re.sub(r"[ \t]+", " ", text).strip(), " ".join(extra)
 
 
 # ---------------------------------------------------------------------------
@@ -169,8 +241,16 @@ def pretty(name):
     return s[:1].upper() + s[1:]
 
 
-def build_tree(lang_dir, rel_root):
+def build_tree(lang_dir, rel_root, diagrams=None):
     ids = {}
+
+    def key_of(path):
+        """Posicao pela numeracao ('3/2'), para comparar os idiomas."""
+        parts = []
+        for part in path.relative_to(lang_dir).parts:
+            m = ORDER_RE.match(part)
+            parts.append((m.group(1).lstrip("0") or "0") if m else "?" + slug(part))
+        return "/".join(parts)
 
     def rel_of(path):
         return (rel_root / path.relative_to(lang_dir).as_posix()).as_posix()
@@ -186,11 +266,13 @@ def build_tree(lang_dir, rel_root):
 
     def folder(path, node_id):
         register(node_id, rel_of(path) + "/")
-        node = {"kind": "folder", "id": node_id, "title": pretty(path.name), "file": "", "text": ""}
+        node = {"kind": "folder", "id": node_id, "title": pretty(path.name), "file": "", "text": "",
+                "extra": "", "key": key_of(path) if path != lang_dir else ""}
         readme = next((p for p in path.iterdir() if p.name.lower() == "readme.md"), None)
         if readme:
             node["file"] = rel_of(readme)
-            node["title"], node["text"] = convert(readme.read_text(encoding="utf-8"), node["file"])
+            node["title"], node["text"], node["extra"] = convert(readme.read_text(encoding="utf-8"),
+                                                                 node["file"], diagrams)
         children = []
         for child in sorted(path.iterdir(), key=order_key):
             if child.name.startswith(("_", ".")) or child.name.lower() == "readme.md":
@@ -201,8 +283,9 @@ def build_tree(lang_dir, rel_root):
                 crel = rel_of(child)
                 cid = slug(child.name)
                 register(cid, crel)
-                title, text = convert(child.read_text(encoding="utf-8"), crel)
-                children.append({"kind": "page", "id": cid, "title": title, "file": crel, "text": text})
+                title, text, extra = convert(child.read_text(encoding="utf-8"), crel, diagrams)
+                children.append({"kind": "page", "id": cid, "title": title, "file": crel, "text": text,
+                                 "extra": extra, "key": key_of(child)})
         node["children"] = children
         return node
 
@@ -267,7 +350,7 @@ def attach_tips(tree, ids, folder_name):
         nonlocal total
         node["tips"] = by_id.get(node["id"], [])
         total += len(node["tips"])
-        node["plain"] = plain_of(node["title"] + " " + node["text"] + " "
+        node["plain"] = plain_of(node["title"] + " " + node["text"] + " " + node.get("extra", "") + " "
                                  + " ".join(t["text"] for t in node["tips"]))
         for c in node.get("children", []):
             walk(c)
@@ -275,27 +358,58 @@ def attach_tips(tree, ids, folder_name):
     return total
 
 
-def load_all():
+def load_all(diagrams=None):
     """Arvore + ids de cada idioma (usado tambem por tools/add_tip.py)."""
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+    diagrams = diagrams if diagrams is not None else Diagrams()
     out = {}
     for folder_name, code in cfg["languages"].items():
         lang_dir = DOCS / folder_name
         if not (lang_dir / "README.md").exists():
             raise ManualError(f"docs/{folder_name}/README.md: falta a pagina inicial do idioma")
-        tree, ids = build_tree(lang_dir, pathlib.PurePosixPath("docs") / folder_name)
+        tree, ids = build_tree(lang_dir, pathlib.PurePosixPath("docs") / folder_name, diagrams)
         out[folder_name] = (code, tree, ids)
     return cfg, out
 
 
+def compare_languages(langs):
+    """Avisa (sem falhar) quando um idioma tem uma pagina que o outro nao tem."""
+    keys = {}
+    for folder_name, (_, tree, _) in langs.items():
+        found = {}
+
+        def walk(n):
+            if n.get("key"):
+                found[n["key"]] = n["file"] or n["id"]
+            for c in n.get("children", []):
+                walk(c)
+        walk(tree)
+        keys[folder_name] = found
+    warnings = []
+    for a in keys:
+        for b in keys:
+            if a != b:
+                for k, f in sorted(keys[a].items()):
+                    if k not in keys[b]:
+                        warnings.append(f"aviso: {f} nao tem par em docs/{b}/ (mesma numeracao {k})")
+    return warnings
+
+
 def build():
-    cfg, langs = load_all()
+    diagrams = Diagrams()
+    cfg, langs = load_all(diagrams)
     data, report = {}, []
     for folder_name, (code, tree, ids) in langs.items():
         tips = attach_tips(tree, ids, folder_name)
         data[code] = {"folder": folder_name, "root": tree}
         report.append(f"{code}: {len(ids)} paginas/secoes, {tips} dicas")
-    return cfg, data, report
+    templates = 0
+    for f in sorted((ROOT / "modelos").glob("*/*.md")):
+        convert(f.read_text(encoding="utf-8"), f.relative_to(ROOT).as_posix(), Diagrams())
+        templates += 1
+    report.append(f"diagramas: {len(diagrams.images)}, modelos ok: {templates}")
+    report.extend(compare_languages(langs))
+    return cfg, data, report, diagrams
 
 
 # ---------------------------------------------------------------------------
@@ -360,9 +474,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="so valida os arquivos")
     ap.add_argument("--out", type=pathlib.Path, default=DEFAULT_OUT)
+    ap.add_argument("--images", type=pathlib.Path, default=DEFAULT_IMAGES, help="pasta dos PNG dos diagramas")
     args = ap.parse_args()
     try:
-        cfg, data, report = build()
+        cfg, data, report, diagrams = build()
     except ManualError as e:
         print("erro:", e, file=sys.stderr)
         return 1
@@ -372,7 +487,9 @@ def main():
         return 0
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(render_lua(cfg, data), encoding="utf-8", newline="\n")
+    diagrams.write(args.images)
     print("gravado:", args.out)
+    print("imagens:", args.images)
     return 0
 
 

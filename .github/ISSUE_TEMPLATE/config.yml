@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Conversar / perguntar (Discussions) | Chat / ask (Discussions)"
+    url: https://github.com/brmorillo/better-experience-manual/discussions
+    about: "Dúvidas, ideias e conversas sobre o manual. | Questions, ideas and chat about the manual."

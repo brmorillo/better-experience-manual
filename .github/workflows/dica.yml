@@ -16,13 +16,15 @@ permissions:
 
 jobs:
   tip:
-    if: contains(github.event.issue.labels.*.name, 'dica')
+    if: contains(github.event.issue.labels.*.name, 'dica') || startsWith(github.event.issue.title, '[Dica]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Instalar o Pillow (desenha os diagramas)
+        run: pip install "pillow>=10"
       - name: Adicionar a dica
         id: add
         # O texto do pedido e lido do arquivo do evento pelo Python, nunca

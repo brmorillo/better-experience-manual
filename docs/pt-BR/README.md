@@ -1,19 +1,18 @@
 # Começando
 
-Bem-vindo ao **Better Experience - ALL In One**! O mod junta várias melhorias de qualidade de vida para o Project Zomboid Build 42.
+Bem-vindo ao manual do **Better Experience - ALL In One**: o guia do mod e um guia do Project Zomboid Build 42 feito pela comunidade.
 
-## Onde fica tudo
+## O que tem aqui
 
-- **Clique direito no chão ou num móvel** > **Better Experience - ALL In One**: organizar a base, comida por validade, busca no mapa, GPS e este manual.
-- **No mapa** (tecla M): botão **Assistente**, com as abas **Itens** e **Favoritos / GPS**.
-- **Opções** > **Mods** > **Better Experience - ALL In One**: todos os ajustes e as teclas de atalho.
-
-## Teclas de atalho
-
-Nenhuma tecla vem configurada, para não brigar com outros mods. Escolha as suas em **Opções > Mods > Better Experience - ALL In One > Teclas de atalho**.
+- **O mod**: tudo o que o Better Experience faz e como usar.
+- **Habilidades**: cada habilidade do jogo, separada pelas mesmas categorias da tela de habilidades.
+- **Itens**: armas, ferramentas, comida, roupas, remédios, livros, bolsas e eletrônicos.
+- **Ações**: dirigir, construir, cozinhar, saquear e conseguir água potável.
+- **Personagem**: profissões, traços, estados e saúde.
+- **Mundo**: mapa, zumbis, luz e água, clima e animais.
 
 ## Como usar este manual
 
-Os temas estão na lista à esquerda. Clique numa pasta para abrir ou fechar. Use a busca para procurar em todas as páginas, inclusive nas dicas da comunidade.
+Clique numa pasta na lista à esquerda para abrir ou fechar. Use a busca para procurar em todas as páginas, inclusive nas dicas da comunidade.
 
 > Este manual é feito pela comunidade. Use **Editar esta página** para melhorar o texto oficial, ou **Adicionar dica** para deixar uma dica sua no fim da página.

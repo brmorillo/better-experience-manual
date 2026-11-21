@@ -1,0 +1,16 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# dois espacos no fim da linha quebram a linha no Markdown; aqui nao usamos isso
+trim_trailing_whitespace = true
+
+[*.py]
+indent_size = 4

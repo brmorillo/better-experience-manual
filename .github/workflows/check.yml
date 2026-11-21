@@ -13,5 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Instalar o Pillow (desenha os diagramas)
+        run: pip install "pillow>=10"
       - name: Converter o manual para o formato do jogo
         run: python tools/build_manual.py --check
