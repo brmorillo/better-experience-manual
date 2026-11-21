@@ -2,11 +2,17 @@
 
 O **Better Experience - ALL In One** junta várias melhorias de qualidade de vida.
 
+## Use só o que quiser
+
+Cada parte do mod pode ser desligada em **Opções > Mods > Better Experience - ALL In One > Funções do mod**: organização da base, comida por validade, busca de itens no mapa, GPS, barra de bússola, beber da mochila e o manual. Quer só o GPS e a bússola? Desligue o resto.
+
+Uma função desligada some dos menus, do mapa e das teclas, para de rodar e não grava nada novo no save. Veja os detalhes em **Opções**.
+
 ## Onde fica tudo
 
 - **Clique direito no chão ou num móvel** > **Better Experience - ALL In One**: organizar a base, comida por validade, busca no mapa, GPS e este manual.
-- **No mapa** (tecla M): botão **Assistente**, com as abas **Itens** e **Favoritos / GPS**.
-- **Opções** > **Mods** > **Better Experience - ALL In One**: todos os ajustes e as teclas de atalho.
+- **No mapa** (tecla M): botão **Assistente**, com as abas **Itens** e **Favoritos / GPS** (só aparecem as funções ligadas).
+- **Opções** > **Mods** > **Better Experience - ALL In One**: ligar e desligar cada função, os ajustes e as teclas de atalho.
 
 ## Teclas de atalho
 

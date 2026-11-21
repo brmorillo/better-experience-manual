@@ -29,6 +29,9 @@ The same content shows up **in game**: right-click > Better Experience - ALL In 
 | 🆕 Novidades de cada versão | What's new in each version | [pt-BR](docs/pt-BR/01-o-mod/07-versoes.md) · [en](docs/en/01-the-mod/07-versions.md) |
 | ❓ Perguntas frequentes | FAQ | [pt-BR](docs/pt-BR/01-o-mod/08-perguntas-frequentes.md) · [en](docs/en/01-the-mod/08-faq.md) |
 
+**Use só o que quiser:** cada função pode ser desligada em Opções > Mods > Better Experience - ALL In One > Funções do mod. O que estiver desligado não aparece, não roda e não grava nada no save.
+**Use only what you want:** each feature can be turned off in Options > Mods > Better Experience - ALL In One > Mod features. Whatever is off does not show up, does not run and writes nothing to your save.
+
 ## A pasta é o menu / The folder is the menu
 
 O que você vê aqui é o que o jogador vê no jogo. Cada **pasta** de `docs/<idioma>/` vira uma seção que abre e fecha, e cada **arquivo** vira uma página. Para reorganizar o manual, basta mover, criar ou renomear pastas e arquivos.

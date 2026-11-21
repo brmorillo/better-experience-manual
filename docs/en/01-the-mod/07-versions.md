@@ -4,6 +4,7 @@ What came in each mod version.
 
 ## 0.4.0
 
+- **Mod features**: each part (organizer, food, map search, GPS, compass, drinking from bags, manual) can be turned off in the options. When off, it does not show up, does not run and writes nothing to your save.
 - **GPS** (new item): favorites, destination with a map line and an on-screen arrow, track recording. The battery only drains while navigating or recording.
 - **Compass bar** at the top of the screen, with the cardinal points and your favorites, while holding a compass or with the GPS on.
 - A GPS in the glove box of a few cars (1% by default).

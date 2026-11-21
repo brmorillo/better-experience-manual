@@ -2,6 +2,18 @@
 
 Every option is in **Options > Mods > Better Experience - ALL In One**. Below, each one with its factory value.
 
+## Mod features
+
+Turn on only what you want to use. A feature that is off leaves the menus, the map and the hotkeys, stops running and writes nothing new to your save. What was already saved (tagged furniture, recorded containers, favorites) is kept and comes back if you turn it on again.
+
+- **Base organizer** (default: on): Tag furniture with a category, store your inventory and organize the base. Also shows in the inventory where each item would go.
+- **Food by expiration** (default: on): Window with the food in your base and inventory, from what expires first to what lasts longest.
+- **Map item search** (default: on): Records what is inside containers you have seen and lets you search them on the map. When off, nothing is recorded.
+- **GPS** (default: on): GPS item, favorites, navigation and track. When off, the GPS leaves building and glove box loot (applies when the save loads) and the battery does not drain. A GPS already in the world stays, but does nothing.
+- **Compass bar at the top of the screen** (default: on): Shows the cardinal points with an equipped compass or a powered GPS. Favorites show when the GPS feature is on; distance only with a powered GPS.
+- **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
+- **Mod manual** (default: on): In-game community manual, from the mod menu or its hotkey.
+
 ## Organizer
 
 Tag containers with right-click > Better Experience - ALL In One > Category. Favorite, equipped, worn, hotbar items and keys are never moved.
@@ -25,13 +37,8 @@ Equipped compass: a bar at the top of the screen (Skyrim style) with the cardina
 - **Require a powered GPS** (default: on): Off: favorites, navigation and track work without the item.
 - **Battery life (in-game hours of use)** (default: 48, from 6 to 240): The battery only drains while navigating or recording.
 - **Cars with a GPS in the glove box (%)** (default: 1, from 0 to 5): Rolled once per car, the first time you open the glove box. Not affected by the save's loot rarity.
-- **Compass bar at the top of the screen** (default: on): Shows the cardinal points and favorites with an equipped compass or a powered GPS. Distance only shows with the GPS.
 - **Compass must be held** (default: on): On: hold the compass (the off hand works). Off: having it in your inventory, a bag or the key ring is enough.
 - **Favorites range on the bar (tiles)** (default: 2000, from 100 to 10000): Favorites farther than this are left off the bar. The GPS destination is always shown.
-
-## Survival
-
-- **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
 
 ## Manual
 

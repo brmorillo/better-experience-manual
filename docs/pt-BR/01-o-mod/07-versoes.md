@@ -4,6 +4,7 @@ O que entrou em cada versão do mod.
 
 ## 0.4.0
 
+- **Funções do mod**: cada parte (organização, comida, busca no mapa, GPS, bússola, beber da mochila, manual) pode ser desligada nas opções. Desligada, não aparece, não roda e não grava nada no save.
 - **GPS** (item novo): favoritos, destino com linha no mapa e seta na tela, gravação de trajeto. A pilha só gasta enquanto navega ou grava.
 - **Barra de bússola** no topo da tela, com os pontos cardeais e os favoritos, com a bússola na mão ou o GPS ligado.
 - GPS no porta-luvas de poucos carros (1% por padrão).
