@@ -1,0 +1,50 @@
+# Opções
+
+Todas as opções ficam em **Opções > Mods > Better Experience - ALL In One**. Abaixo, cada uma com o valor que vem de fábrica.
+
+## Organização
+
+Marque contêineres com o botão direito > Better Experience - ALL In One > Categoria. Itens favoritos, equipados, vestidos, na hotbar e chaves nunca são movidos.
+
+- **Raio da base (tiles)** (padrão: 20, de 5 a 40): Distância a partir do personagem em que os contêineres marcados são usados.
+- **Andares acima/abaixo** (padrão: 2, de 0 a 4): Quantos andares acima e abaixo do personagem entram na base (inclui porões).
+- **Organizar o conteúdo das bolsas** (padrão: ligado): Também guarda os itens de dentro da mochila e das bolsas que você carrega.
+- **Parar se houver zumbi perto** (padrão: ligado): Interrompe a organização quando um zumbi te persegue ou chega muito perto.
+
+## Busca de itens no mapa
+
+O assistente anota o que tem nos contêineres que o jogo já mostrou para você (ao passar perto). Depois, no mapa, clique em Itens para pesquisar.
+
+- **Anotar contêineres vistos** (padrão: ligado): Desligue para parar de anotar (o que já foi anotado continua).
+- **Raio de atualização** (padrão: 8, de 0 a 15): A cada 3 s, reanota contêineres já vistos neste raio (tiles). 0 = só os que aparecem no painel de saque.
+
+## GPS
+
+Bússola equipada: barra no topo da tela (estilo Skyrim) com os pontos cardeais e os seus favoritos. GPS com pilha: cria e gerencia os favoritos, mostra a distância, navega (linha no mapa e seta) e grava o trajeto; também liga a barra. O GPS aparece em lojas de eletrônicos e camping, depósitos militares, kits de sobrevivência e no porta-luvas de poucos carros.
+
+- **Exigir GPS com pilha** (padrão: ligado): Desligado: favoritos, navegação e trajeto funcionam sem o item.
+- **Duração da pilha (horas de uso no jogo)** (padrão: 48, de 6 a 240): A pilha só gasta enquanto navega ou grava trajeto.
+- **Carros com GPS no porta-luvas (%)** (padrão: 1, de 0 a 5): Sorteado uma vez por carro, na primeira vez que você abre o porta-luvas. Não muda com a raridade de loot do save.
+- **Barra de bússola no topo da tela** (padrão: ligado): Mostra os pontos cardeais e os favoritos com a bússola equipada ou com o GPS ligado. A distância só aparece com o GPS.
+- **Bússola precisa estar na mão** (padrão: ligado): Ligado: segure a bússola (a mão secundária serve). Desligado: basta ter no inventário, na mochila ou no chaveiro.
+- **Alcance dos favoritos na barra (tiles)** (padrão: 2000, de 100 a 10000): Favoritos mais longe que isso não aparecem na barra. O destino do GPS sempre aparece.
+
+## Sobrevivência
+
+- **Beber automaticamente da mochila** (padrão: ligado): Com o "Beber automaticamente" do jogo ligado, o personagem também bebe da água que estiver em mochilas e bolsas carregadas, não só do inventário principal.
+
+## Manual
+
+- **Mostrar dicas da comunidade** (padrão: ligado): No fim de cada página do manual, mostra as dicas que os jogadores mandaram. Elas não fazem parte do guia oficial.
+
+## Teclas de atalho
+
+- **Guardar inventário na base** (padrão: sem tecla): Aperte de novo para parar.
+- **Organizar a base inteira** (padrão: sem tecla): Aperte de novo para parar.
+- **Abrir/fechar comida por validade** (padrão: sem tecla)
+- **Abrir busca de itens no mapa** (padrão: sem tecla)
+- **Abrir favoritos / GPS no mapa** (padrão: sem tecla)
+- **Mostrar/esconder a barra da bússola** (padrão: sem tecla)
+- **Abrir/fechar o manual** (padrão: sem tecla)
+
+> Nenhuma tecla vem configurada, para não brigar com outros mods.

@@ -1,15 +1,33 @@
+<p align="center"><img src="assets/logo.png" width="128" alt="Better Experience - ALL In One"></p>
+
 # Better Experience - ALL In One: Manual
 
 [![Verificar manual](../../actions/workflows/check.yml/badge.svg)](../../actions/workflows/check.yml)
 
-Manual comunitário do mod **Better Experience - ALL In One** e guia do **Project Zomboid Build 42**, em português e inglês.
-Community manual for the **Better Experience - ALL In One** mod and guide to **Project Zomboid Build 42**, in Portuguese and English.
+Manual oficial do mod **Better Experience - ALL In One** e guia comunitário do **Project Zomboid Build 42**, em português e inglês. O código do mod não fica aqui: este repositório tem as explicações, os tutoriais e as dicas dos jogadores.
+
+Official manual for the **Better Experience - ALL In One** mod and community guide to **Project Zomboid Build 42**, in Portuguese and English. The mod's code is not here: this repository holds the explanations, tutorials and player tips.
 
 O mesmo conteúdo aparece **dentro do jogo**: clique direito > Better Experience - ALL In One > **Manual do mod**.
 The same content shows up **in game**: right-click > Better Experience - ALL In One > **Mod manual**.
 
 - 🇧🇷 [Português (pt-BR)](docs/pt-BR/README.md)
 - 🇺🇸 [English](docs/en/README.md)
+
+## O que o mod faz / What the mod does
+
+| Função | Feature | Página / Page |
+|---|---|---|
+| 📦 Organização da base: marque móveis com uma categoria e mande guardar | Base organizer: tag furniture with a category and store everything | [pt-BR](docs/pt-BR/01-o-mod/01-organizacao-da-base/README.md) · [en](docs/en/01-the-mod/01-base-organizer/README.md) |
+| 🥫 Comida por validade: o que vence primeiro | Food by expiration: what expires first | [pt-BR](docs/pt-BR/01-o-mod/02-comida-por-validade.md) · [en](docs/en/01-the-mod/02-food-by-expiration.md) |
+| 🗺️ Busca de itens no mapa (só o que você já viu) | Map item search (only what you have seen) | [pt-BR](docs/pt-BR/01-o-mod/03-mapa-e-gps/01-busca-de-itens.md) · [en](docs/en/01-the-mod/03-map-and-gps/01-item-search.md) |
+| 🛰️ GPS: favoritos, navegação e trajeto | GPS: favorites, navigation and track | [pt-BR](docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md) · [en](docs/en/01-the-mod/03-map-and-gps/02-gps.md) |
+| 🧭 Barra de bússola com os favoritos | Compass bar with your favorites | [pt-BR](docs/pt-BR/01-o-mod/03-mapa-e-gps/03-bussola.md) · [en](docs/en/01-the-mod/03-map-and-gps/03-compass.md) |
+| 💧 Beber água guardada na mochila | Drink water stored in bags | [pt-BR](docs/pt-BR/01-o-mod/04-beber-da-mochila.md) · [en](docs/en/01-the-mod/04-drink-from-bags.md) |
+| ⚙️ Todas as opções e teclas | Every option and hotkey | [pt-BR](docs/pt-BR/01-o-mod/05-opcoes.md) · [en](docs/en/01-the-mod/05-options.md) |
+| 📖 Este manual dentro do jogo | This manual in game | [pt-BR](docs/pt-BR/01-o-mod/06-este-manual.md) · [en](docs/en/01-the-mod/06-this-manual.md) |
+| 🆕 Novidades de cada versão | What's new in each version | [pt-BR](docs/pt-BR/01-o-mod/07-versoes.md) · [en](docs/en/01-the-mod/07-versions.md) |
+| ❓ Perguntas frequentes | FAQ | [pt-BR](docs/pt-BR/01-o-mod/08-perguntas-frequentes.md) · [en](docs/en/01-the-mod/08-faq.md) |
 
 ## A pasta é o menu / The folder is the menu
 
@@ -78,13 +96,14 @@ docs/<idioma>/        guia oficial (a árvore do jogo) / official guide (the in-
 dicas/<idioma>/       dicas da comunidade, uma por página / community tips, one file per page
 modelos/<idioma>/     modelos de página / page templates
 tools/                build_manual.py, mermaid_png.py, add_tip.py, fontes / fonts
+assets/               imagens do README / README images
 GLOSSARIO.md          termos oficiais PT ↔ EN / official PT ↔ EN terms
 manual.config.json    repositório, branch e idiomas / repo, branch and languages
 ```
 
 ## Licença / License
 
-Texto sob [CC BY-SA 4.0](LICENSE). Fonte DejaVu Sans em `tools/fonts/` sob a [licença própria](tools/fonts/LICENSE-DejaVu.txt).
+Texto e imagens sob [CC BY-SA 4.0](LICENSE). Fonte DejaVu Sans em `tools/fonts/` sob a [licença própria](tools/fonts/LICENSE-DejaVu.txt).
 Text under [CC BY-SA 4.0](LICENSE). DejaVu Sans font in `tools/fonts/` under [its own license](tools/fonts/LICENSE-DejaVu.txt).
 
 Project Zomboid é uma marca da The Indie Stone. Este é um projeto de fãs, sem ligação oficial.

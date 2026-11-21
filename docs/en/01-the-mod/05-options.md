@@ -1,0 +1,50 @@
+# Options
+
+Every option is in **Options > Mods > Better Experience - ALL In One**. Below, each one with its factory value.
+
+## Organizer
+
+Tag containers with right-click > Better Experience - ALL In One > Category. Favorite, equipped, worn, hotbar items and keys are never moved.
+
+- **Base radius (tiles)** (default: 20, from 5 to 40): Distance from your character in which tagged containers are used.
+- **Floors above/below** (default: 2, from 0 to 4): How many floors above and below your character count as base (includes basements).
+- **Organize bag contents** (default: on): Also stores the items inside the backpack and bags you carry.
+- **Stop if zombies are near** (default: on): Interrupts organizing when a zombie chases you or gets very close.
+
+## Item search on the map
+
+The assistant records what is inside containers the game has already shown you (when walking by). Then click Items on the map to search.
+
+- **Record seen containers** (default: on): Turn off to stop recording (existing records stay).
+- **Update radius** (default: 8, from 0 to 15): Every 3 s, re-record already seen containers within this radius (tiles). 0 = only those shown in the loot panel.
+
+## GPS
+
+Equipped compass: a bar at the top of the screen (Skyrim style) with the cardinal points and your favorites. Powered GPS: creates and manages favorites, shows distance, navigates (map line and arrow) and records your track; it also turns the bar on. The GPS is found in electronics and camping stores, military storage, survival gear and in the glove box of a few cars.
+
+- **Require a powered GPS** (default: on): Off: favorites, navigation and track work without the item.
+- **Battery life (in-game hours of use)** (default: 48, from 6 to 240): The battery only drains while navigating or recording.
+- **Cars with a GPS in the glove box (%)** (default: 1, from 0 to 5): Rolled once per car, the first time you open the glove box. Not affected by the save's loot rarity.
+- **Compass bar at the top of the screen** (default: on): Shows the cardinal points and favorites with an equipped compass or a powered GPS. Distance only shows with the GPS.
+- **Compass must be held** (default: on): On: hold the compass (the off hand works). Off: having it in your inventory, a bag or the key ring is enough.
+- **Favorites range on the bar (tiles)** (default: 2000, from 100 to 10000): Favorites farther than this are left off the bar. The GPS destination is always shown.
+
+## Survival
+
+- **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
+
+## Manual
+
+- **Show community tips** (default: on): At the end of each manual page, shows the tips players sent. They are not part of the official guide.
+
+## Hotkeys
+
+- **Store inventory at base** (default: no key): Press again to stop.
+- **Organize the whole base** (default: no key): Press again to stop.
+- **Toggle food by expiration** (default: no key)
+- **Open item search on map** (default: no key)
+- **Open favorites / GPS on the map** (default: no key)
+- **Show/hide the compass bar** (default: no key)
+- **Open/close the manual** (default: no key)
+
+> No key is bound by default, so the mod never clashes with other mods.
