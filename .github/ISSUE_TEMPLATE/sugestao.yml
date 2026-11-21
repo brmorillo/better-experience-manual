@@ -1,0 +1,15 @@
+name: "Sugestão ou dúvida / Suggestion or question"
+description: "Falta explicar algo, ou você tem uma dica para outros jogadores / Something is missing, or you have a tip for other players"
+title: "[Manual] "
+labels: ["manual", "sugestão"]
+body:
+  - type: input
+    id: chapter
+    attributes:
+      label: "Capítulo (se houver) / Chapter (if any)"
+  - type: textarea
+    id: text
+    attributes:
+      label: "Sua sugestão, dúvida ou dica / Your suggestion, question or tip"
+    validations:
+      required: true
