@@ -1,0 +1,56 @@
+name: Dica da comunidade
+
+# Quando alguem abre um pedido com o formulario "Dica da comunidade", este robo
+# coloca a dica no arquivo certo de dicas/ e abre um pull request para revisao.
+# Requer: Settings > Actions > General > "Allow GitHub Actions to create and
+# approve pull requests".
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  tip:
+    if: contains(github.event.issue.labels.*.name, 'dica')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Adicionar a dica
+        id: add
+        # O texto do pedido e lido do arquivo do evento pelo Python, nunca
+        # colado no comando, para ninguem conseguir rodar comandos por ele.
+        run: python tools/add_tip.py --event "$GITHUB_EVENT_PATH" --github-output "$GITHUB_OUTPUT"
+      - name: Validar o manual
+        run: python tools/build_manual.py --check
+      - name: Abrir pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          FILE: ${{ steps.add.outputs.file }}
+        run: |
+          branch="dica/issue-$ISSUE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add "$FILE"
+          git commit -m "Dica da comunidade (#$ISSUE)"
+          git push --force origin "$branch"
+          if ! gh pr view "$branch" > /dev/null 2>&1; then
+            gh pr create --head "$branch" --title "Dica da comunidade (#$ISSUE)" \
+              --body "Dica enviada pelo formulário. Closes #$ISSUE"
+          fi
+      - name: Avisar no pedido se deu erro
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE" --body "Não consegui adicionar a dica. Confira o campo **Página** (ex.: pt-BR/gps) e se a dica tem até 600 caracteres, e edite o pedido. / Could not add the tip: check the **Page** field (e.g. en/gps) and that the tip has up to 600 characters, then edit the issue."

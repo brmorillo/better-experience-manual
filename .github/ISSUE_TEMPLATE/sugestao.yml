@@ -1,15 +1,19 @@
 name: "Sugestão ou dúvida / Suggestion or question"
-description: "Falta explicar algo, ou você tem uma dica para outros jogadores / Something is missing, or you have a tip for other players"
+description: "Falta explicar algo no guia oficial, ou você tem uma dúvida / Something is missing in the official guide, or you have a question"
 title: "[Manual] "
 labels: ["manual", "sugestão"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Para uma dica pessoal, use o formulário **Dica da comunidade**. / For a personal tip, use the **Community tip** form.
   - type: input
     id: chapter
     attributes:
-      label: "Capítulo (se houver) / Chapter (if any)"
+      label: "Página (se houver) / Page (if any)"
   - type: textarea
     id: text
     attributes:
-      label: "Sua sugestão, dúvida ou dica / Your suggestion, question or tip"
+      label: "Sua sugestão ou dúvida / Your suggestion or question"
     validations:
       required: true

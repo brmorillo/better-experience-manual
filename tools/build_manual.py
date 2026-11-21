@@ -1,18 +1,27 @@
 #!/usr/bin/env python3
 """
-Converte o manual (docs/<idioma>/*.md) no arquivo Lua que o mod carrega no jogo.
+Converte o manual no arquivo Lua que o mod carrega no jogo.
+
+    docs/<idioma>/...      guia oficial. A arvore de pastas E a arvore do jogo:
+                           cada pasta vira uma secao, cada .md vira uma pagina.
+    dicas/<idioma>/<id>.md dicas da comunidade de cada pagina (nao oficiais).
 
 Uso:
-    python tools/build_manual.py --check          # so valida (usado no GitHub Actions)
+    python tools/build_manual.py --check          # so valida (GitHub Actions)
     python tools/build_manual.py --out <arquivo>  # gera o PA_ManualData.lua
 
 Sem --out, grava em ../PersonalAssistant/Contents/mods/PersonalAssistant/42/
 media/lua/client/PersonalAssistant/PA_ManualData.lua (pasta vizinha do mod).
 
-Markdown aceito (subconjunto, ver CONTRIBUTING.md): # titulo, ## subtitulo,
-### subtitulo menor, paragrafos, listas com "-" ou "1.", > dica, **negrito**,
-`codigo`, [link](url) e <!-- comentarios -->. Tabelas e imagens nao aparecem
-no jogo.
+Regras da arvore (ver CONTRIBUTING.md):
+  - O numero no comeco do nome ("01-", "02-") so define a ordem; some no jogo.
+  - O id de uma pagina e o nome do arquivo sem o numero e sem ".md"
+    ("03-mapa-e-gps/02-gps.md" -> "gps"). O id de uma pasta e o nome dela sem
+    o numero. A raiz (docs/<idioma>/README.md) tem o id "inicio".
+  - Ids nao podem se repetir dentro do mesmo idioma: e por eles que as dicas
+    acham a pagina, entao mover um arquivo de pasta nao perde as dicas.
+  - O README.md de uma pasta e o texto da propria secao (titulo e introducao).
+  - Arquivos e pastas que comecam com "_" ou "." sao ignorados.
 """
 import argparse
 import json
@@ -22,31 +31,38 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
+TIPS = ROOT / "dicas"
 CONFIG = ROOT / "manual.config.json"
 DEFAULT_OUT = (ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant"
                / "42" / "media" / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua")
 
-HIGHLIGHT = "1,0.82,0.35"   # negrito
-CODE = "0.55,0.8,1"         # `codigo`
-TIP = "0.6,0.9,0.6"         # > dica
-H3 = "0.95,0.95,0.75"       # ### subtitulo menor
+ROOT_ID = "inicio"
+MAX_TIP = 600              # caracteres por dica
+HIGHLIGHT = "1,0.82,0.35"  # negrito
+CODE = "0.55,0.8,1"        # `codigo`
+TIP = "0.6,0.9,0.6"        # > dica
+H3 = "0.95,0.95,0.75"      # ### subtitulo menor
+ORDER_RE = re.compile(r"^(\d+)[-_ .]+")
 
 
 class ManualError(Exception):
     pass
 
 
+# ---------------------------------------------------------------------------
+# Markdown -> texto rico do jogo (ISRichTextPanel)
+# ---------------------------------------------------------------------------
+
 def clean(text):
-    """O painel de texto do jogo trata "<" como inicio de comando: troca por "(".
-    O ">" sozinho e seguro (usado nos caminhos de menu: Opcoes > Mods)."""
+    """O painel do jogo trata "<" como inicio de comando: troca por "(".
+    O ">" sozinho e seguro (caminhos de menu: Opcoes > Mods)."""
     return text.replace("<", "(")
 
 
 def inline(text):
-    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)                 # imagens
-    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)              # links -> texto
-    parts = []
-    pos = 0
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)       # imagens
+    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)    # links -> texto
+    parts, pos = [], 0
     pattern = re.compile(r"\*\*(.+?)\*\*([.,:;!?)]*)|`([^`]+)`([.,:;!?)]*)")
     for m in pattern.finditer(text):
         parts.append(clean(text[pos:m.start()]))
@@ -56,38 +72,35 @@ def inline(text):
             parts.append(f" <PUSHRGB:{CODE}> {clean(m.group(3) + m.group(4))} <POPRGB> ")
         pos = m.end()
     parts.append(clean(text[pos:]))
-    out = "".join(parts)
-    out = out.replace("**", "")
+    out = "".join(parts).replace("**", "")
     return re.sub(r"[ \t]+", " ", out).strip()
 
 
+def plain_of(rich):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]*>", " ", rich)).strip()
+
+
 def convert(md, source):
+    """Retorna (titulo, texto rico). O titulo vem da linha '# '."""
     md = re.sub(r"<!--.*?-->", "", md, flags=re.S)
-    lines = md.replace("\r\n", "\n").split("\n")
-    title = None
-    blocks = []          # cada bloco vira uma "linha" do painel
-    para = []
+    title, blocks, para = None, [], []
 
     def flush():
         if para:
             blocks.append(("p", inline(" ".join(para))))
             para.clear()
 
-    for raw in lines:
-        line = raw.rstrip()
-        s = line.strip()
+    for raw in md.replace("\r\n", "\n").split("\n"):
+        s = raw.strip()
         if not s:
-            flush()
-            blocks.append(("gap", ""))
-            continue
+            flush(); blocks.append(("gap", "")); continue
         if s.startswith("|"):
             raise ManualError(f"{source}: tabelas nao aparecem no jogo; use uma lista")
         if s.startswith("# "):
             flush()
             if title is not None:
                 raise ManualError(f"{source}: so pode haver um titulo '# ' por arquivo")
-            title = s[2:].strip()
-            continue
+            title = s[2:].strip(); continue
         if s.startswith("### "):
             flush(); blocks.append(("h3", inline(s[4:]))); continue
         if s.startswith("## "):
@@ -102,36 +115,29 @@ def convert(md, source):
             flush(); blocks.append(("tip", inline(s.lstrip("> ")))); continue
         if raw.startswith("  ") and blocks and blocks[-1][0] in ("li", "ol") and not para:
             kind, txt = blocks[-1]
-            blocks[-1] = (kind, txt + " " + inline(s))
-            continue
+            blocks[-1] = (kind, txt + " " + inline(s)); continue
         para.append(s)
     flush()
-
     if not title:
         raise ManualError(f"{source}: falta o titulo '# ...' no comeco do arquivo")
 
-    out = [f"<H1> {clean(title)} <LINE> <TEXT> "]
-    prev = "head"
+    out, prev = [f"<H1> {clean(title)} <LINE> <TEXT> "], "head"
     for kind, txt in blocks:
         if kind == "gap":
             if prev != "head":
                 prev = "gap"
             continue
         if prev == "head" and kind not in ("h2", "h3"):
-            sep = " "                              # o titulo ja termina com <LINE>
-        elif prev in ("li", "ol", "p") and kind in ("li", "ol") and prev != "gap":
-            sep = " <LINE> "                       # lista colada no item/paragrafo anterior
+            sep = " "                      # o titulo ja termina com <LINE>
+        elif prev in ("li", "ol", "p") and kind in ("li", "ol"):
+            sep = " <LINE> "               # lista colada no paragrafo/item anterior
         else:
             sep = " <LINE> <LINE> "
         if kind == "h2":
-            out.append(f"{sep}<H2> {txt} <LINE> <TEXT> ")
-            prev = "head"
-            continue
-        elif kind == "h3":
-            out.append(f"{sep}<RGB:{H3}> {txt} <TEXT> ")
-            prev = "head"
-            continue
-        elif kind == "li":
+            out.append(f"{sep}<H2> {txt} <LINE> <TEXT> "); prev = "head"; continue
+        if kind == "h3":
+            out.append(f"{sep}<RGB:{H3}> {txt} <TEXT> "); prev = "head"; continue
+        if kind == "li":
             out.append(f"{sep} - {txt}")
         elif kind == "ol":
             out.append(f"{sep} {txt}")
@@ -140,10 +146,161 @@ def convert(md, source):
         else:
             out.append(f"{sep}{txt}")
         prev = kind
-    text = "".join(out)
-    text = re.sub(r"(<LINE> ){3,}", "<LINE> <LINE> ", text)
+    text = re.sub(r"(<LINE> ){3,}", "<LINE> <LINE> ", "".join(out))
     return clean(title), re.sub(r"[ \t]+", " ", text).strip()
 
+
+# ---------------------------------------------------------------------------
+# Arvore
+# ---------------------------------------------------------------------------
+
+def order_key(path):
+    m = ORDER_RE.match(path.name)
+    return (0, int(m.group(1)), path.name.lower()) if m else (1, 0, path.name.lower())
+
+
+def slug(name):
+    name = re.sub(r"\.md$", "", name, flags=re.I)
+    return ORDER_RE.sub("", name).strip().lower()
+
+
+def pretty(name):
+    s = ORDER_RE.sub("", name).replace("-", " ").replace("_", " ").strip()
+    return s[:1].upper() + s[1:]
+
+
+def build_tree(lang_dir, rel_root):
+    ids = {}
+
+    def rel_of(path):
+        return (rel_root / path.relative_to(lang_dir).as_posix()).as_posix()
+
+    def register(node_id, rel):
+        if not re.match(r"^[a-z0-9][a-z0-9-]*$", node_id):
+            raise ManualError(f"{rel}: use so letras minusculas sem acento, numeros e '-' no nome "
+                              f"(id '{node_id}')")
+        if node_id in ids:
+            raise ManualError(f"{rel}: o id '{node_id}' ja existe em {ids[node_id]}; "
+                              "renomeie um dos dois")
+        ids[node_id] = rel
+
+    def folder(path, node_id):
+        register(node_id, rel_of(path) + "/")
+        node = {"kind": "folder", "id": node_id, "title": pretty(path.name), "file": "", "text": ""}
+        readme = next((p for p in path.iterdir() if p.name.lower() == "readme.md"), None)
+        if readme:
+            node["file"] = rel_of(readme)
+            node["title"], node["text"] = convert(readme.read_text(encoding="utf-8"), node["file"])
+        children = []
+        for child in sorted(path.iterdir(), key=order_key):
+            if child.name.startswith(("_", ".")) or child.name.lower() == "readme.md":
+                continue
+            if child.is_dir():
+                children.append(folder(child, slug(child.name)))
+            elif child.suffix.lower() == ".md":
+                crel = rel_of(child)
+                cid = slug(child.name)
+                register(cid, crel)
+                title, text = convert(child.read_text(encoding="utf-8"), crel)
+                children.append({"kind": "page", "id": cid, "title": title, "file": crel, "text": text})
+        node["children"] = children
+        return node
+
+    return folder(lang_dir, ROOT_ID), ids
+
+
+# ---------------------------------------------------------------------------
+# Dicas da comunidade
+# ---------------------------------------------------------------------------
+
+TIP_HEAD = re.compile(r"^##\s+(.+?)\s*$")
+
+
+def parse_tips(md, source):
+    """Cada dica comeca com '## @autor | AAAA-MM-DD | #issue' e vai ate a proxima."""
+    md = re.sub(r"<!--.*?-->", "", md, flags=re.S)
+    tips, cur = [], None
+    for line in md.replace("\r\n", "\n").split("\n"):
+        m = TIP_HEAD.match(line)
+        if m:
+            if cur:
+                tips.append(cur)
+            fields = [f.strip() for f in m.group(1).split("|")]
+            cur = {"author": fields[0], "date": fields[1] if len(fields) > 1 else "",
+                   "ref": fields[2] if len(fields) > 2 else "", "lines": []}
+        elif line.startswith("# "):
+            continue
+        elif cur is not None:
+            cur["lines"].append(line.strip())
+        elif line.strip():
+            raise ManualError(f"{source}: texto antes da primeira dica; cada dica comeca com '## @autor | data'")
+    if cur:
+        tips.append(cur)
+    out = []
+    for t in tips:
+        body = " ".join(l for l in t.pop("lines") if l).strip()
+        if not body:
+            raise ManualError(f"{source}: dica de {t['author']} esta vazia")
+        if len(body) > MAX_TIP:
+            raise ManualError(f"{source}: dica de {t['author']} tem {len(body)} caracteres (maximo {MAX_TIP})")
+        t["author"], t["date"], t["ref"] = clean(t["author"]), clean(t["date"]), clean(t["ref"])
+        t["text"] = inline(body)
+        out.append(t)
+    return out
+
+
+def attach_tips(tree, ids, folder_name):
+    tip_dir = TIPS / folder_name
+    by_id = {}
+    if tip_dir.is_dir():
+        for f in sorted(tip_dir.glob("*.md")):
+            if f.name.lower() == "readme.md" or f.name.startswith(("_", ".")):
+                continue
+            rel = f.relative_to(ROOT).as_posix()
+            if f.stem not in ids:
+                raise ManualError(f"{rel}: nao existe pagina com o id '{f.stem}' em docs/{folder_name}. "
+                                  "Se a pagina mudou de nome, renomeie este arquivo tambem.")
+            by_id[f.stem] = parse_tips(f.read_text(encoding="utf-8"), rel)
+    total = 0
+
+    def walk(node):
+        nonlocal total
+        node["tips"] = by_id.get(node["id"], [])
+        total += len(node["tips"])
+        node["plain"] = plain_of(node["title"] + " " + node["text"] + " "
+                                 + " ".join(t["text"] for t in node["tips"]))
+        for c in node.get("children", []):
+            walk(c)
+    walk(tree)
+    return total
+
+
+def load_all():
+    """Arvore + ids de cada idioma (usado tambem por tools/add_tip.py)."""
+    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+    out = {}
+    for folder_name, code in cfg["languages"].items():
+        lang_dir = DOCS / folder_name
+        if not (lang_dir / "README.md").exists():
+            raise ManualError(f"docs/{folder_name}/README.md: falta a pagina inicial do idioma")
+        tree, ids = build_tree(lang_dir, pathlib.PurePosixPath("docs") / folder_name)
+        out[folder_name] = (code, tree, ids)
+    return cfg, out
+
+
+def build():
+    cfg, langs = load_all()
+    data, report = {}, []
+    for folder_name, (code, tree, ids) in langs.items():
+        tips = attach_tips(tree, ids, folder_name)
+        data[code] = {"folder": folder_name, "root": tree}
+        report.append(f"{code}: {len(ids)} paginas/secoes, {tips} dicas")
+    return cfg, data, report
+
+
+# ---------------------------------------------------------------------------
+# Saida Lua
+# ---------------------------------------------------------------------------
 
 def lua_long(s):
     level = 1
@@ -157,26 +314,26 @@ def lua_str(s):
     return json.dumps(s, ensure_ascii=False)
 
 
-def build():
-    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
-    langs = cfg["languages"]                    # {"pt-BR": "PTBR", "en": "EN"}
-    data = {}
-    for folder, code in langs.items():
-        files = sorted((DOCS / folder).glob("*.md"))
-        if not files:
-            raise ManualError(f"docs/{folder}: nenhum capitulo")
-        chapters = []
-        for f in files:
-            rel = f.relative_to(ROOT).as_posix()
-            title, text = convert(f.read_text(encoding="utf-8"), rel)
-            plain = re.sub(r"<[^>]*>", " ", text)
-            chapters.append({"id": f.stem, "title": title, "file": rel, "text": text,
-                             "plain": re.sub(r"\s+", " ", plain).strip()})
-        data[code] = chapters
-    counts = {k: len(v) for k, v in data.items()}
-    if len(set(counts.values())) > 1:
-        print(f"aviso: idiomas com numero diferente de capitulos: {counts}", file=sys.stderr)
-    return cfg, data
+def lua_node(node, ind):
+    p = "    " * ind
+    out = [p + "{",
+           f"{p}    kind = {lua_str(node['kind'])}, id = {lua_str(node['id'])},",
+           f"{p}    title = {lua_str(node['title'])}, file = {lua_str(node['file'])},",
+           f"{p}    text = {lua_long(node['text'])},",
+           f"{p}    plain = {lua_long(node['plain'])},"]
+    if node["tips"]:
+        out.append(f"{p}    tips = {{")
+        for t in node["tips"]:
+            out.append(f"{p}        {{ author = {lua_str(t['author'])}, date = {lua_str(t['date'])}, "
+                       f"ref = {lua_str(t['ref'])}, text = {lua_long(t['text'])} }},")
+        out.append(f"{p}    }},")
+    if node["kind"] == "folder":
+        out.append(f"{p}    children = {{")
+        for c in node["children"]:
+            out.extend(lua_node(c, ind + 2))
+        out.append(f"{p}    }},")
+    out.append(p + "},")
+    return out
 
 
 def render_lua(cfg, data):
@@ -189,16 +346,11 @@ def render_lua(cfg, data):
         f"    branch = {lua_str(cfg.get('branch', 'main'))},",
         "    langs = {",
     ]
-    for code, chapters in data.items():
+    for code, d in data.items():
         lines.append(f"        {code} = {{")
-        for c in chapters:
-            lines.append("            {")
-            lines.append(f"                id = {lua_str(c['id'])},")
-            lines.append(f"                title = {lua_str(c['title'])},")
-            lines.append(f"                file = {lua_str(c['file'])},")
-            lines.append(f"                plain = {lua_long(c['plain'])},")
-            lines.append(f"                text = {lua_long(c['text'])},")
-            lines.append("            },")
+        lines.append(f"            folder = {lua_str(d['folder'])},")
+        lines.append("            root =")
+        lines.extend(lua_node(d["root"], 3))
         lines.append("        },")
     lines += ["    },", "}", ""]
     return "\n".join(lines)
@@ -210,12 +362,11 @@ def main():
     ap.add_argument("--out", type=pathlib.Path, default=DEFAULT_OUT)
     args = ap.parse_args()
     try:
-        cfg, data = build()
+        cfg, data, report = build()
     except ManualError as e:
         print("erro:", e, file=sys.stderr)
         return 1
-    for code, chapters in data.items():
-        print(f"{code}: {len(chapters)} capitulos - " + ", ".join(c["id"] for c in chapters))
+    print("\n".join(report))
     if args.check:
         print("ok")
         return 0

@@ -1,4 +1,4 @@
-# Busca de itens no mapa
+# Busca de itens
 
 O personagem anota o que tem dentro dos contêineres que o jogo já mostrou para você. Depois você pergunta no mapa onde está um item.
 
@@ -17,7 +17,7 @@ O personagem anota o que tem dentro dos contêineres que o jogo já mostrou para
 
 ## O que entra na busca
 
-Só contêineres que você **já viu de perto**, ou seja, que apareceram no painel de saque. A informação pode estar velha: cada resultado diz há quanto tempo foi visto.
+Só contêineres que você **já viu de perto**, ou seja, que apareceram no painel de saque. Cada resultado diz há quanto tempo foi visto.
 
 ## Opções
 

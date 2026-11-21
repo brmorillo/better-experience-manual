@@ -1,4 +1,4 @@
-# Item search on the map
+# Item search
 
 Your character takes notes of what is inside the containers the game has shown you. Later you ask the map where an item is.
 
@@ -17,7 +17,7 @@ Your character takes notes of what is inside the containers the game has shown y
 
 ## What the search knows
 
-Only containers you have **seen up close**, that is, that showed up in the loot panel. The data may be old: each result says how long ago it was seen.
+Only containers you have **seen up close**, that is, that showed up in the loot panel. Each result says how long ago it was seen.
 
 ## Options
 
