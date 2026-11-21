@@ -21,6 +21,6 @@ body:
     attributes:
       label: "Dica / Tip"
       description: "Até 600 caracteres. Pode usar **negrito**. / Up to 600 characters. **Bold** works."
-      placeholder: "Ex.: fica recarregando a arma sem parar que a habilidade Recarregar sobe."
+      placeholder: "Ex.: leia o livro da habilidade antes de treinar, que a experiência é multiplicada."
     validations:
       required: true

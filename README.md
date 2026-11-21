@@ -18,7 +18,7 @@ What you see here is what players see in game. Each **folder** in `docs/<languag
 ## Guia oficial e dicas da comunidade / Official guide and community tips
 
 - **`docs/`: guia oficial.** Texto revisado, neutro, que explica o que cada coisa faz.
-- **`dicas/`: dicas da comunidade.** Truques pessoais dos jogadores, com o nome de quem mandou. Por exemplo: "fica recarregando a arma sem parar que a habilidade Recarregar sobe". Aparecem no jogo no fim da página, separadas e marcadas como não oficiais.
+- **`dicas/`: dicas da comunidade.** Truques pessoais dos jogadores, com o nome de quem mandou. Por exemplo: "leia o livro da habilidade antes de treinar, que a experiência é multiplicada". Aparecem no jogo no fim da página, separadas e marcadas como não oficiais.
 
 - **`docs/`: official guide.** Reviewed, neutral text that explains what each thing does.
 - **`dicas/`: community tips.** Players' personal tricks, signed by whoever sent them. They show in game at the end of the page, apart from the guide and marked as unofficial.

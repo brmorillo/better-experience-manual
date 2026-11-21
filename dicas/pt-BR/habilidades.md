@@ -1,3 +1,3 @@
 ## @BetterExperience | 2026-11-21
 
-**Recarregar:** fica recarregando a arma sem parar, mesmo sem atirar, que a habilidade sobe. Faça isso num lugar seguro, com munição sobrando.
+**Livros antes de treinar:** leia o livro da habilidade do seu nível (ex.: Carpintaria para Iniciantes) antes de começar. Enquanto ele estiver lido, a experiência que você ganha naquela habilidade é multiplicada.

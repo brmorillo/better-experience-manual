@@ -5,7 +5,7 @@ Obrigado por ajudar! / Thanks for helping!
 ## Português
 
 ### Quero deixar uma dica minha
-Dicas são truques pessoais ("fica recarregando a arma sem parar que a habilidade sobe"). Elas **não entram no guia oficial**: aparecem no jogo, no fim da página, em **Dicas da comunidade**, com o seu usuário do GitHub.
+Dicas são truques pessoais ("leia o livro da habilidade antes de treinar"). Elas **não entram no guia oficial**: aparecem no jogo, no fim da página, em **Dicas da comunidade**, com o seu usuário do GitHub.
 
 - **Jeito fácil**: no jogo, abra a página e clique em **Adicionar dica**. Ou abra uma Issue com o modelo **Dica da comunidade**. Um robô coloca a dica no arquivo certo e abre o Pull Request. Não precisa saber Git.
 - **Na mão**: veja [dicas/README.md](dicas/README.md).
