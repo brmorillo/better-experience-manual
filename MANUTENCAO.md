@@ -68,6 +68,7 @@ A lista oficial fica em [.github/labels.yml](.github/labels.yml). Para criar ou 
 | Q&A | Dúvidas. Marque a resposta que resolveu (**Mark as answer**). |
 | Ideas | Ideias para o manual ou o mod. |
 | Show and tell | Bases organizadas, prints, rotas do GPS. |
+| Polls | Votações, por exemplo qual seção escrever primeiro. |
 | General | O resto. |
 
 ### Lançar uma versão do mod
