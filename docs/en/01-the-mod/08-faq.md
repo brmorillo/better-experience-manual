@@ -22,7 +22,7 @@ Favorites need the **GPS** feature on and a **powered GPS** in your inventory. T
 
 ## Does it work in multiplayer?
 
-The mod is made for **single player**. Some parts may work on servers, but they are not tested.
+Yes. Install it on the server and on every player. A few features change a little: the safe pause becomes a warning, and your favorites are kept on your PC. See **Multiplayer**.
 
 ## Can I add the mod to an existing save?
 

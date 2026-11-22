@@ -23,6 +23,10 @@ Press **Pause** (or **Space**). The game resumes **at the same speed** it was ru
 - A zombie that was already near when the action started does not pause.
 - Standing still or walking, without doing anything on its own, the game does not pause.
 
+## In multiplayer
+
+Nobody can pause a server. Instead of pausing, you see "Watch out: 2 zombie(s) nearby while fishing!", a sound plays and the mod turns off automatic fishing and organizing if they are running.
+
 ## The distance
 
 Counted in tiles, on the same floor and on the floors right above and right below. The default is **15 tiles**, from 5 to 40.

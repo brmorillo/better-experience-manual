@@ -23,6 +23,10 @@ Aperte **Pausa** (ou **Espaço**). O jogo volta **na mesma velocidade** em que e
 - Um zumbi que já estava perto quando a ação começou não pausa.
 - Parado ou andando, sem fazer nada sozinho, o jogo não pausa.
 
+## No multiplayer
+
+Ninguém pode pausar um servidor. No lugar da pausa, aparece "Cuidado: 2 zumbi(s) perto enquanto pescava!", toca um som e o mod desliga a pesca automática e a organização, se estiverem rodando.
+
 ## A distância
 
 Conta em tiles, no mesmo andar e nos andares logo acima e logo abaixo. O padrão é **15 tiles**, de 5 a 40.

@@ -2,6 +2,12 @@
 
 What came in each mod version.
 
+## 0.5.0
+
+- **Multiplayer**: the mod works on servers. Drinking from bags uses the game's action, the GPS (battery and glove box) is handled by the server, and favorites, track and seen items are kept in a file on your PC.
+- **Server options** for the GPS: require a powered GPS, battery life and cars with a GPS in the glove box.
+- **Safe pause** in multiplayer: becomes a warning with a sound and turns off automatic fishing and organizing.
+
 ## 0.4.0
 
 - **Mod features**: each part (organizer, food, map search, GPS, compass, drinking from bags, manual) can be turned off in the options. When off, it does not show up, does not run and writes nothing to your save.

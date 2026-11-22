@@ -22,7 +22,7 @@ Favoritos precisam da função **GPS** ligada e de um **GPS com pilha** no inven
 
 ## Funciona em multiplayer?
 
-O mod é pensado para **um jogador**. Algumas partes podem funcionar em servidores, mas não são testadas.
+Sim. Instale no servidor e em todos os jogadores. Algumas funções mudam um pouco: a pausa com zumbi vira um aviso, e os seus favoritos ficam no seu PC. Veja **Multiplayer**.
 
 ## Posso adicionar o mod num save que já existe?
 

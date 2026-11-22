@@ -39,6 +39,8 @@ The assistant records what is inside containers the game has already shown you (
 
 Equipped compass: a bar at the top of the screen (Skyrim style) with the cardinal points and your favorites. Powered GPS: creates and manages favorites, shows distance, navigates (map line and arrow) and records your track; it also turns the bar on. The GPS is found in electronics and camping stores, military storage, survival gear and in the glove box of a few cars.
 
+In multiplayer, **Require a powered GPS**, **Battery life** and **Cars with a GPS in the glove box** come from the server options (see **Multiplayer**).
+
 - **Require a powered GPS** (default: on): Off: favorites, navigation and track work without the item.
 - **Battery life (in-game hours of use)** (default: 48, from 6 to 240): The battery only drains while navigating or recording.
 - **Cars with a GPS in the glove box (%)** (default: 1, from 0 to 5): Rolled once per car, the first time you open the glove box. Not affected by the save's loot rarity.

@@ -39,6 +39,8 @@ O assistente anota o que tem nos contêineres que o jogo já mostrou para você 
 
 Bússola equipada: barra no topo da tela (estilo Skyrim) com os pontos cardeais e os seus favoritos. GPS com pilha: cria e gerencia os favoritos, mostra a distância, navega (linha no mapa e seta) e grava o trajeto; também liga a barra. O GPS aparece em lojas de eletrônicos e camping, depósitos militares, kits de sobrevivência e no porta-luvas de poucos carros.
 
+No multiplayer, **Exigir GPS com pilha**, **Duração da pilha** e **Carros com GPS no porta-luvas** vêm das opções do servidor (veja **Multiplayer**).
+
 - **Exigir GPS com pilha** (padrão: ligado): Desligado: favoritos, navegação e trajeto funcionam sem o item.
 - **Duração da pilha (horas de uso no jogo)** (padrão: 48, de 6 a 240): A pilha só gasta enquanto navega ou grava trajeto.
 - **Carros com GPS no porta-luvas (%)** (padrão: 1, de 0 a 5): Sorteado uma vez por carro, na primeira vez que você abre o porta-luvas. Não muda com a raridade de loot do save.

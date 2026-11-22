@@ -2,6 +2,12 @@
 
 O que entrou em cada versão do mod.
 
+## 0.5.0
+
+- **Multiplayer**: o mod funciona em servidores. Beber da mochila usa a ação do jogo, o GPS (pilha e porta-luvas) é cuidado pelo servidor, e favoritos, trajeto e itens vistos ficam num arquivo no seu PC.
+- **Opções do servidor** para o GPS: exigir GPS com pilha, duração da pilha e carros com GPS no porta-luvas.
+- **Pausa com zumbi perto** no multiplayer: vira aviso com som e desliga a pesca automática e a organização.
+
 ## 0.4.0
 
 - **Funções do mod**: cada parte (organização, comida, busca no mapa, GPS, bússola, beber da mochila, manual) pode ser desligada nas opções. Desligada, não aparece, não roda e não grava nada no save.

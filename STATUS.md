@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 94 | 34 | 60 | 0 | 2 |
-| pt-BR | 94 | 34 | 60 | 0 | 2 |
+| en | 95 | 35 | 60 | 0 | 2 |
+| pt-BR | 95 | 35 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -41,6 +41,7 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;This manual / Este manual | ✅ [06-this-manual.md](docs/en/01-the-mod/06-this-manual.md) | ✅ [06-este-manual.md](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | &nbsp;&nbsp;&nbsp;Versions / Versões | ✅ [07-versions.md](docs/en/01-the-mod/07-versions.md) | ✅ [07-versoes.md](docs/pt-BR/01-o-mod/07-versoes.md) |
 | &nbsp;&nbsp;&nbsp;FAQ / Perguntas frequentes | ✅ [08-faq.md](docs/en/01-the-mod/08-faq.md) | ✅ [08-perguntas-frequentes.md](docs/pt-BR/01-o-mod/08-perguntas-frequentes.md) |
+| &nbsp;&nbsp;&nbsp;Multiplayer | ✅ [09-multiplayer.md](docs/en/01-the-mod/09-multiplayer.md) | ✅ [09-multiplayer.md](docs/pt-BR/01-o-mod/09-multiplayer.md) |
 
 ## Skills / Habilidades
 
