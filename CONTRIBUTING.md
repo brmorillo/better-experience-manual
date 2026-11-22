@@ -49,6 +49,16 @@ If it is a fact that holds for everyone, it goes in the guide. If it is "this is
 
 For big structure changes, open a Discussion first.
 
+### Pages for a newer game build
+
+The manual follows the game build. **Build 42 is the base**: `docs/` and `tips/` are the Build 42 manual. When a new build changes something, you do **not** copy the manual: write only the pages that changed, in `builds/<build>/`, at the same path.
+
+- Build 43 changed fishing? Create `builds/43/docs/en/02-skills/06-survival/02-fishing.md` (same path as in `docs/`). It replaces the old page in Build 43 and later.
+- Build 44 then uses everything from 42, plus the fishing page of 43, plus whatever `builds/44/` has.
+- A new file adds a page. A file whose whole text is `<!-- removed -->` hides the page in that build (on a `README.md`, the whole section).
+- Tips go with the page version: tips for the Build 43 fishing page go in `builds/43/tips/en/fishing.md`. The in-game button fills in the build for you (`43/en/fishing`).
+- In game, the mod shows the newest manual that is not newer than the game. More details: [builds/README.md](builds/README.md).
+
 ### Where each topic goes
 
 | Folder | What goes there |
@@ -64,7 +74,7 @@ For big structure changes, open a Discussion first.
 
 - First line: `# Title`. Use the **exact** in-game names, in **bold** (see [GLOSSARY.md](GLOSSARY.md)).
 - Short sentences. Explain what the player does, not how the code works.
-- Only write what you checked in **Build 42**. For numbers that change with sandbox settings, say so.
+- Only write what you checked in the game build of the folder (`docs/` is **Build 42**). For numbers that change with sandbox settings, say so.
 - Start from the [templates](templates/en/). Suggested sections live in a `<!-- -->` comment that never shows.
 - If you can, update the page in the other language. If you can't, say so in the Pull Request.
 
@@ -181,6 +191,16 @@ Na dúvida: se é fato que vale para todo mundo, vai no guia; se é "eu faço as
 
 Mudanças grandes de estrutura: abra antes uma Discussion.
 
+### Páginas de uma build nova do jogo
+
+O manual acompanha a build do jogo. **A Build 42 é a base**: `docs/` e `tips/` são o manual da Build 42. Quando uma build nova muda alguma coisa, você **não** copia o manual: escreva só as páginas que mudaram, em `builds/<build>/`, no mesmo caminho.
+
+- A Build 43 mudou a pesca? Crie `builds/43/docs/pt-BR/02-habilidades/06-sobrevivencia/02-pesca.md` (o mesmo caminho de `docs/`). Ela troca a página antiga na Build 43 e nas seguintes.
+- A Build 44 então usa tudo da 42, mais a pesca da 43, mais o que tiver em `builds/44/`.
+- Um arquivo novo cria uma página. Um arquivo cujo texto é só `<!-- removed -->` esconde a página naquela build (num `README.md`, a seção inteira).
+- As dicas vão com a versão da página: dicas da pesca da Build 43 ficam em `builds/43/tips/pt-BR/pesca.md`. O botão do jogo já preenche a build (`43/pt-BR/pesca`).
+- No jogo, o mod mostra o manual mais novo que não passa da build do jogo. Mais detalhes: [builds/README.md](builds/README.md).
+
 ### Onde colocar cada assunto
 
 | Pasta | O que vai lá |
@@ -196,7 +216,7 @@ Mudanças grandes de estrutura: abra antes uma Discussion.
 
 - Primeira linha: `# Título`. Use os nomes **exatos** do jogo, em **negrito** (veja o [GLOSSARY.md](GLOSSARY.md)).
 - Frases curtas. Explique o que o jogador faz, não como o código funciona.
-- Escreva só o que você conferiu no **Build 42**. Números que mudam com as configurações do mundo (sandbox), diga que dependem delas.
+- Escreva só o que você conferiu na build da pasta (`docs/` é a **Build 42**). Números que mudam com as configurações do mundo (sandbox), diga que dependem delas.
 - Comece pelos [modelos](templates/pt-BR/). As seções sugeridas ficam num comentário `<!-- -->` que não aparece em lugar nenhum.
 - Se puder, atualize a página no outro idioma. Se não souber, avise no Pull Request.
 

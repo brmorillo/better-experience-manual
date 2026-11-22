@@ -12,7 +12,7 @@ body:
     id: page
     attributes:
       label: "Page / Página"
-      description: "Language/page id. The in-game button fills it in. E.g. en/gps, pt-BR/habilidades, en/inicio"
+      description: "Language/page id. The in-game button fills it in. E.g. en/gps, pt-BR/habilidades, en/inicio. A page of a newer game build starts with the build: 43/en/fishing"
       placeholder: "en/skills"
     validations:
       required: true

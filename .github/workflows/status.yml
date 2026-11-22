@@ -5,7 +5,7 @@ name: Status board
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "tips/**", "tools/status.py", "tools/build_manual.py"]
+    paths: ["docs/**", "tips/**", "builds/**", "manual.config.json", "tools/status.py", "tools/build_manual.py"]
   workflow_dispatch:
 
 permissions:

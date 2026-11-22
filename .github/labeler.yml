@@ -2,16 +2,16 @@
 # Rótulos colocados sozinhos nos Pull Requests, pelos arquivos que mudaram.
 en:
   - changed-files:
-      - any-glob-to-any-file: ["docs/en/**", "tips/en/**", "templates/en/**"]
+      - any-glob-to-any-file: ["docs/en/**", "tips/en/**", "templates/en/**", "builds/*/docs/en/**", "builds/*/tips/en/**"]
 pt-BR:
   - changed-files:
-      - any-glob-to-any-file: ["docs/pt-BR/**", "tips/pt-BR/**", "templates/pt-BR/**"]
+      - any-glob-to-any-file: ["docs/pt-BR/**", "tips/pt-BR/**", "templates/pt-BR/**", "builds/*/docs/pt-BR/**", "builds/*/tips/pt-BR/**"]
 manual:
   - changed-files:
-      - any-glob-to-any-file: ["docs/**"]
+      - any-glob-to-any-file: ["docs/**", "builds/*/docs/**", "builds/README.md"]
 tip:
   - changed-files:
-      - any-glob-to-any-file: ["tips/**"]
+      - any-glob-to-any-file: ["tips/**", "builds/*/tips/**"]
 diagram:
   - changed-files:
       - any-glob-to-any-file: ["tools/mermaid_png.py"]
@@ -20,19 +20,19 @@ tooling:
       - any-glob-to-any-file: ["tools/**", ".github/**", "manual.config.json"]
 "section: the mod":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/01-*/**"]
+      - any-glob-to-any-file: ["docs/*/01-*/**", "builds/*/docs/*/01-*/**"]
 "section: skills":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/02-*/**"]
+      - any-glob-to-any-file: ["docs/*/02-*/**", "builds/*/docs/*/02-*/**"]
 "section: items":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/03-*/**"]
+      - any-glob-to-any-file: ["docs/*/03-*/**", "builds/*/docs/*/03-*/**"]
 "section: actions":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/04-*/**"]
+      - any-glob-to-any-file: ["docs/*/04-*/**", "builds/*/docs/*/04-*/**"]
 "section: character":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/05-*/**"]
+      - any-glob-to-any-file: ["docs/*/05-*/**", "builds/*/docs/*/05-*/**"]
 "section: world":
   - changed-files:
-      - any-glob-to-any-file: ["docs/*/06-*/**"]
+      - any-glob-to-any-file: ["docs/*/06-*/**", "builds/*/docs/*/06-*/**"]

@@ -10,6 +10,9 @@ A page counts as "to complete" while it still has a "## Still missing" (en)
 or "## Ainda falta" (pt-BR) section. Once someone finishes the page and
 deletes that section, it counts as done.
 
+The board shows the base build (docs/). Pages written only for a newer game
+build (builds/<N>/docs/) are listed at the end.
+
 GitHub runs this script by itself on every change to main
 (.github/workflows/status.yml), so nobody needs to edit STATUS.md.
 """
@@ -110,7 +113,32 @@ def render():
             indent = "&nbsp;&nbsp;&nbsp;" * max(0, any_info["depth"] - 1)
             label = f"{indent}**{names}**" if any_info["folder"] else f"{indent}{names}"
             lines.append(f"| {label} | " + " | ".join(cell(rows[k].get(L)) for L in order) + " |")
+    lines += builds_section()
     return "\n".join(lines) + "\n"
+
+
+def builds_section():
+    """Pages that a newer game build changes, adds or removes (builds/<N>/docs/)."""
+    base, extra = bm.builds_of(bm.read_config())
+    if not extra:
+        return []
+    lines = ["", "## Newer game builds / Builds novas do jogo", "",
+             f"Build {base} is the base (docs/). Each newer build only has what it changes. / "
+             f"A build {base} é a base (docs/). Cada build nova só tem o que muda.", ""]
+    for b in extra:
+        docs = bm.layer_dir("docs", b, base)
+        files = sorted(f for f in docs.rglob("*.md")
+                       if not any(x.startswith(("_", ".")) for x in f.relative_to(docs).parts)) if docs.is_dir() else []
+        lines += [f"### Build {b}", ""]
+        for f in files:
+            rel = f.relative_to(bm.ROOT).as_posix()
+            text = f.read_text(encoding="utf-8")
+            mark = "🗑️ removed / removida" if bm.REMOVED_RE.match(text) else (TODO if STUB.search(text) else DONE)
+            lines.append(f"- {mark} [{rel}]({rel})")
+        if not files:
+            lines.append("- (tips only / só dicas)")
+        lines.append("")
+    return lines
 
 
 def main():

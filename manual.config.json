@@ -1,6 +1,7 @@
 {
     "repo": "https://github.com/brmorillo/better-experience-manual",
     "branch": "main",
+    "baseBuild": 42,
     "languages": {
         "en": "EN",
         "pt-BR": "PTBR"

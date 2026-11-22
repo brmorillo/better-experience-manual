@@ -25,3 +25,9 @@ Your tip here. **Bold** works.
 Since the id does not depend on the folder, the community can move guide pages around without losing their tips.
 
 > 🇧🇷 Um arquivo por página, com o nome do id da página: `tips/<idioma>/<id>.md`. O id é o nome do arquivo da página sem o número e sem `.md`. Exemplo: `docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md` → `tips/pt-BR/gps.md`. A página inicial tem o id `inicio`. Cada dica começa com uma linha `## @autor | AAAA-MM-DD` e tem no máximo 600 caracteres. Como o id não depende da pasta, dá para mover as páginas sem perder as dicas.
+
+## Pages of a newer game build / Páginas de uma build nova
+
+If the page was rewritten for a newer game build (it lives in `builds/<build>/docs/`), its tips live in `builds/<build>/tips/<language>/<id>.md`. Example: `builds/43/docs/en/02-skills/06-survival/02-fishing.md` → `builds/43/tips/en/fishing.md`. Tips of the Build 42 page stay with the Build 42 page. See [builds/README.md](../builds/README.md).
+
+> 🇧🇷 Se a página foi reescrita para uma build nova (fica em `builds/<build>/docs/`), as dicas dela ficam em `builds/<build>/tips/<idioma>/<id>.md`. Exemplo: `builds/43/docs/pt-BR/02-habilidades/06-sobrevivencia/02-pesca.md` → `builds/43/tips/pt-BR/pesca.md`. As dicas da página da Build 42 continuam com ela.

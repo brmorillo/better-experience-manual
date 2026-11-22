@@ -9,6 +9,17 @@ Converts the manual into the Lua file (and images) that the mod loads in game.
                              game they become PNGs (tools/mermaid_png.py)
                              shipped with the mod.
 
+Game builds (see builds/README.md):
+    docs/ and tips/ are the manual of the BASE build ("baseBuild" in
+    manual.config.json, today 42). builds/<N>/docs/ and builds/<N>/tips/ hold
+    ONLY what changed in build N, at the same paths. The manual of build N is
+    the base plus every builds/<M> with M <= N, in order: a file replaces the
+    one at the same path, a new file adds a page, and a file whose whole text
+    is "<!-- removed -->" hides the page (on a README.md, the whole section).
+    Tips belong to the page version they were written for: the tips of a page
+    that came from builds/43 live in builds/43/tips/.
+    In game the mod uses the newest build that is not newer than the game.
+
 Usage:
     python tools/build_manual.py --check        # validate only (GitHub Actions)
     python tools/build_manual.py                # write everything into the mod folder
@@ -44,7 +55,9 @@ import mermaid_png  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 TIPS = ROOT / "tips"
+BUILDS = ROOT / "builds"
 CONFIG = ROOT / "manual.config.json"
+REMOVED_RE = re.compile(r"^\s*<!--\s*removed\s*-->\s*$", re.I)
 MOD_MEDIA = ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant" / "42" / "media"
 DEFAULT_OUT = MOD_MEDIA / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua"
 DEFAULT_IMAGES = MOD_MEDIA / "textures" / "PA_Manual"
@@ -243,55 +256,121 @@ def pretty(name):
     return s[:1].upper() + s[1:]
 
 
-def build_tree(lang_dir, rel_root, diagrams=None):
-    ids = {}
+def read_config():
+    return json.loads(CONFIG.read_text(encoding="utf-8"))
 
-    def key_of(path):
+
+def builds_of(cfg):
+    """(base build, [newer builds that have a builds/<N> folder], sorted)."""
+    base = int(cfg.get("baseBuild", 42))
+    extra = []
+    if BUILDS.is_dir():
+        for d in BUILDS.iterdir():
+            if d.name.startswith(("_", ".")) or not d.is_dir():
+                continue
+            if not d.name.isdigit():
+                raise ManualError(f"builds/{d.name}: build folders are only the build number, e.g. builds/43")
+            if int(d.name) <= base:
+                raise ManualError(f"builds/{d.name}: must be newer than the base build {base} "
+                                  "(the base build lives in docs/ and tips/)")
+            extra.append(int(d.name))
+    return base, sorted(extra)
+
+
+def layer_dir(kind, build, base):
+    """Folder with the docs/ or tips/ of one build layer."""
+    return ROOT / kind if build == base else BUILDS / str(build) / kind
+
+
+def layered_files(folder_name, build, base, extra):
+    """{path inside the language folder: (real file, build it came from)} for the
+    manual of `build`: the base, then each newer layer up to `build`, in order."""
+    files = {}
+    for b in [base] + [x for x in extra if x <= build]:
+        lang_dir = layer_dir("docs", b, base) / folder_name
+        if not lang_dir.is_dir():
+            continue
+        for p in sorted(lang_dir.rglob("*.md")):
+            rel = p.relative_to(lang_dir)
+            if any(part.startswith(("_", ".")) for part in rel.parts):
+                continue
+            key = rel.as_posix()
+            shown = p.relative_to(ROOT).as_posix()
+            if REMOVED_RE.match(p.read_text(encoding="utf-8")):
+                if b == base:
+                    raise ManualError(f"{shown}: '<!-- removed -->' only works inside builds/<N>/docs/")
+                if key not in files:
+                    raise ManualError(f"{shown}: marks a page as removed, but no older build has "
+                                      f"{folder_name}/{key}")
+                if rel.name.lower() == "readme.md":
+                    if len(rel.parts) == 1:
+                        raise ManualError(f"{shown}: the start page cannot be removed")
+                    prefix = rel.parent.as_posix() + "/"
+                    files = {k: v for k, v in files.items() if not k.startswith(prefix)}
+                files.pop(key, None)
+                continue
+            files[key] = (p, b)
+    return files
+
+
+def build_tree(files, folder_name, base, diagrams=None):
+    """Tree of one language for one build, from layered_files()."""
+    ids = {}   # id -> (file shown in messages, build the page came from)
+    root = {"dirs": {}, "files": {}}
+    for key, src in files.items():
+        parts = key.split("/")
+        d = root
+        for part in parts[:-1]:
+            d = d["dirs"].setdefault(part, {"dirs": {}, "files": {}})
+        d["files"][parts[-1]] = src
+
+    def key_of(parts):
         """Position by numbering ('3/2'), used to compare languages."""
-        parts = []
-        for part in path.relative_to(lang_dir).parts:
+        out = []
+        for part in parts:
             m = ORDER_RE.match(part)
-            parts.append((m.group(1).lstrip("0") or "0") if m else "?" + slug(part))
-        return "/".join(parts)
+            out.append((m.group(1).lstrip("0") or "0") if m else "?" + slug(part))
+        return "/".join(out)
 
-    def rel_of(path):
-        return (rel_root / path.relative_to(lang_dir).as_posix()).as_posix()
-
-    def register(node_id, rel):
+    def register(node_id, rel, build):
         if not re.match(r"^[a-z0-9][a-z0-9-]*$", node_id):
             raise ManualError(f"{rel}: use only lowercase unaccented letters, digits and '-' in the name "
                               f"(id '{node_id}')")
         if node_id in ids:
-            raise ManualError(f"{rel}: the id '{node_id}' already exists in {ids[node_id]}; "
+            raise ManualError(f"{rel}: the id '{node_id}' already exists in {ids[node_id][0]}; "
                               "rename one of them")
-        ids[node_id] = rel
+        ids[node_id] = (rel, build)
 
-    def folder(path, node_id):
-        register(node_id, rel_of(path) + "/")
-        node = {"kind": "folder", "id": node_id, "title": pretty(path.name), "file": "", "text": "",
-                "extra": "", "key": key_of(path) if path != lang_dir else ""}
-        readme = next((p for p in path.iterdir() if p.name.lower() == "readme.md"), None)
+    def folder(d, parts, node_id):
+        readme = next((n for n in d["files"] if n.lower() == "readme.md"), None)
+        build = d["files"][readme][1] if readme else base
+        shown = "/".join([folder_name] + parts) + "/"
+        register(node_id, shown, build)
+        node = {"kind": "folder", "id": node_id, "title": pretty(parts[-1]) if parts else ROOT_ID,
+                "file": "", "text": "", "extra": "", "key": key_of(parts), "build": build}
         if readme:
-            node["file"] = rel_of(readme)
-            node["title"], node["text"], node["extra"] = convert(readme.read_text(encoding="utf-8"),
+            path = d["files"][readme][0]
+            node["file"] = path.relative_to(ROOT).as_posix()
+            node["title"], node["text"], node["extra"] = convert(path.read_text(encoding="utf-8"),
                                                                  node["file"], diagrams)
+        entries = [(name, "dir") for name in d["dirs"]] + \
+                  [(name, "file") for name in d["files"] if name.lower() != "readme.md"]
         children = []
-        for child in sorted(path.iterdir(), key=order_key):
-            if child.name.startswith(("_", ".")) or child.name.lower() == "readme.md":
+        for name, kind in sorted(entries, key=lambda e: order_key(pathlib.PurePosixPath(e[0]))):
+            if kind == "dir":
+                children.append(folder(d["dirs"][name], parts + [name], slug(name)))
                 continue
-            if child.is_dir():
-                children.append(folder(child, slug(child.name)))
-            elif child.suffix.lower() == ".md":
-                crel = rel_of(child)
-                cid = slug(child.name)
-                register(cid, crel)
-                title, text, extra = convert(child.read_text(encoding="utf-8"), crel, diagrams)
-                children.append({"kind": "page", "id": cid, "title": title, "file": crel, "text": text,
-                                 "extra": extra, "key": key_of(child)})
+            path, b = d["files"][name]
+            crel = path.relative_to(ROOT).as_posix()
+            cid = slug(name)
+            register(cid, crel, b)
+            title, text, extra = convert(path.read_text(encoding="utf-8"), crel, diagrams)
+            children.append({"kind": "page", "id": cid, "title": title, "file": crel, "text": text,
+                             "extra": extra, "key": key_of(parts + [name]), "build": b})
         node["children"] = children
         return node
 
-    return folder(lang_dir, ROOT_ID), ids
+    return folder(root, [], ROOT_ID), ids
 
 
 # ---------------------------------------------------------------------------
@@ -334,23 +413,39 @@ def parse_tips(md, source):
     return out
 
 
-def attach_tips(tree, ids, folder_name):
-    tip_dir = TIPS / folder_name
-    by_id = {}
-    if tip_dir.is_dir():
-        for f in sorted(tip_dir.glob("*.md")):
-            if f.name.lower() == "readme.md" or f.name.startswith(("_", ".")):
-                continue
-            rel = f.relative_to(ROOT).as_posix()
-            if f.stem not in ids:
-                raise ManualError(f"{rel}: there is no page with the id '{f.stem}' in docs/{folder_name}. "
-                                  "If the page was renamed, rename this file too.")
-            by_id[f.stem] = parse_tips(f.read_text(encoding="utf-8"), rel)
+def tip_file(folder_name, node_id, build, base):
+    return layer_dir("tips", build, base) / folder_name / f"{node_id}.md"
+
+
+def check_tip_files(folder_name, build, ids, base):
+    """Every tip file of this build layer must belong to a page that comes from this same layer."""
+    tip_dir = layer_dir("tips", build, base) / folder_name
+    if not tip_dir.is_dir():
+        return
+    docs = layer_dir("docs", build, base).relative_to(ROOT).as_posix()
+    for f in sorted(tip_dir.glob("*.md")):
+        if f.name.lower() == "readme.md" or f.name.startswith(("_", ".")):
+            continue
+        rel = f.relative_to(ROOT).as_posix()
+        if f.stem not in ids:
+            raise ManualError(f"{rel}: there is no page with the id '{f.stem}' in {docs}/{folder_name}. "
+                              "If the page was renamed, rename this file too.")
+        if ids[f.stem][1] != build:
+            raise ManualError(f"{rel}: the page '{f.stem}' of build {build} comes from {ids[f.stem][0]}; "
+                              "its tips go next to that file's build")
+
+
+def attach_tips(tree, folder_name, base):
     total = 0
+    cache = {}
 
     def walk(node):
         nonlocal total
-        node["tips"] = by_id.get(node["id"], [])
+        f = tip_file(folder_name, node["id"], node["build"], base)
+        if f not in cache:
+            cache[f] = parse_tips(f.read_text(encoding="utf-8"), f.relative_to(ROOT).as_posix()) \
+                if f.exists() else []
+        node["tips"] = cache[f]
         total += len(node["tips"])
         node["plain"] = plain_of(node["title"] + " " + node["text"] + " " + node.get("extra", "") + " "
                                  + " ".join(t["text"] for t in node["tips"]))
@@ -360,16 +455,20 @@ def attach_tips(tree, ids, folder_name):
     return total
 
 
-def load_all(diagrams=None):
-    """Tree + ids for each language (also used by tools/add_tip.py)."""
-    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+def load_all(diagrams=None, build=None):
+    """Tree + ids for each language, for one build (default: the base build).
+    Also used by tools/add_tip.py and tools/status.py."""
+    cfg = read_config()
+    base, extra = builds_of(cfg)
+    build = base if build is None else build
     diagrams = diagrams if diagrams is not None else Diagrams()
     out = {}
     for folder_name, code in cfg["languages"].items():
-        lang_dir = DOCS / folder_name
-        if not (lang_dir / "README.md").exists():
+        if not (DOCS / folder_name / "README.md").exists():
             raise ManualError(f"docs/{folder_name}/README.md: the language home page is missing")
-        tree, ids = build_tree(lang_dir, pathlib.PurePosixPath("docs") / folder_name, diagrams)
+        files = layered_files(folder_name, build, base, extra)
+        tree, ids = build_tree(files, folder_name, base, diagrams)
+        check_tip_files(folder_name, build, ids, base)
         out[folder_name] = (code, tree, ids)
     return cfg, out
 
@@ -399,76 +498,105 @@ def compare_languages(langs):
 
 def build():
     diagrams = Diagrams()
-    cfg, langs = load_all(diagrams)
-    data, report = {}, []
-    for folder_name, (code, tree, ids) in langs.items():
-        tips = attach_tips(tree, ids, folder_name)
-        data[code] = {"folder": folder_name, "root": tree}
-        report.append(f"{code}: {len(ids)} pages/sections, {tips} tips")
+    base, extra = builds_of(read_config())
+    data, report, warnings = {}, [], []
+    cfg = None
+    for b in [base] + extra:
+        cfg, langs = load_all(diagrams, b)
+        for folder_name, (code, tree, ids) in langs.items():
+            tips = attach_tips(tree, folder_name, base)
+            data.setdefault(code, {"folder": folder_name, "roots": {}})["roots"][b] = tree
+            own = sum(1 for _, nb in ids.values() if nb == b)
+            note = "" if b == base else f" ({own} from builds/{b})"
+            report.append(f"build {b} {code}: {len(ids)} pages/sections{note}, {tips} tips")
+        for w in compare_languages(langs):
+            if w not in warnings:
+                warnings.append(w)
     templates = 0
     for f in sorted((ROOT / "templates").glob("*/*.md")):
         convert(f.read_text(encoding="utf-8"), f.relative_to(ROOT).as_posix(), Diagrams())
         templates += 1
     report.append(f"diagrams: {len(diagrams.images)}, templates ok: {templates}")
-    report.extend(compare_languages(langs))
-    return cfg, data, report, diagrams
+    report.extend(warnings)
+    return cfg, {"base": base, "builds": [base] + extra, "langs": data}, report, diagrams
 
 
 # ---------------------------------------------------------------------------
 # Lua output
 # ---------------------------------------------------------------------------
 
-def lua_long(s):
-    level = 1
-    while ("]" + "=" * level + "]") in s:
-        level += 1
-    eq = "=" * level
-    return f"[{eq}[{s}]{eq}]"
-
-
 def lua_str(s):
-    return json.dumps(s, ensure_ascii=False)
+    r"""Lua string in double quotes, pure ASCII. Every byte outside printable
+    ASCII goes as a decimal escape (\195\167 = "ç"): the Build 42 Lua turns
+    letters with accents written straight in the source into "?", but reads
+    the escaped UTF-8 bytes correctly."""
+    out = []
+    for b in s.encode("utf-8"):
+        c = chr(b)
+        if c == "\\":
+            out.append("\\\\")
+        elif c == '"':
+            out.append('\\"')
+        elif c == "\n":
+            out.append("\\n")
+        elif 32 <= b < 127:
+            out.append(c)
+        else:
+            out.append(f"\\{b:03d}")
+    return '"' + "".join(out) + '"'
 
 
-def lua_node(node, ind):
-    p = "    " * ind
-    out = [p + "{",
-           f"{p}    kind = {lua_str(node['kind'])}, id = {lua_str(node['id'])},",
-           f"{p}    title = {lua_str(node['title'])}, file = {lua_str(node['file'])},",
-           f"{p}    text = {lua_long(node['text'])},",
-           f"{p}    plain = {lua_long(node['plain'])},"]
-    if node["tips"]:
-        out.append(f"{p}    tips = {{")
-        for t in node["tips"]:
-            out.append(f"{p}        {{ author = {lua_str(t['author'])}, date = {lua_str(t['date'])}, "
-                       f"ref = {lua_str(t['ref'])}, text = {lua_long(t['text'])} }},")
-        out.append(f"{p}    }},")
-    if node["kind"] == "folder":
-        out.append(f"{p}    children = {{")
-        for c in node["children"]:
-            out.extend(lua_node(c, ind + 2))
-        out.append(f"{p}    }},")
-    out.append(p + "},")
-    return out
+class LuaNodes:
+    """Writes each node once as N[i]; a node that is the same in several builds
+    (same file, text, tips and children) is shared, so the base build is not
+    repeated for every newer build."""
+
+    def __init__(self):
+        self.lines, self.index = [], {}
+
+    def add(self, node):
+        body = [f"kind = {lua_str(node['kind'])}, id = {lua_str(node['id'])}, build = {node['build']},",
+                f"    title = {lua_str(node['title'])}, file = {lua_str(node['file'])},",
+                f"    text = {lua_str(node['text'])},",
+                f"    plain = {lua_str(node['plain'])},"]
+        if node["tips"]:
+            body.append("    tips = {")
+            for t in node["tips"]:
+                body.append(f"        {{ author = {lua_str(t['author'])}, date = {lua_str(t['date'])}, "
+                            f"ref = {lua_str(t['ref'])}, text = {lua_str(t['text'])} }},")
+            body.append("    },")
+        if node["kind"] == "folder":
+            refs = [self.add(c) for c in node["children"]]
+            body.append("    children = { " + ", ".join(refs) + " },")
+        sig = "\n".join(body)
+        if sig not in self.index:
+            ref = f"N[{len(self.index) + 1}]"
+            self.index[sig] = ref
+            self.lines.append(f"{ref} = {{ " + sig + " }")
+        return self.index[sig]
 
 
 def render_lua(cfg, data):
+    nodes = LuaNodes()
+    langs = []
+    for code, d in data["langs"].items():
+        roots = ", ".join(f"[{b}] = {nodes.add(tree)}" for b, tree in d["roots"].items())
+        langs.append(f"        {code} = {{ folder = {lua_str(d['folder'])}, roots = {{ {roots} }} }},")
     lines = [
         "-- GENERATED AUTOMATICALLY by tools/build_manual.py from the manual",
         "-- repository. Do not edit here: edit the .md files and run the script again.",
+        "-- roots[<build>] = manual of that game build (the mod picks the newest",
+        "-- build that is not newer than the game).",
         "PersonalAssistant = PersonalAssistant or {}",
+        "local N = {}",
+    ] + nodes.lines + [
         "PersonalAssistant.ManualData = {",
         f"    repo = {lua_str(cfg.get('repo', ''))},",
         f"    branch = {lua_str(cfg.get('branch', 'main'))},",
+        f"    base = {data['base']},",
+        "    builds = { " + ", ".join(str(b) for b in data["builds"]) + " },",
         "    langs = {",
-    ]
-    for code, d in data.items():
-        lines.append(f"        {code} = {{")
-        lines.append(f"            folder = {lua_str(d['folder'])},")
-        lines.append("            root =")
-        lines.extend(lua_node(d["root"], 3))
-        lines.append("        },")
-    lines += ["    },", "}", ""]
+    ] + langs + ["    },", "}", ""]
     return "\n".join(lines)
 
 

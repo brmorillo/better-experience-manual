@@ -27,3 +27,7 @@ flowchart LR
     D --> E[Próxima versão do mod]
     E --> F([Manual no jogo])
 ```
+
+## Uma versão por build do jogo
+
+O manual acompanha a build do jogo. A **Build 42** é a base. Quando uma build nova muda alguma coisa, a comunidade reescreve só as páginas que mudaram, e o resto continua igual. O mod mostra sozinho o manual da sua build: se a sua build ainda não tem página própria, você vê a da build anterior.

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Adds a community tip to tips/<language>/<id>.md.
+Adds a community tip to tips/<language>/<id>.md (or, for a page written for a
+newer game build, builds/<N>/tips/<language>/<id>.md).
 
 Used by the GitHub bot (.github/workflows/tip.yml) with the issue event:
     python tools/add_tip.py --event event.json
 
 Or by hand:
     python tools/add_tip.py --page en/gps --author your-username --text "Your tip"
+    python tools/add_tip.py --page 43/en/fishing ...   # page of game build 43
 """
 import argparse
 import datetime
@@ -43,10 +45,21 @@ def field(fields, *prefixes):
 
 
 def resolve_page(page):
-    _, langs = bm.load_all()
+    """'en/gps' (base build), '43/en/fishing' or a repository path
+    ('docs/en/...', 'builds/43/docs/en/...'). Returns (language, id, build of
+    the page file), so the tip goes next to the version of the page it is for."""
     page = page.strip().strip("/").replace("\\", "/")
+    build = None
+    m = re.match(r"^(?:builds/)?(\d+)/(.*)$", page)
+    if m:
+        build, page = int(m.group(1)), m.group(2)
     if page.startswith("docs/"):
         page = page[5:]
+    cfg, langs = bm.load_all(build=build)
+    base, extra = bm.builds_of(cfg)
+    build = base if build is None else build
+    if build != base and build not in extra:
+        raise bm.ManualError(f"build {build} has no pages of its own (builds: {', '.join(map(str, [base] + extra))})")
     lang, _, rest = page.partition("/")
     if lang not in langs:
         raise bm.ManualError(f"language '{lang}' does not exist (use {', '.join(langs)})")
@@ -54,13 +67,14 @@ def resolve_page(page):
     if parts and parts[-1].lower() == "readme.md":
         parts.pop()
     pid = bm.slug(parts[-1]) if parts else bm.ROOT_ID
-    if pid not in langs[lang][2]:
-        raise bm.ManualError(f"page '{pid}' does not exist in docs/{lang}")
-    return lang, pid
+    ids = langs[lang][2]
+    if pid not in ids:
+        raise bm.ManualError(f"page '{pid}' does not exist in the build {build} manual ({lang})")
+    return lang, pid, ids[pid][1], base
 
 
 def add(page, author, text, date=None, ref=""):
-    lang, pid = resolve_page(page)
+    lang, pid, build, base = resolve_page(page)
     author = re.sub(r"[^A-Za-z0-9_.-]", "", author.lstrip("@")) or "anonymous"
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     text = re.sub(r"^\s*#+\s*", "", text, flags=re.M).strip()   # no headings
@@ -70,7 +84,7 @@ def add(page, author, text, date=None, ref=""):
         raise bm.ManualError(f"the tip has {len(text)} characters (max {bm.MAX_TIP})")
     date = date or datetime.date.today().isoformat()
     head = f"## @{author} | {date}" + (f" | {ref}" if ref else "")
-    path = bm.TIPS / lang / f"{pid}.md"
+    path = bm.layer_dir("tips", build, base) / lang / f"{pid}.md"
     path.parent.mkdir(parents=True, exist_ok=True)
     old = path.read_text(encoding="utf-8").rstrip() + "\n\n" if path.exists() else ""
     if ref:

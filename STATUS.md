@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 90 | 29 | 61 | 0 | 2 |
-| pt-BR | 90 | 29 | 61 | 0 | 2 |
+| en | 90 | 30 | 60 | 0 | 2 |
+| pt-BR | 90 | 30 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -40,7 +40,7 @@ All done! / Tudo pronto!
 
 ## Skills / Habilidades
 
-To do / Para fazer: **70**
+To do / Para fazer: **68**
 
 | Page / Página | en | pt-BR |
 |---|---|---|
@@ -82,7 +82,7 @@ To do / Para fazer: **70**
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Butchering / Abate | 📝 [03-butchering.md](docs/en/02-skills/05-farming-and-animals/03-butchering.md) | 📝 [03-abate.md](docs/pt-BR/02-habilidades/05-agricultura-e-animais/03-abate.md) |
 | &nbsp;&nbsp;&nbsp;**Survival / Sobrevivência** | ✅ [README.md](docs/en/02-skills/06-survival/README.md) | ✅ [README.md](docs/pt-BR/02-habilidades/06-sobrevivencia/README.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Aid / Primeiros Socorros | 📝 [01-first-aid.md](docs/en/02-skills/06-survival/01-first-aid.md) | 📝 [01-primeiros-socorros.md](docs/pt-BR/02-habilidades/06-sobrevivencia/01-primeiros-socorros.md) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fishing / Pesca | 📝 [02-fishing.md](docs/en/02-skills/06-survival/02-fishing.md) | 📝 [02-pesca.md](docs/pt-BR/02-habilidades/06-sobrevivencia/02-pesca.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fishing / Pesca | ✅ [02-fishing.md](docs/en/02-skills/06-survival/02-fishing.md) | ✅ [02-pesca.md](docs/pt-BR/02-habilidades/06-sobrevivencia/02-pesca.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foraging / Coleta | 📝 [03-foraging.md](docs/en/02-skills/06-survival/03-foraging.md) | 📝 [03-coleta.md](docs/pt-BR/02-habilidades/06-sobrevivencia/03-coleta.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tracking / Rastreamento | 📝 [04-tracking.md](docs/en/02-skills/06-survival/04-tracking.md) | 📝 [04-rastreamento.md](docs/pt-BR/02-habilidades/06-sobrevivencia/04-rastreamento.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trapping / Armadilhas | 📝 [05-trapping.md](docs/en/02-skills/06-survival/05-trapping.md) | 📝 [05-armadilhas.md](docs/pt-BR/02-habilidades/06-sobrevivencia/05-armadilhas.md) |
