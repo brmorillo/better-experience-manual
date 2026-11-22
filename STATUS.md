@@ -32,7 +32,6 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item search / Busca de itens | ✅ [01-item-search.md](docs/en/01-the-mod/03-map-and-gps/01-item-search.md) | ✅ [01-busca-de-itens.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/01-busca-de-itens.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPS | ✅ [02-gps.md](docs/en/01-the-mod/03-map-and-gps/02-gps.md) | ✅ [02-gps.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compass / Bússola | ✅ [03-compass.md](docs/en/01-the-mod/03-map-and-gps/03-compass.md) | ✅ [03-bussola.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/03-bussola.md) |
-| &nbsp;&nbsp;&nbsp;Drink from bags / Beber da mochila | ✅ [04-drink-from-bags.md](docs/en/01-the-mod/04-drink-from-bags.md) | ✅ [04-beber-da-mochila.md](docs/pt-BR/01-o-mod/04-beber-da-mochila.md) |
 | &nbsp;&nbsp;&nbsp;Highlight combat area / Destacar área de combate | ✅ [04-highlight-combat-area.md](docs/en/01-the-mod/04-highlight-combat-area.md) | ✅ [04-destacar-area-de-combate.md](docs/pt-BR/01-o-mod/04-destacar-area-de-combate.md) |
 | &nbsp;&nbsp;&nbsp;Options / Opções | ✅ [05-options.md](docs/en/01-the-mod/05-options.md) | ✅ [05-opcoes.md](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | &nbsp;&nbsp;&nbsp;This manual / Este manual | ✅ [06-this-manual.md](docs/en/01-the-mod/06-this-manual.md) | ✅ [06-este-manual.md](docs/pt-BR/01-o-mod/06-este-manual.md) |
