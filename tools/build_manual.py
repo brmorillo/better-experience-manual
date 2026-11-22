@@ -234,7 +234,19 @@ def convert(md, source, diagrams=None):
             out.append(f"{sep}{txt}")
         prev = kind
     text = re.sub(r"(<LINE> ){3,}", "<LINE> <LINE> ", "".join(out))
-    return clean(title), re.sub(r"[ \t]+", " ", text).strip(), " ".join(extra)
+    text = re.sub(r"[ \t]+", " ", text).strip()
+    return clean(title), keep_spaces(text), " ".join(extra)
+
+
+def keep_spaces(text):
+    """The game panel starts a new chunk at each color tag and drops the space
+    around it ("Uma<cor>Vara de Pesca</cor>ou"). Its <SPACE> command puts the
+    space back: before a highlight that follows a word and after a highlight
+    that a word follows. Punctuation that closes a highlight already goes inside
+    it (see inline), and opening brackets/quotes keep the text glued."""
+    text = re.sub(r"([^\s>(\"'/]) (<PUSHRGB:)", r"\1 <SPACE> \2", text)
+    text = re.sub(r"<POPRGB> (?=[^\s<.,:;!?)/\"'])", "<POPRGB> <SPACE> ", text)
+    return text.replace("<POPRGB> <PUSHRGB:", "<POPRGB> <SPACE> <PUSHRGB:")
 
 
 # ---------------------------------------------------------------------------
