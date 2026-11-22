@@ -1,29 +1,30 @@
 #!/usr/bin/env python3
 """
-Diagramas Mermaid no jogo.
+Mermaid diagrams in game.
 
-O GitHub desenha os blocos ```mermaid sozinho. O painel de texto do Project
-Zomboid nao entende Mermaid, entao este modulo le o mesmo bloco e gera uma
-imagem PNG (tema escuro, combinando com o jogo) que vai junto com o mod.
+GitHub draws ```mermaid blocks by itself. Project Zomboid's text panel does
+not understand Mermaid, so this module reads the same block and renders a PNG
+image (dark theme, matching the game) that ships with the mod.
 
-Suporta o tipo mais usado em guias, o fluxograma:
+Supports the type most used in guides, the flowchart:
 
-    flowchart TD            (ou graph; direcoes TD, TB, BT, LR, RL)
-        A[Retangulo] --> B(Arredondado)
-        B --> C{Decisao?}
-        C -->|Sim| D([Inicio/fim])
-        C -- Nao --> E((Circulo))
-        E -.-> F[[Sub-rotina]]
-        F ==> G{{Hexagono}}
-        A & B --- H[(Banco)]
+    flowchart TD            (or graph; directions TD, TB, BT, LR, RL)
+        A[Rectangle] --> B(Rounded)
+        B --> C{Decision?}
+        C -->|Yes| D([Start/end])
+        C -- No --> E((Circle))
+        E -.-> F[[Subroutine]]
+        F ==> G{{Hexagon}}
+        A & B --- H[(Database)]
 
-Linhas: --> seta, --- sem seta, -.-> pontilhada, ==> grossa, <--> dupla.
-Textos com "aspas", <br> para quebrar linha. classDef, style, class, click e
-linkStyle sao aceitos (o GitHub usa, o jogo ignora). subgraph aparece sem a
-caixa no jogo. Outros tipos de diagrama (sequence, pie...) sao recusados.
+Links: --> arrow, --- no arrow, -.-> dotted, ==> thick, <--> both ways.
+Text in "quotes", <br> for a line break. classDef, style, class, click and
+linkStyle are accepted (GitHub uses them, the game ignores them). subgraph
+shows without its box in game. Other diagram types (sequence, pie...) are
+rejected.
 
-Uso direto, para ver a imagem:
-    python tools/mermaid_png.py arquivo.mmd saida.png
+Direct use, to look at the image:
+    python tools/mermaid_png.py file.mmd output.png
 """
 import hashlib
 import pathlib
@@ -31,10 +32,10 @@ import re
 import sys
 
 FONT_FILE = pathlib.Path(__file__).resolve().parent / "fonts" / "DejaVuSans.ttf"
-THEME_VERSION = "1"        # mude para forcar novas imagens quando o visual mudar
+THEME_VERSION = "1"        # bump to force new images when the look changes
 MAX_NODES = 40
-MAX_WIDTH = 1400           # pixels; mais largo que isso fica ilegivel no jogo
-SS = 3                     # desenha 3x maior e reduz (bordas suaves)
+MAX_WIDTH = 1400           # pixels; wider than this is unreadable in game
+SS = 3                     # draw 3x larger and scale down (smooth edges)
 FONT_SIZE = 14
 
 BG = (28, 30, 34)
@@ -59,12 +60,12 @@ class DiagramError(Exception):
 
 
 # ---------------------------------------------------------------------------
-# Leitura
+# Parsing
 # ---------------------------------------------------------------------------
 
 HEADER = re.compile(r"^(flowchart|graph)(?:\s+(TD|TB|BT|LR|RL))?\s*;?\s*$", re.I)
 IGNORE = re.compile(r"^(classDef|class|style|linkStyle|click|direction|accTitle|accDescr)\b")
-SHAPES = [  # (abre, fecha, forma) - os mais longos primeiro
+SHAPES = [  # (open, close, shape) - longest first
     ("([", "])", "stadium"), ("[[", "]]", "subroutine"), ("[(", ")]", "cylinder"),
     ("((", "))", "circle"), ("{{", "}}", "hexagon"), ("[/", "/]", "rect"),
     ("[\\", "\\]", "rect"), ("[/", "\\]", "rect"), ("[\\", "/]", "rect"),
@@ -88,7 +89,7 @@ def clean_label(s):
 
 
 def split_statements(text):
-    """Separa por linha e por ';' fora de aspas e colchetes."""
+    """Splits by line and by ';' outside quotes and brackets."""
     out = []
     for line in text.replace("\r\n", "\n").split("\n"):
         depth, quote, cur = 0, False, []
@@ -108,7 +109,7 @@ def split_statements(text):
 
 
 def normalize_link_text(s):
-    """'A -- texto --> B' vira 'A -->|texto| B' (e os equivalentes)."""
+    """'A -- text --> B' becomes 'A -->|text| B' (and the equivalents)."""
     s = re.sub(r"(?<![-.=<])--\s+([^\s>|\-][^>|]*?)\s+-->", r"-->|\1|", s)
     s = re.sub(r"(?<![-.=<])--\s+([^\s>|\-][^>|]*?)\s+---", r"---|\1|", s)
     s = re.sub(r"-\.\s+([^>|]+?)\s+\.->", r"-.->|\1|", s)
@@ -141,22 +142,22 @@ class Graph:
 def parse_node(s, pos, g, where):
     m = NODE_ID.match(s, pos)
     if not m:
-        raise DiagramError(f"{where}: esperava o nome de um no em '{s[pos:pos + 20].strip()}'")
+        raise DiagramError(f"{where}: expected a node name at '{s[pos:pos + 20].strip()}'")
     nid, pos = m.group(1), m.end()
     if nid in ("end", "subgraph"):
-        raise DiagramError(f"{where}: '{nid}' nao pode ser nome de no")
+        raise DiagramError(f"{where}: '{nid}' cannot be a node name")
     for op, cl, shape in SHAPES:
         if s.startswith(op, pos):
             start = pos + len(op)
             if s[start:start + 1] == '"':
                 q = s.find('"', start + 1)
                 if q < 0:
-                    raise DiagramError(f"{where}: aspas sem fechar no no '{nid}'")
+                    raise DiagramError(f"{where}: unclosed quotes in node '{nid}'")
                 end = s.find(cl, q + 1)
             else:
                 end = s.find(cl, start)
             if end < 0:
-                raise DiagramError(f"{where}: faltou fechar '{op}' no no '{nid}'")
+                raise DiagramError(f"{where}: missing closing for '{op}' in node '{nid}'")
             g.node(nid, clean_label(s[start:end]), shape)
             pos = end + len(cl)
             break
@@ -179,15 +180,15 @@ def parse_group(s, pos, g, where):
         pos += m.end()
 
 
-def parse(source, where="diagrama"):
+def parse(source, where="diagram"):
     lines = [l for l in split_statements(source) if l and not l.startswith("%%")]
     if not lines:
-        raise DiagramError(f"{where}: diagrama vazio")
+        raise DiagramError(f"{where}: empty diagram")
     m = HEADER.match(lines[0])
     if not m:
         kind = lines[0].split()[0]
-        raise DiagramError(f"{where}: o jogo so desenha 'flowchart' ou 'graph' (recebeu '{kind}'). "
-                           "Use um fluxograma ou deixe o diagrama fora do manual.")
+        raise DiagramError(f"{where}: the game only draws 'flowchart' or 'graph' (got '{kind}'). "
+                           "Use a flowchart or leave the diagram out of the manual.")
     g = Graph((m.group(2) or "TD").upper().replace("TB", "TD"))
     for st in lines[1:]:
         if IGNORE.match(st) or st == "end" or st.startswith("subgraph"):
@@ -197,7 +198,7 @@ def parse(source, where="diagrama"):
         while pos < len(st) and st[pos:].strip():
             lm = LINK.match(st, pos)
             if not lm:
-                raise DiagramError(f"{where}: nao entendi '{st[pos:].strip()}' em '{st}'")
+                raise DiagramError(f"{where}: could not understand '{st[pos:].strip()}' in '{st}'")
             both, kind, label = lm.group(1) == "<", lm.group(2), lm.group(3)
             right, pos = parse_group(st, lm.end(), g, where)
             style = "dotted" if "." in kind else "thick" if kind.startswith("=") else "solid"
@@ -208,14 +209,14 @@ def parse(source, where="diagrama"):
                                     "style": style, "head": head, "tail": both})
             left = right
     if not g.nodes:
-        raise DiagramError(f"{where}: nenhum no no diagrama")
+        raise DiagramError(f"{where}: no nodes in the diagram")
     if len(g.nodes) > MAX_NODES:
-        raise DiagramError(f"{where}: {len(g.nodes)} nos; o maximo no jogo e {MAX_NODES}. Divida em dois diagramas.")
+        raise DiagramError(f"{where}: {len(g.nodes)} nodes; the in-game max is {MAX_NODES}. Split it into two diagrams.")
     return g
 
 
 # ---------------------------------------------------------------------------
-# Posicoes (camadas, estilo Sugiyama simplificado)
+# Positions (layers, simplified Sugiyama style)
 # ---------------------------------------------------------------------------
 
 def _font(size):
@@ -252,7 +253,7 @@ def layout(g):
     ids = list(g.order)
     size = {n: _node_size(font, g.nodes[n]["label"], g.nodes[n]["shape"]) for n in ids}
 
-    # 1) tira os ciclos (inverte as arestas de volta)
+    # 1) remove cycles (reverse the back edges)
     adj = {n: [] for n in ids}
     for i, e in enumerate(g.edges):
         if e["a"] != e["b"]:
@@ -279,7 +280,7 @@ def layout(g):
         a, b = (e["b"], e["a"]) if i in rev else (e["a"], e["b"])
         dag.append((a, b, i))
 
-    # 2) camadas pelo caminho mais longo
+    # 2) layers by longest path
     layer = {n: 0 for n in ids}
     indeg = {n: 0 for n in ids}
     for a, b, _ in dag:
@@ -294,7 +295,7 @@ def layout(g):
                 if indeg[b] == 0:
                     queue.append(b)
 
-    # 3) nos invisiveis para arestas que pulam camadas
+    # 3) invisible nodes for edges that skip layers
     chains, dsize = {}, (10 * SS, 10 * SS)
     for a, b, i in dag:
         chain = [a]
@@ -318,7 +319,7 @@ def layout(g):
             down.setdefault(x, []).append(y)
             up.setdefault(y, []).append(x)
 
-    # 4) ordem dentro da camada (baricentro)
+    # 4) order within each layer (barycenter)
     def sweep(rng, nb):
         for li in rng:
             pos = {n: k for k, n in enumerate(rows[li - 1 if nb is up else li + 1])}
@@ -331,7 +332,7 @@ def layout(g):
         sweep(range(1, nlayers), up)
         sweep(range(nlayers - 2, -1, -1), down)
 
-    # 5) coordenadas: u = ao longo da camada, v = entre camadas
+    # 5) coordinates: u = along the layer, v = across layers
     def usz(n): return size[n][0] if vertical else size[n][1]
     def vsz(n): return size[n][1] if vertical else size[n][0]
     gap_u = 28 * SS
@@ -400,11 +401,11 @@ def layout(g):
 
 
 # ---------------------------------------------------------------------------
-# Desenho
+# Drawing
 # ---------------------------------------------------------------------------
 
 def _border_point(cx, cy, w, h, shape, tx, ty):
-    """Ponto na borda do no na direcao de (tx, ty)."""
+    """Point on the node border in the direction of (tx, ty)."""
     dx, dy = tx - cx, ty - cy
     if dx == 0 and dy == 0:
         return cx, cy
@@ -458,15 +459,15 @@ def render(g):
     m = 18 * SS
     W, H = int(L["W"] + 2 * m), int(L["H"] + 2 * m)
     if W / SS > MAX_WIDTH:
-        raise DiagramError(f"diagrama com {int(W / SS)} px de largura (maximo {MAX_WIDTH}). "
-                           "Use 'flowchart TD' ou divida em partes.")
+        raise DiagramError(f"diagram is {int(W / SS)} px wide (max {MAX_WIDTH}). "
+                           "Use 'flowchart TD' or split it into parts.")
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
     d.rounded_rectangle([0, 0, W - 1, H - 1], radius=10 * SS, fill=BG, outline=BG_BORDER, width=2 * SS)
     pos = {n: (x + m, y + m) for n, (x, y) in L["pos"].items()}
     size = L["size"]
 
-    # arestas
+    # edges
     labels = []
     for i, e in enumerate(g.edges):
         if i not in L["chains"]:
@@ -494,7 +495,7 @@ def render(g):
             (x1, y1), (x2, y2) = pts[k], pts[k + 1]
             labels.append(((x1 + x2) / 2, (y1 + y2) / 2, e["label"]))
 
-    # nos
+    # nodes
     for n in g.order:
         cx, cy = pos[n]
         w, h = size[n]
@@ -521,7 +522,7 @@ def render(g):
                 d.line([(box[2] - 7 * SS, box[1]), (box[2] - 7 * SS, box[3])], fill=line, width=lw)
         _draw_text(d, L["font"], cx, cy, g.nodes[n]["label"], TEXT)
 
-    # textos das setas por cima de tudo
+    # edge labels on top of everything
     for x, y, text in labels:
         tw, th, _ = _text_size(L["small"], text)
         pad = 5 * SS
@@ -545,10 +546,10 @@ def main():
     try:
         img = render(parse(src, sys.argv[1]))
     except DiagramError as e:
-        print("erro:", e, file=sys.stderr)
+        print("error:", e, file=sys.stderr)
         return 1
     img.save(sys.argv[2], optimize=True)
-    print(f"gravado: {sys.argv[2]} ({img.width}x{img.height})")
+    print(f"written: {sys.argv[2]} ({img.width}x{img.height})")
     return 0
 
 

@@ -1,0 +1,19 @@
+name: "Suggestion or question / Sugestão ou dúvida"
+description: "Something is missing in the official guide, or you have a question / Falta explicar algo no guia oficial, ou você tem uma dúvida"
+title: "[Manual] "
+labels: ["manual", "suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a personal tip, use the **Community tip** form. / Para uma dica pessoal, use o formulário **Community tip**.
+  - type: input
+    id: chapter
+    attributes:
+      label: "Page (if any) / Página (se houver)"
+  - type: textarea
+    id: text
+    attributes:
+      label: "Your suggestion or question / Sua sugestão ou dúvida"
+    validations:
+      required: true

@@ -1,0 +1,39 @@
+name: "Translation / Tradução"
+description: "A page is missing or outdated in the other language / Uma página falta ou está desatualizada no outro idioma"
+title: "[Translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The [status board](https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md) marks missing pages with ❌.
+        O [painel](https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md) mostra com ❌ as páginas que faltam em cada idioma.
+  - type: input
+    id: page
+    attributes:
+      label: "Page that exists / Página que já existe"
+      placeholder: "docs/en/02-skills/04-crafting/03-carpentry.md"
+    validations:
+      required: true
+  - type: dropdown
+    id: to
+    attributes:
+      label: "Missing in / Falta em"
+      options: ["en", "pt-BR"]
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "What is needed / O que precisa"
+      options:
+        - "Create the page / Criar a página"
+        - "Update: the other language has more / Atualizar: o outro idioma tem mais coisa"
+    validations:
+      required: true
+  - type: checkboxes
+    id: me
+    attributes:
+      label: "Can you translate it yourself? / Você mesmo pode traduzir?"
+      options:
+        - label: "Yes, I will send a Pull Request / Sim, vou mandar um Pull Request"

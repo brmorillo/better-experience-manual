@@ -1,11 +1,11 @@
 blank_issues_enabled: true
 contact_links:
-  - name: "Dúvida sobre o mod ou o jogo | Question about the mod or the game"
+  - name: "Question about the mod or the game | Dúvida sobre o mod ou o jogo"
     url: https://github.com/brmorillo/better-experience-manual/discussions/categories/q-a
-    about: "Pergunte nas Discussions (Q&A). | Ask in Discussions (Q&A)."
-  - name: "Ideia | Idea"
+    about: "Ask in Discussions (Q&A). | Pergunte nas Discussions (Q&A)."
+  - name: "Idea | Ideia"
     url: https://github.com/brmorillo/better-experience-manual/discussions/categories/ideas
-    about: "Ideias para o manual ou o mod. | Ideas for the manual or the mod."
-  - name: "O que falta escrever | What is left to write"
+    about: "Ideas for the manual or the mod. | Ideias para o manual ou o mod."
+  - name: "What is left to write | O que falta escrever"
     url: https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md
-    about: "Painel com as páginas que precisam de ajuda. | Board with the pages that need help."
+    about: "Board with the pages that need help. | Painel com as páginas que precisam de ajuda."

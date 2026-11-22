@@ -1,0 +1,62 @@
+name: Community tip
+
+# When someone opens an issue with the "Community tip" form, this bot puts the
+# tip in the right file under tips/ and opens a pull request for review.
+# Requires: Settings > Actions > General > "Allow GitHub Actions to create and
+# approve pull requests".
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  tip:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'tip') ||
+      contains(github.event.issue.labels.*.name, 'dica') ||
+      startsWith(github.event.issue.title, '[Tip]') ||
+      startsWith(github.event.issue.title, '[Dica]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow (draws the diagrams)
+        run: pip install "pillow>=10"
+      - name: Add the tip
+        id: add
+        # Python reads the issue text from the event file. It is never pasted
+        # into the shell command, so nobody can run commands through it.
+        run: python tools/add_tip.py --event "$GITHUB_EVENT_PATH" --github-output "$GITHUB_OUTPUT"
+      - name: Validate the manual
+        run: python tools/build_manual.py --check
+      - name: Open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          FILE: ${{ steps.add.outputs.file }}
+        run: |
+          branch="tip/issue-$ISSUE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add "$FILE"
+          git commit -m "Community tip (#$ISSUE)"
+          git push --force origin "$branch"
+          if ! gh pr view "$branch" > /dev/null 2>&1; then
+            gh pr create --head "$branch" --title "Community tip (#$ISSUE)" \
+              --body "Tip sent through the form. / Dica enviada pelo formulário. Closes #$ISSUE"
+          fi
+      - name: Comment on the issue if it failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE" --body "Could not add the tip. Check the **Page** field (e.g. en/gps) and that the tip has up to 600 characters, then edit the issue. / Não consegui adicionar a dica: confira o campo **Página** (ex.: pt-BR/gps) e se a dica tem até 600 caracteres, e edite o pedido."

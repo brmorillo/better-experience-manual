@@ -1,4 +1,4 @@
-name: Verificar manual
+name: Check manual
 
 on:
   pull_request:
@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Instalar o Pillow (desenha os diagramas)
+      - name: Install Pillow (draws the diagrams)
         run: pip install "pillow>=10"
-      - name: Converter o manual para o formato do jogo
+      - name: Convert the manual to the game format
         run: python tools/build_manual.py --check
-      - name: Gerar o painel (so testa, nao grava na main)
+      - name: Build the status board (test only, does not write to main)
         run: python tools/status.py

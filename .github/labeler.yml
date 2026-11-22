@@ -1,38 +1,38 @@
-# Rotulos colocados sozinhos nos Pull Requests, pelos arquivos que mudaram.
 # Labels added to Pull Requests automatically, from the files that changed.
-pt-BR:
-  - changed-files:
-      - any-glob-to-any-file: ["docs/pt-BR/**", "dicas/pt-BR/**", "modelos/pt-BR/**"]
+# Rótulos colocados sozinhos nos Pull Requests, pelos arquivos que mudaram.
 en:
   - changed-files:
-      - any-glob-to-any-file: ["docs/en/**", "dicas/en/**", "modelos/en/**"]
+      - any-glob-to-any-file: ["docs/en/**", "tips/en/**", "templates/en/**"]
+pt-BR:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/pt-BR/**", "tips/pt-BR/**", "templates/pt-BR/**"]
 manual:
   - changed-files:
       - any-glob-to-any-file: ["docs/**"]
-dica:
+tip:
   - changed-files:
-      - any-glob-to-any-file: ["dicas/**"]
-diagrama:
+      - any-glob-to-any-file: ["tips/**"]
+diagram:
   - changed-files:
       - any-glob-to-any-file: ["tools/mermaid_png.py"]
-ferramentas:
+tooling:
   - changed-files:
       - any-glob-to-any-file: ["tools/**", ".github/**", "manual.config.json"]
-"seção: o mod":
+"section: the mod":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/01-*/**"]
-"seção: habilidades":
+"section: skills":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/02-*/**"]
-"seção: itens":
+"section: items":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/03-*/**"]
-"seção: ações":
+"section: actions":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/04-*/**"]
-"seção: personagem":
+"section: character":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/05-*/**"]
-"seção: mundo":
+"section: world":
   - changed-files:
       - any-glob-to-any-file: ["docs/*/06-*/**"]

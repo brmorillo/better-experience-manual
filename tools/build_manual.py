@@ -1,34 +1,36 @@
 #!/usr/bin/env python3
 """
-Converte o manual no arquivo Lua (e nas imagens) que o mod carrega no jogo.
+Converts the manual into the Lua file (and images) that the mod loads in game.
 
-    docs/<idioma>/...      guia oficial. A arvore de pastas E a arvore do jogo:
-                           cada pasta vira uma secao, cada .md vira uma pagina.
-    dicas/<idioma>/<id>.md dicas da comunidade de cada pagina (nao oficiais).
-    ```mermaid             fluxogramas: o GitHub desenha sozinho; para o jogo,
-                           viram PNG (tools/mermaid_png.py) gravados com o mod.
+    docs/<language>/...      official guide. The folder tree IS the in-game tree:
+                             each folder becomes a section, each .md a page.
+    tips/<language>/<id>.md  community tips for each page (unofficial).
+    ```mermaid               flowcharts: GitHub draws them by itself; for the
+                             game they become PNGs (tools/mermaid_png.py)
+                             shipped with the mod.
 
-Uso:
-    python tools/build_manual.py --check        # so valida (GitHub Actions)
-    python tools/build_manual.py                # grava tudo na pasta do mod
-    python tools/build_manual.py --out x.lua --images pasta/
-                                                # grava em outro lugar (para ver
-                                                # as imagens dos diagramas)
+Usage:
+    python tools/build_manual.py --check        # validate only (GitHub Actions)
+    python tools/build_manual.py                # write everything into the mod folder
+    python tools/build_manual.py --out x.lua --images folder/
+                                                # write somewhere else (to look
+                                                # at the diagram images)
 
-Sem --out/--images, grava na pasta vizinha do mod (../PersonalAssistant/...):
+Without --out/--images, it writes into the sibling mod folder (../PersonalAssistant/...):
     42/media/lua/client/PersonalAssistant/PA_ManualData.lua
     42/media/textures/PA_Manual/d_*.png
-Precisa do Pillow:  pip install pillow
+Requires Pillow:  pip install pillow
 
-Regras da arvore (ver CONTRIBUTING.md):
-  - O numero no comeco do nome ("01-", "02-") so define a ordem; some no jogo.
-  - O id de uma pagina e o nome do arquivo sem o numero e sem ".md"
-    ("03-mapa-e-gps/02-gps.md" -> "gps"). O id de uma pasta e o nome dela sem
-    o numero. A raiz (docs/<idioma>/README.md) tem o id "inicio".
-  - Ids nao podem se repetir dentro do mesmo idioma: e por eles que as dicas
-    acham a pagina, entao mover um arquivo de pasta nao perde as dicas.
-  - O README.md de uma pasta e o texto da propria secao (titulo e introducao).
-  - Arquivos e pastas que comecam com "_" ou "." sao ignorados.
+Tree rules (see CONTRIBUTING.md):
+  - The number at the start of a name ("01-", "02-") only sets the order; it
+    is hidden in game.
+  - A page id is the file name without the number and without ".md"
+    ("03-map-and-gps/02-gps.md" -> "gps"). A folder id is its name without
+    the number. The root (docs/<language>/README.md) has the id "inicio".
+  - Ids must be unique within a language: tips find their page by id, so
+    moving a file to another folder does not lose its tips.
+  - A folder's README.md is the text of the section itself (title and intro).
+  - Files and folders starting with "_" or "." are ignored.
 """
 import argparse
 import json
@@ -41,19 +43,19 @@ import mermaid_png  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
-TIPS = ROOT / "dicas"
+TIPS = ROOT / "tips"
 CONFIG = ROOT / "manual.config.json"
 MOD_MEDIA = ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant" / "42" / "media"
 DEFAULT_OUT = MOD_MEDIA / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua"
 DEFAULT_IMAGES = MOD_MEDIA / "textures" / "PA_Manual"
-GAME_IMAGE_DIR = "media/textures/PA_Manual"   # caminho que o jogo usa no getTexture
+GAME_IMAGE_DIR = "media/textures/PA_Manual"   # path the game uses in getTexture
 
 ROOT_ID = "inicio"
-MAX_TIP = 600              # caracteres por dica
-HIGHLIGHT = "1,0.82,0.35"  # negrito
-CODE = "0.55,0.8,1"        # `codigo`
-TIP = "0.6,0.9,0.6"        # > dica
-H3 = "0.95,0.95,0.75"      # ### subtitulo menor
+MAX_TIP = 600              # characters per tip
+HIGHLIGHT = "1,0.82,0.35"  # bold
+CODE = "0.55,0.8,1"        # `code`
+TIP = "0.6,0.9,0.6"        # > tip
+H3 = "0.95,0.95,0.75"      # ### smaller subheading
 ORDER_RE = re.compile(r"^(\d+)[-_ .]+")
 
 
@@ -62,14 +64,14 @@ class ManualError(Exception):
 
 
 # ---------------------------------------------------------------------------
-# Diagramas
+# Diagrams
 # ---------------------------------------------------------------------------
 
 class Diagrams:
-    """Junta os diagramas do manual: valida, mede e gera os PNG."""
+    """Collects the manual's diagrams: validates, measures and renders the PNGs."""
 
     def __init__(self):
-        self.images = {}    # nome do arquivo -> imagem (PIL)
+        self.images = {}    # file name -> image (PIL)
 
     def add(self, source, where):
         try:
@@ -80,7 +82,7 @@ class Diagrams:
         except mermaid_png.DiagramError as e:
             raise ManualError(str(e))
         except ImportError:
-            raise ManualError("os diagramas precisam do Pillow: pip install pillow")
+            raise ManualError("diagrams require Pillow: pip install pillow")
         img = self.images[name]
         return f"<IMAGECENTRE:{GAME_IMAGE_DIR}/{name},{img.width},{img.height}>", g.labels()
 
@@ -96,18 +98,18 @@ class Diagrams:
 
 
 # ---------------------------------------------------------------------------
-# Markdown -> texto rico do jogo (ISRichTextPanel)
+# Markdown -> in-game rich text (ISRichTextPanel)
 # ---------------------------------------------------------------------------
 
 def clean(text):
-    """O painel do jogo trata "<" como inicio de comando: troca por "(".
-    O ">" sozinho e seguro (caminhos de menu: Opcoes > Mods)."""
+    """The game panel treats "<" as the start of a command: replace it with "(".
+    A lone ">" is safe (menu paths: Options > Mods)."""
     return text.replace("<", "(")
 
 
 def inline(text):
-    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)       # imagens
-    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)    # links -> texto
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)       # images
+    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)    # links -> text
     parts, pos = [], 0
     pattern = re.compile(r"\*\*(.+?)\*\*([.,:;!?)]*)|`([^`]+)`([.,:;!?)]*)")
     for m in pattern.finditer(text):
@@ -127,7 +129,7 @@ def plain_of(rich):
 
 
 def convert(md, source, diagrams=None):
-    """Retorna (titulo, texto rico, texto extra para a busca). O titulo vem da linha '# '."""
+    """Returns (title, rich text, extra text for search). The title comes from the '# ' line."""
     md = re.sub(r"<!--.*?-->", "", md, flags=re.S)
     title, blocks, para, extra = None, [], [], []
     fence, fence_lines = None, []
@@ -159,11 +161,11 @@ def convert(md, source, diagrams=None):
         if not s:
             flush(); blocks.append(("gap", "")); continue
         if s.startswith("|"):
-            raise ManualError(f"{source}: tabelas nao aparecem no jogo; use uma lista")
+            raise ManualError(f"{source}: tables do not show in game; use a list")
         if s.startswith("# "):
             flush()
             if title is not None:
-                raise ManualError(f"{source}: so pode haver um titulo '# ' por arquivo")
+                raise ManualError(f"{source}: only one '# ' title is allowed per file")
             title = s[2:].strip(); continue
         if s.startswith("### "):
             flush(); blocks.append(("h3", inline(s[4:]))); continue
@@ -183,9 +185,9 @@ def convert(md, source, diagrams=None):
         para.append(s)
     flush()
     if fence is not None:
-        raise ManualError(f"{source}: bloco ``` sem fechar")
+        raise ManualError(f"{source}: unclosed ``` block")
     if not title:
-        raise ManualError(f"{source}: falta o titulo '# ...' no comeco do arquivo")
+        raise ManualError(f"{source}: missing the '# ...' title at the start of the file")
 
     out, prev = [f"<H1> {clean(title)} <LINE> <TEXT> "], "head"
     for kind, txt in blocks:
@@ -194,11 +196,11 @@ def convert(md, source, diagrams=None):
                 prev = "gap"
             continue
         if prev == "head" and kind not in ("h2", "h3"):
-            sep = " "                      # o titulo ja termina com <LINE>
+            sep = " "                      # the title already ends with <LINE>
         elif prev == "img":
-            sep = " <LINE> "               # a imagem ja termina com <LINE>
+            sep = " <LINE> "               # the image already ends with <LINE>
         elif prev in ("li", "ol", "p") and kind in ("li", "ol"):
-            sep = " <LINE> "               # lista colada no paragrafo/item anterior
+            sep = " <LINE> "               # list right after the previous paragraph/item
         else:
             sep = " <LINE> <LINE> "
         if kind == "h2":
@@ -223,7 +225,7 @@ def convert(md, source, diagrams=None):
 
 
 # ---------------------------------------------------------------------------
-# Arvore
+# Tree
 # ---------------------------------------------------------------------------
 
 def order_key(path):
@@ -245,7 +247,7 @@ def build_tree(lang_dir, rel_root, diagrams=None):
     ids = {}
 
     def key_of(path):
-        """Posicao pela numeracao ('3/2'), para comparar os idiomas."""
+        """Position by numbering ('3/2'), used to compare languages."""
         parts = []
         for part in path.relative_to(lang_dir).parts:
             m = ORDER_RE.match(part)
@@ -257,11 +259,11 @@ def build_tree(lang_dir, rel_root, diagrams=None):
 
     def register(node_id, rel):
         if not re.match(r"^[a-z0-9][a-z0-9-]*$", node_id):
-            raise ManualError(f"{rel}: use so letras minusculas sem acento, numeros e '-' no nome "
+            raise ManualError(f"{rel}: use only lowercase unaccented letters, digits and '-' in the name "
                               f"(id '{node_id}')")
         if node_id in ids:
-            raise ManualError(f"{rel}: o id '{node_id}' ja existe em {ids[node_id]}; "
-                              "renomeie um dos dois")
+            raise ManualError(f"{rel}: the id '{node_id}' already exists in {ids[node_id]}; "
+                              "rename one of them")
         ids[node_id] = rel
 
     def folder(path, node_id):
@@ -293,14 +295,14 @@ def build_tree(lang_dir, rel_root, diagrams=None):
 
 
 # ---------------------------------------------------------------------------
-# Dicas da comunidade
+# Community tips
 # ---------------------------------------------------------------------------
 
 TIP_HEAD = re.compile(r"^##\s+(.+?)\s*$")
 
 
 def parse_tips(md, source):
-    """Cada dica comeca com '## @autor | AAAA-MM-DD | #issue' e vai ate a proxima."""
+    """Each tip starts with '## @author | YYYY-MM-DD | #issue' and runs until the next one."""
     md = re.sub(r"<!--.*?-->", "", md, flags=re.S)
     tips, cur = [], None
     for line in md.replace("\r\n", "\n").split("\n"):
@@ -316,16 +318,16 @@ def parse_tips(md, source):
         elif cur is not None:
             cur["lines"].append(line.strip())
         elif line.strip():
-            raise ManualError(f"{source}: texto antes da primeira dica; cada dica comeca com '## @autor | data'")
+            raise ManualError(f"{source}: text before the first tip; each tip starts with '## @author | date'")
     if cur:
         tips.append(cur)
     out = []
     for t in tips:
         body = " ".join(l for l in t.pop("lines") if l).strip()
         if not body:
-            raise ManualError(f"{source}: dica de {t['author']} esta vazia")
+            raise ManualError(f"{source}: tip by {t['author']} is empty")
         if len(body) > MAX_TIP:
-            raise ManualError(f"{source}: dica de {t['author']} tem {len(body)} caracteres (maximo {MAX_TIP})")
+            raise ManualError(f"{source}: tip by {t['author']} has {len(body)} characters (max {MAX_TIP})")
         t["author"], t["date"], t["ref"] = clean(t["author"]), clean(t["date"]), clean(t["ref"])
         t["text"] = inline(body)
         out.append(t)
@@ -341,8 +343,8 @@ def attach_tips(tree, ids, folder_name):
                 continue
             rel = f.relative_to(ROOT).as_posix()
             if f.stem not in ids:
-                raise ManualError(f"{rel}: nao existe pagina com o id '{f.stem}' em docs/{folder_name}. "
-                                  "Se a pagina mudou de nome, renomeie este arquivo tambem.")
+                raise ManualError(f"{rel}: there is no page with the id '{f.stem}' in docs/{folder_name}. "
+                                  "If the page was renamed, rename this file too.")
             by_id[f.stem] = parse_tips(f.read_text(encoding="utf-8"), rel)
     total = 0
 
@@ -359,21 +361,21 @@ def attach_tips(tree, ids, folder_name):
 
 
 def load_all(diagrams=None):
-    """Arvore + ids de cada idioma (usado tambem por tools/add_tip.py)."""
+    """Tree + ids for each language (also used by tools/add_tip.py)."""
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     diagrams = diagrams if diagrams is not None else Diagrams()
     out = {}
     for folder_name, code in cfg["languages"].items():
         lang_dir = DOCS / folder_name
         if not (lang_dir / "README.md").exists():
-            raise ManualError(f"docs/{folder_name}/README.md: falta a pagina inicial do idioma")
+            raise ManualError(f"docs/{folder_name}/README.md: the language home page is missing")
         tree, ids = build_tree(lang_dir, pathlib.PurePosixPath("docs") / folder_name, diagrams)
         out[folder_name] = (code, tree, ids)
     return cfg, out
 
 
 def compare_languages(langs):
-    """Avisa (sem falhar) quando um idioma tem uma pagina que o outro nao tem."""
+    """Warns (without failing) when one language has a page the other does not."""
     keys = {}
     for folder_name, (_, tree, _) in langs.items():
         found = {}
@@ -391,7 +393,7 @@ def compare_languages(langs):
             if a != b:
                 for k, f in sorted(keys[a].items()):
                     if k not in keys[b]:
-                        warnings.append(f"aviso: {f} nao tem par em docs/{b}/ (mesma numeracao {k})")
+                        warnings.append(f"warning: {f} has no counterpart in docs/{b}/ (same numbering {k})")
     return warnings
 
 
@@ -402,18 +404,18 @@ def build():
     for folder_name, (code, tree, ids) in langs.items():
         tips = attach_tips(tree, ids, folder_name)
         data[code] = {"folder": folder_name, "root": tree}
-        report.append(f"{code}: {len(ids)} paginas/secoes, {tips} dicas")
+        report.append(f"{code}: {len(ids)} pages/sections, {tips} tips")
     templates = 0
-    for f in sorted((ROOT / "modelos").glob("*/*.md")):
+    for f in sorted((ROOT / "templates").glob("*/*.md")):
         convert(f.read_text(encoding="utf-8"), f.relative_to(ROOT).as_posix(), Diagrams())
         templates += 1
-    report.append(f"diagramas: {len(diagrams.images)}, modelos ok: {templates}")
+    report.append(f"diagrams: {len(diagrams.images)}, templates ok: {templates}")
     report.extend(compare_languages(langs))
     return cfg, data, report, diagrams
 
 
 # ---------------------------------------------------------------------------
-# Saida Lua
+# Lua output
 # ---------------------------------------------------------------------------
 
 def lua_long(s):
@@ -452,8 +454,8 @@ def lua_node(node, ind):
 
 def render_lua(cfg, data):
     lines = [
-        "-- GERADO AUTOMATICAMENTE por tools/build_manual.py a partir do repositorio",
-        "-- do manual. Nao edite aqui: edite os arquivos .md e rode o script de novo.",
+        "-- GENERATED AUTOMATICALLY by tools/build_manual.py from the manual",
+        "-- repository. Do not edit here: edit the .md files and run the script again.",
         "PersonalAssistant = PersonalAssistant or {}",
         "PersonalAssistant.ManualData = {",
         f"    repo = {lua_str(cfg.get('repo', ''))},",
@@ -472,14 +474,14 @@ def render_lua(cfg, data):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--check", action="store_true", help="so valida os arquivos")
+    ap.add_argument("--check", action="store_true", help="only validate the files")
     ap.add_argument("--out", type=pathlib.Path, default=DEFAULT_OUT)
-    ap.add_argument("--images", type=pathlib.Path, default=DEFAULT_IMAGES, help="pasta dos PNG dos diagramas")
+    ap.add_argument("--images", type=pathlib.Path, default=DEFAULT_IMAGES, help="folder for the diagram PNGs")
     args = ap.parse_args()
     try:
         cfg, data, report, diagrams = build()
     except ManualError as e:
-        print("erro:", e, file=sys.stderr)
+        print("error:", e, file=sys.stderr)
         return 1
     print("\n".join(report))
     if args.check:
@@ -488,8 +490,8 @@ def main():
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(render_lua(cfg, data), encoding="utf-8", newline="\n")
     diagrams.write(args.images)
-    print("gravado:", args.out)
-    print("imagens:", args.images)
+    print("written:", args.out)
+    print("images:", args.images)
     return 0
 
 

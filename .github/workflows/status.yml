@@ -1,11 +1,11 @@
-name: Painel do manual
+name: Status board
 
-# Refaz o STATUS.md (o que esta pronto e o que falta) a cada mudanca na main.
+# Rebuilds STATUS.md (what is done and what is missing) on every change to main.
 
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "dicas/**", "tools/status.py", "tools/build_manual.py"]
+    paths: ["docs/**", "tips/**", "tools/status.py", "tools/build_manual.py"]
   workflow_dispatch:
 
 permissions:
@@ -24,17 +24,17 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install "pillow>=10"
-      - name: Gerar o STATUS.md
+      - name: Build STATUS.md
         run: python tools/status.py
-      - name: Gravar se mudou
+      - name: Commit if it changed
         run: |
           if git diff --quiet -- STATUS.md; then
-            echo "STATUS.md sem mudancas"
+            echo "STATUS.md unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add STATUS.md
-          git commit -m "Painel do manual atualizado"
+          git commit -m "Update status board"
           git pull --rebase origin main
           git push origin HEAD:main

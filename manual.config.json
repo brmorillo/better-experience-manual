@@ -2,7 +2,7 @@
     "repo": "https://github.com/brmorillo/better-experience-manual",
     "branch": "main",
     "languages": {
-        "pt-BR": "PTBR",
-        "en": "EN"
+        "en": "EN",
+        "pt-BR": "PTBR"
     }
 }

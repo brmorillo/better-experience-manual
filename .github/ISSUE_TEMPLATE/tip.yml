@@ -1,0 +1,26 @@
+name: "Community tip / Dica da comunidade"
+description: "Your own tip, shown in game at the end of the page / Uma dica sua que aparece no jogo, no fim da página"
+title: "[Tip] "
+labels: ["tip"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tips show in game as **Community tips**, apart from the official guide, with your GitHub user name.
+        As dicas aparecem no jogo como **Dicas da comunidade**, separadas do guia oficial, com o seu usuário do GitHub.
+  - type: input
+    id: page
+    attributes:
+      label: "Page / Página"
+      description: "Language/page id. The in-game button fills it in. E.g. en/gps, pt-BR/habilidades, en/inicio"
+      placeholder: "en/skills"
+    validations:
+      required: true
+  - type: textarea
+    id: tip
+    attributes:
+      label: "Tip / Dica"
+      description: "Up to 600 characters. **Bold** works. / Até 600 caracteres. Pode usar **negrito**."
+      placeholder: "E.g. read the skill book before training: it multiplies the experience you get."
+    validations:
+      required: true

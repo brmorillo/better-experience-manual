@@ -1,7 +1,7 @@
-name: Rotular Pull Request
+name: Label Pull Request
 
-# Coloca rotulos (idioma, secao, dica...) pelos arquivos que o Pull Request muda.
-# Nao baixa nem roda o codigo do Pull Request: so le a lista de arquivos.
+# Adds labels (language, section, tip...) from the files the Pull Request changes.
+# It does not check out or run the Pull Request's code: it only reads the file list.
 
 on:
   pull_request_target:

@@ -1,78 +1,94 @@
-# Rotulos do repositorio. Edite aqui: um robo cria ou atualiza no GitHub
-# (.github/workflows/labels.yml). Rotulos que nao estao nesta lista nao sao apagados.
-# Repository labels. Edit here: a bot creates or updates them on GitHub.
-# Labels missing from this list are never deleted.
+# Repository labels. Edit here and a bot creates or updates them on GitHub
+# (.github/workflows/labels.yml). Labels missing from this list are never deleted.
+# To rename a label, change `name` and keep the old name in `previous`:
+# existing Issues and Pull Requests keep the label.
+# Rótulos do repositório: edite aqui e o robô aplica no GitHub.
 
-# Tipo / Type
-- name: dica
+# Type / Tipo
+- name: tip
+  previous: dica
   color: "0e8a16"
-  description: "Dica da comunidade / Community tip"
-- name: correção
+  description: "Community tip / Dica da comunidade"
+- name: fix
+  previous: correção
   color: "d73a4a"
-  description: "Algo errado ou confuso no manual / Something wrong or unclear"
-- name: sugestão
+  description: "Something wrong or unclear / Algo errado ou confuso"
+- name: suggestion
+  previous: sugestão
   color: "a2eeef"
-  description: "Ideia, página nova ou dúvida / Idea, new page or question"
-- name: tradução
+  description: "Idea, new page or question / Ideia, página nova ou dúvida"
+- name: translation
+  previous: tradução
   color: "fbca04"
-  description: "Falta no outro idioma / Missing in the other language"
-- name: completar
+  description: "Missing in the other language / Falta no outro idioma"
+- name: incomplete
+  previous: completar
   color: "c5def5"
-  description: "Página com \"Ainda falta\" / Page still has \"Still missing\""
+  description: "Page still has \"Still missing\" / Página com \"Ainda falta\""
 - name: manual
   color: "1d76db"
-  description: "Conteúdo do manual (docs/) / Manual content"
-- name: diagrama
+  description: "Manual content (docs/) / Conteúdo do manual"
+- name: diagram
+  previous: diagrama
   color: "bfd4f2"
-  description: "Diagramas Mermaid / Mermaid diagrams"
-- name: ferramentas
+  description: "Mermaid diagrams / Diagramas Mermaid"
+- name: tooling
+  previous: ferramentas
   color: "5319e7"
-  description: "Scripts, robôs e verificação / Scripts, bots and checks"
+  description: "Scripts, bots and checks / Scripts, robôs e verificação"
 
-# Idioma / Language
-- name: pt-BR
-  color: "009c3b"
-  description: "Português"
+# Language / Idioma
 - name: en
   color: "3c3b6e"
   description: "English"
+- name: pt-BR
+  color: "009c3b"
+  description: "Português"
 
-# Seção do manual / Manual section
-- name: "seção: o mod"
+# Manual section / Seção do manual
+- name: "section: the mod"
+  previous: "seção: o mod"
   color: "ededed"
-  description: "O mod / The mod"
-- name: "seção: habilidades"
+  description: "The mod / O mod"
+- name: "section: skills"
+  previous: "seção: habilidades"
   color: "ededed"
-  description: "Habilidades / Skills"
-- name: "seção: itens"
+  description: "Skills / Habilidades"
+- name: "section: items"
+  previous: "seção: itens"
   color: "ededed"
-  description: "Itens / Items"
-- name: "seção: ações"
+  description: "Items / Itens"
+- name: "section: actions"
+  previous: "seção: ações"
   color: "ededed"
-  description: "Ações / Actions"
-- name: "seção: personagem"
+  description: "Actions / Ações"
+- name: "section: character"
+  previous: "seção: personagem"
   color: "ededed"
-  description: "Personagem / Character"
-- name: "seção: mundo"
+  description: "Character / Personagem"
+- name: "section: world"
+  previous: "seção: mundo"
   color: "ededed"
-  description: "Mundo / World"
+  description: "World / Mundo"
 
-# Andamento / Progress
+# Progress / Andamento
 - name: good first issue
   color: "7057ff"
-  description: "Bom para começar / Good for newcomers"
+  description: "Good for newcomers / Bom para começar"
 - name: help wanted
   color: "008672"
-  description: "Ajuda bem-vinda / Extra help welcome"
-- name: precisa conferir no jogo
+  description: "Extra help welcome / Ajuda bem-vinda"
+- name: needs in-game check
+  previous: precisa conferir no jogo
   color: "f9d0c4"
-  description: "Alguém precisa testar no Build 42 / Someone needs to check in Build 42"
-- name: aguardando resposta
+  description: "Someone needs to check in Build 42 / Alguém precisa testar no Build 42"
+- name: waiting for reply
+  previous: aguardando resposta
   color: "fef2c0"
-  description: "Esperando quem abriu responder / Waiting for the author"
+  description: "Waiting for the author / Esperando quem abriu responder"
 - name: duplicate
   color: "cfd3d7"
-  description: "Já existe / Already exists"
+  description: "Already exists / Já existe"
 - name: wontfix
   color: "ffffff"
-  description: "Não vai entrar / Will not be done"
+  description: "Will not be done / Não vai entrar"

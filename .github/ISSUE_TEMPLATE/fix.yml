@@ -1,0 +1,27 @@
+name: "Fix / Correção"
+description: "Something in the manual is wrong or unclear / Algo no manual está errado ou confuso"
+title: "[Manual] "
+labels: ["manual", "fix"]
+body:
+  - type: input
+    id: chapter
+    attributes:
+      label: "Page / Página"
+      placeholder: "e.g. GPS"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What is wrong? / O que está errado?"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "How should it read? / Como deveria ficar?"
+  - type: input
+    id: version
+    attributes:
+      label: "Mod version / Versão do mod"
+      placeholder: "e.g. 0.4.0"

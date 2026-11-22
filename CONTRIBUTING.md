@@ -1,6 +1,138 @@
-# Como contribuir / How to contribute
+# How to contribute / Como contribuir
 
-Obrigado por ajudar! / Thanks for helping! 🇺🇸 [English below](#english)
+Thanks for helping! / Obrigado por ajudar! 🇧🇷 [Português abaixo](#português)
+
+## English
+
+### Quick summary
+
+| I want to... | Do this |
+|---|---|
+| Share my own trick | Click **Add a tip** in game, or open the [Community tip](../../issues/new?template=tip.yml) issue |
+| Fix or complete a page | Click the pencil ✏️ on the file > **Propose changes** |
+| Create a new page | Copy a file from [templates/en/](templates/en/) into the right `docs/en/` folder |
+| Report a mistake | Open a [Fix](../../issues/new?template=fix.yml) issue |
+| Ask for a page in the other language | Open a [Translation](../../issues/new?template=translation.yml) issue |
+| Ask a question or share an idea | [Discussions](../../discussions): Q&A or Ideas |
+
+### Where to start
+
+- The **[status board (STATUS.md)](STATUS.md)** shows every page in both languages: ✅ done, 📝 to complete, ❌ missing. It updates by itself.
+- Issues labeled [`good first issue`](../../labels/good%20first%20issue) are good for a first contribution. [`help wanted`](../../labels/help%20wanted) ones need more hands.
+- Know both languages? Check the [`translation`](../../labels/translation) issues.
+- Play a lot? Help with the [`needs in-game check`](../../labels/needs%20in-game%20check) issues.
+- When you finish a page, **delete its "Still missing" section** so it shows ✅ on the board.
+- Writing something big? Comment on the Issue first so two people don't write the same page.
+
+### Official guide vs tips
+
+- **`docs/` is the official guide**: neutral and checked in game. It explains what things are and how to do them.
+- **`tips/` holds community tips**: personal tricks and opinions ("keep reloading your gun and Reloading levels up"). They show in game at the end of the page, under **Community tips**, with your GitHub user name.
+
+If it is a fact that holds for everyone, it goes in the guide. If it is "this is how I do it", it is a tip.
+
+### Tips
+
+- **Easy way**: in game, open the page and click **Add a tip**, or open the **Community tip** issue. A bot puts the tip in the right file and opens the Pull Request. You don't need to know Git.
+- **By hand**: see [tips/README.md](tips/README.md).
+- Up to 600 characters. No insults, ads, cheats that ruin other people's game, or unmarked spoilers.
+
+### The folder tree is the in-game menu
+
+- Each **folder** is a section. Its `README.md` is the section title and intro. Without a `README.md`, the title comes from the folder name.
+- Each **`.md` file** is a page. `docs/<language>/README.md` is the start page.
+- The number prefix (`01-`, `02-`) only sets the order and is hidden in game. Unnumbered items go last, in alphabetical order.
+- Names use only lowercase letters without accents, numbers and `-`. Example: `04-actions/01-vehicles/01-start-the-car.md`.
+- The name without the number (`start-the-car`) is the page **id** and **must be unique within a language**. Tips find their page by it, so you can **move** a page to another folder without losing its tips. If you **rename** it, rename `tips/<language>/<id>.md` too (the script warns you).
+- Files and folders starting with `_` are ignored. Use them for drafts.
+- **Same numbering in both languages**: `docs/en/02-skills/03-firearms/02-reloading.md` ↔ `docs/pt-BR/02-habilidades/03-armas-de-fogo/02-recarga.md`. The script warns when a page has no pair.
+
+For big structure changes, open a Discussion first.
+
+### Where each topic goes
+
+| Folder | What goes there |
+|---|---|
+| `01-the-mod` | Better Experience features |
+| `02-skills` | One page per skill, in the categories of the game's skills screen |
+| `03-items` | What each item type is, what it is for, where to find it |
+| `04-actions` | Step-by-step guides for things players do (driving, building, cooking...) |
+| `05-character` | Occupations, traits, moodles, health |
+| `06-world` | Map, zombies, power and water, weather, animals |
+
+### Writing rules
+
+- First line: `# Title`. Use the **exact** in-game names, in **bold** (see [GLOSSARY.md](GLOSSARY.md)).
+- Short sentences. Explain what the player does, not how the code works.
+- Only write what you checked in **Build 42**. For numbers that change with sandbox settings, say so.
+- Start from the [templates](templates/en/). Suggested sections live in a `<!-- -->` comment that never shows.
+- If you can, update the page in the other language. If you can't, say so in the Pull Request.
+
+### Markdown that shows in game
+
+Project Zomboid's text panel is simple. This works:
+
+- `# Title` (one per file), `## Subtitle`, `### Smaller subtitle`
+- Paragraphs, `-` lists and numbered `1.` lists
+- `**bold**` (yellow), `` `code` `` (blue), `> quote or highlight` (green)
+- `[text](link)`: only the text shows in game
+- ```` ``` ```` code blocks (blue, line by line) and ```` ```mermaid ```` diagrams (turned into images)
+- `<!-- comment -->`: never shows anywhere
+
+**Not** supported in `docs/`: tables (the script rejects them; use a list), loose images and HTML. Avoid the `<` sign in the text. Outside `docs/` (this file, the glossary) anything goes.
+
+### Diagrams (Mermaid)
+
+GitHub renders the diagram, and `tools/build_manual.py` turns the same block into a PNG for the game (dark theme). The game accepts **flowcharts**:
+
+````
+```mermaid
+flowchart TD
+    A([Start]) --> B{Question?}
+    B -->|Yes| C[Do this]
+    B -- No --> D[Do that<br>on two lines]
+    C -.-> E((Optional))
+    D ==> F[[Important]]
+```
+````
+
+- Header `flowchart` or `graph`, with direction `TD` (top-down, recommended), `BT`, `LR` or `RL`.
+- Shapes: `[rectangle]`, `(rounded)`, `([stadium])`, `{decision}`, `((circle))`, `[[subroutine]]`, `{{hexagon}}`, `[(database)]`.
+- Links: `-->`, `---` (no arrow), `-.->` (dotted), `==>` (thick), `<-->` (both ways), with text `-->|text|` or `-- text -->`. Chains (`A --> B --> C`) and groups (`A & B --> C`) work.
+- `"quotes"` for labels with symbols; `<br>` for line breaks.
+- `classDef`, `style`, `class`, `click`, `linkStyle` and `%%` comments are accepted, but the game ignores colors. `subgraph` shows without its box in game.
+- **Game limits**: up to 40 nodes and 1400 px wide. Prefer `TD` and short labels.
+- Other diagram types (`sequenceDiagram`, `pie`, `gantt`...) are **rejected** by the script, because the game could not draw them.
+
+To preview the image on your computer:
+
+```
+pip install pillow
+python tools/mermaid_png.py my-diagram.mmd out.png
+python tools/build_manual.py --out /tmp/manual.lua --images /tmp/images
+```
+
+### Check before sending (optional)
+
+```
+pip install pillow
+python tools/build_manual.py --check
+```
+
+GitHub runs this same check on every Pull Request. Language and section labels are added automatically.
+
+### Commits and Pull Requests
+
+- One topic per Pull Request, with a short imperative title: `Skills: complete Carpentry`.
+- If it solves an Issue, write `Closes #123` in the description.
+- Fill in the Pull Request checklist.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+### For maintainers
+
+Triage, review, labels, bots and releases: [MAINTAINING.md](MAINTAINING.md).
+
+---
 
 ## Português
 
@@ -8,33 +140,33 @@ Obrigado por ajudar! / Thanks for helping! 🇺🇸 [English below](#english)
 
 | Quero... | Faça |
 |---|---|
-| Deixar um truque meu | **Adicionar dica** no jogo, ou a Issue [Dica da comunidade](../../issues/new?template=dica.yml) |
+| Deixar um truque meu | **Adicionar dica** no jogo, ou a Issue [Dica da comunidade](../../issues/new?template=tip.yml) |
 | Corrigir ou completar uma página | Lápis ✏️ no arquivo > **Propose changes** |
-| Criar uma página nova | Copie um arquivo de [modelos/pt-BR/](modelos/pt-BR/) para a pasta certa de `docs/pt-BR/` |
-| Avisar de um erro | Issue [Correção](../../issues/new?template=correcao.yml) |
-| Pedir uma página no outro idioma | Issue [Tradução](../../issues/new?template=traducao.yml) |
+| Criar uma página nova | Copie um arquivo de [templates/pt-BR/](templates/pt-BR/) para a pasta certa de `docs/pt-BR/` |
+| Avisar de um erro | Issue [Correção](../../issues/new?template=fix.yml) |
+| Pedir uma página no outro idioma | Issue [Tradução](../../issues/new?template=translation.yml) |
 | Perguntar ou dar uma ideia | [Discussions](../../discussions): Q&A ou Ideas |
 
 ### Por onde começar
 
 - O **[painel (STATUS.md)](STATUS.md)** mostra cada página nos dois idiomas: ✅ pronta, 📝 para completar, ❌ não existe ainda. Ele se atualiza sozinho.
 - Issues com o rótulo [`good first issue`](../../labels/good%20first%20issue) são boas para a primeira vez. As com [`help wanted`](../../labels/help%20wanted) precisam de mais gente.
-- Sabe os dois idiomas? Veja as Issues [`tradução`](../../labels/tradu%C3%A7%C3%A3o).
-- Joga muito? Ajude nas Issues [`precisa conferir no jogo`](../../labels/precisa%20conferir%20no%20jogo).
+- Sabe os dois idiomas? Veja as Issues [`translation`](../../labels/translation) (tradução).
+- Joga muito? Ajude nas Issues [`needs in-game check`](../../labels/needs%20in-game%20check) (precisa conferir no jogo).
 - Quando terminar uma página, **apague a seção "Ainda falta"**. Assim ela fica ✅ no painel.
 - Vai escrever algo grande? Comente na Issue antes, para duas pessoas não fazerem a mesma página.
 
 ### Guia oficial × dicas
 
 - **`docs/` é o guia oficial**: explica o que cada coisa é e como se faz, de forma neutra e conferida no jogo.
-- **`dicas/` são as dicas da comunidade**: truques e opiniões pessoais ("fica recarregando a arma sem parar que a Recarga sobe"). Aparecem no jogo no fim da página, em **Dicas da comunidade**, com o seu usuário do GitHub.
+- **`tips/` são as dicas da comunidade**: truques e opiniões pessoais ("fica recarregando a arma sem parar que a Recarga sobe"). Aparecem no jogo no fim da página, em **Dicas da comunidade**, com o seu usuário do GitHub.
 
 Na dúvida: se é fato que vale para todo mundo, vai no guia; se é "eu faço assim", vai nas dicas.
 
 ### Dicas
 
 - **Jeito fácil**: no jogo, abra a página e clique em **Adicionar dica**. Ou abra a Issue **Dica da comunidade**. Um robô coloca a dica no arquivo certo e abre o Pull Request. Não precisa saber Git.
-- **Na mão**: veja [dicas/README.md](dicas/README.md).
+- **Na mão**: veja [tips/README.md](tips/README.md).
 - Até 600 caracteres. Não são aceitas dicas com ofensa, propaganda, trapaça (exploits que estragam o jogo de outros) ou spoiler sem aviso.
 
 ### A árvore de pastas é o menu do jogo
@@ -43,7 +175,7 @@ Na dúvida: se é fato que vale para todo mundo, vai no guia; se é "eu faço as
 - Cada **arquivo `.md`** é uma página. `docs/<idioma>/README.md` é a página inicial.
 - O número no começo do nome (`01-`, `02-`) só define a ordem e não aparece no jogo. Itens sem número vão para o fim, em ordem alfabética.
 - Nomes só com letras minúsculas sem acento, números e `-`. Ex.: `04-acoes/01-veiculos/01-ligar-o-carro.md`.
-- O nome sem o número (`ligar-o-carro`) é o **id** da página e **não pode se repetir no mesmo idioma**. É por ele que as dicas acham a página: você pode **mover** a página de pasta sem perder as dicas. Se **renomear**, renomeie também `dicas/<idioma>/<id>.md` (o script avisa).
+- O nome sem o número (`ligar-o-carro`) é o **id** da página e **não pode se repetir no mesmo idioma**. É por ele que as dicas acham a página: você pode **mover** a página de pasta sem perder as dicas. Se **renomear**, renomeie também `tips/<idioma>/<id>.md` (o script avisa).
 - Arquivos e pastas que começam com `_` são ignorados (use para rascunhos).
 - **Mesma numeração nos dois idiomas**: `docs/pt-BR/02-habilidades/03-armas-de-fogo/02-recarga.md` ↔ `docs/en/02-skills/03-firearms/02-reloading.md`. O script avisa quando uma página não tem par.
 
@@ -62,55 +194,23 @@ Mudanças grandes de estrutura: abra antes uma Discussion.
 
 ### Regras do texto
 
-- Primeira linha: `# Título`. Use os nomes **exatos** do jogo, em **negrito** (veja o [GLOSSARIO.md](GLOSSARIO.md)).
+- Primeira linha: `# Título`. Use os nomes **exatos** do jogo, em **negrito** (veja o [GLOSSARY.md](GLOSSARY.md)).
 - Frases curtas. Explique o que o jogador faz, não como o código funciona.
 - Escreva só o que você conferiu no **Build 42**. Números que mudam com as configurações do mundo (sandbox), diga que dependem delas.
-- Comece pelos [modelos](modelos/pt-BR/). As seções sugeridas ficam num comentário `<!-- -->` que não aparece em lugar nenhum.
+- Comece pelos [modelos](templates/pt-BR/). As seções sugeridas ficam num comentário `<!-- -->` que não aparece em lugar nenhum.
 - Se puder, atualize a página no outro idioma. Se não souber, avise no Pull Request.
 
 ### Markdown que aparece no jogo
 
-O painel de texto do Project Zomboid é simples. Funciona:
+Funciona: `#`, `##`, `###`, parágrafos, listas `-` e `1.`, `**negrito**` (amarelo), `` `código` `` (azul), `> destaque` (verde), `[texto](link)` (só o texto aparece), blocos ```` ``` ```` de código, diagramas ```` ```mermaid ```` e `<!-- comentários -->`.
 
-- `# Título` (um por arquivo), `## Subtítulo`, `### Subtítulo menor`
-- Parágrafos, listas com `-` e numeradas `1.`
-- `**negrito**` (amarelo), `` `código` `` (azul), `> citação ou destaque` (verde)
-- `[texto](link)`: no jogo aparece só o texto
-- Blocos ```` ``` ```` de código (azul, linha por linha) e ```` ```mermaid ```` (viram imagem)
-- `<!-- comentário -->`: não aparece em lugar nenhum
-
-**Não** funciona em `docs/`: tabelas (o script recusa; use lista), imagens soltas e HTML. Evite o sinal `<` no texto. Fora de `docs/` (este arquivo, o glossário) pode usar tudo.
+**Não** funciona em `docs/`: tabelas (o script recusa; use lista), imagens soltas e HTML. Evite o sinal `<` no texto.
 
 ### Diagramas (Mermaid)
 
-O GitHub desenha o diagrama; o `tools/build_manual.py` gera a mesma figura em PNG para o jogo (tema escuro). O jogo aceita **fluxogramas**:
+O GitHub desenha o diagrama; o `tools/build_manual.py` gera a mesma figura em PNG para o jogo (tema escuro). O jogo aceita **fluxogramas** `flowchart`/`graph` (direção `TD` recomendada), com as formas e setas listadas na parte em inglês acima. Limites do jogo: até 40 nós e 1400 px de largura. Outros tipos (`sequenceDiagram`, `pie`, `gantt`...) são recusados.
 
-````
-```mermaid
-flowchart TD
-    A([Começo]) --> B{Pergunta?}
-    B -->|Sim| C[Faz isto]
-    B -- Não --> D[Faz aquilo<br>em duas linhas]
-    C -.-> E((Opcional))
-    D ==> F[[Importante]]
-```
-````
-
-- Cabeçalho `flowchart` ou `graph`, com direção `TD` (de cima para baixo, recomendada), `BT`, `LR` ou `RL`.
-- Formas: `[retângulo]`, `(arredondado)`, `([início/fim])`, `{decisão}`, `((círculo))`, `[[sub-rotina]]`, `{{hexágono}}`, `[(banco)]`.
-- Setas: `-->`, `---` (sem seta), `-.->` (pontilhada), `==>` (grossa), `<-->` (dupla), com texto `-->|texto|` ou `-- texto -->`. Vale encadear (`A --> B --> C`) e agrupar (`A & B --> C`).
-- `"aspas"` para textos com símbolos; `<br>` para quebrar linha.
-- `classDef`, `style`, `class`, `click`, `linkStyle` e `%%` comentários são aceitos, mas o jogo ignora as cores. `subgraph` aparece sem a caixa no jogo.
-- **Limites do jogo**: até 40 nós e 1400 px de largura. Prefira `TD` e textos curtos.
-- Outros tipos (`sequenceDiagram`, `pie`, `gantt`...) são **recusados** pelo script, porque o jogo não saberia desenhar.
-
-Para ver a imagem no seu computador:
-
-```
-pip install pillow
-python tools/mermaid_png.py meu-diagrama.mmd saida.png
-python tools/build_manual.py --out /tmp/manual.lua --images /tmp/imagens
-```
+Para ver a imagem: `python tools/mermaid_png.py meu-diagrama.mmd saida.png` (precisa de `pip install pillow`).
 
 ### Testar antes de enviar (opcional)
 
@@ -125,112 +225,8 @@ O GitHub roda essa mesma verificação em todo Pull Request. Os rótulos de idio
 
 - Um assunto por Pull Request. Título curto, no imperativo: `Habilidades: completar Carpintaria`.
 - Se resolve uma Issue, escreva `Closes #123` na descrição.
-- Preencha o checklist do Pull Request.
-- Siga o [Código de Conduta](CODE_OF_CONDUCT.md).
+- Preencha o checklist do Pull Request e siga o [Código de Conduta](CODE_OF_CONDUCT.md).
 
----
+### Para quem cuida do repositório
 
-## English
-
-### Quick summary
-
-| I want to... | Do this |
-|---|---|
-| Leave my own trick | **Add a tip** in game, or the [Community tip](../../issues/new?template=dica.yml) issue |
-| Fix or complete a page | Pencil ✏️ on the file > **Propose changes** |
-| Create a new page | Copy a file from [modelos/en/](modelos/en/) into the right `docs/en/` folder |
-| Report a mistake | [Fix](../../issues/new?template=correcao.yml) issue |
-| Ask for a page in the other language | [Translation](../../issues/new?template=traducao.yml) issue |
-| Ask or share an idea | [Discussions](../../discussions): Q&A or Ideas |
-
-### Where to start
-
-- The **[status board (STATUS.md)](STATUS.md)** shows every page in both languages: ✅ done, 📝 to complete, ❌ missing. It updates by itself.
-- Issues labeled [`good first issue`](../../labels/good%20first%20issue) are good for a first time. [`help wanted`](../../labels/help%20wanted) ones need more hands.
-- Know both languages? Check the [`tradução`](../../labels/tradu%C3%A7%C3%A3o) (translation) issues.
-- Play a lot? Help with [`precisa conferir no jogo`](../../labels/precisa%20conferir%20no%20jogo) (needs checking in game).
-- When you finish a page, **delete its "Still missing" section** so it shows ✅ on the board.
-- Writing something big? Comment on the Issue first so two people don't write the same page.
-
-### Official guide vs tips
-
-- **`docs/` is the official guide**: neutral, checked in game, explains what things are and how to do them.
-- **`dicas/` holds community tips** ("dicas" is Portuguese for tips): personal tricks and opinions. They show in game at the end of the page, under **Community tips**, with your GitHub user name.
-
-If it is a fact that holds for everyone, it goes in the guide; if it is "this is how I do it", it is a tip.
-
-### Tips
-
-- **Easy way**: in game, open the page and click **Add a tip**, or open the **Community tip** issue. A bot puts it in the right file and opens the Pull Request.
-- **By hand**: see [dicas/README.md](dicas/README.md).
-- Up to 600 characters. No offensive content, ads, cheats that ruin other people's game, or unmarked spoilers.
-
-### The folder tree is the in-game menu
-
-- Each **folder** is a section; its `README.md` is the title and intro. Each **`.md` file** is a page. `docs/<language>/README.md` is the start page.
-- The number prefix (`01-`, `02-`) only sets the order and is hidden in game. Unnumbered items go last, alphabetically.
-- Names use only lowercase letters without accents, numbers and `-`.
-- The name without the number is the page **id** and **must be unique per language**. Tips find their page by it, so you can **move** a page without losing its tips. If you **rename** it, rename `dicas/<language>/<id>.md` too (the script warns you).
-- Names starting with `_` are ignored (drafts).
-- **Same numbering in both languages**. The script warns when a page has no pair.
-
-For big structure changes, open a Discussion first.
-
-### Where each topic goes
-
-| Folder | What goes there |
-|---|---|
-| `01-the-mod` | Better Experience features |
-| `02-skills` | One page per skill, in the categories of the game's skills screen |
-| `03-items` | What each item type is, what it is for, where to find it |
-| `04-actions` | Step-by-step things players do (driving, building, cooking...) |
-| `05-character` | Occupations, traits, moodles, health |
-| `06-world` | Map, zombies, power and water, weather, animals |
-
-### Writing rules
-
-- First line: `# Title`. Use the **exact** in-game names, in **bold** (see [GLOSSARIO.md](GLOSSARIO.md)).
-- Short sentences. Explain what the player does, not how the code works.
-- Only write what you checked in **Build 42**. For numbers that change with sandbox settings, say so.
-- Start from the [templates](modelos/en/). Suggested sections live in a `<!-- -->` comment that never shows.
-- If you can, update the page in the other language. If not, say so in the Pull Request.
-
-### Markdown that shows in game
-
-Supported: `#`, `##`, `###` headings, paragraphs, `-` and `1.` lists, `**bold**`, `` `code` ``, `> quote`, `[text](link)` (only the text shows), ```` ``` ```` code blocks, ```` ```mermaid ```` diagrams and `<!-- comments -->`.
-
-**Not** supported in `docs/`: tables (rejected; use a list), loose images and HTML. Avoid `<` in the text.
-
-### Diagrams (Mermaid)
-
-GitHub renders the diagram; `tools/build_manual.py` turns the same block into a PNG for the game (dark theme). The game accepts **flowcharts**:
-
-- Header `flowchart` or `graph`, direction `TD` (recommended), `BT`, `LR` or `RL`.
-- Shapes: `[rectangle]`, `(rounded)`, `([stadium])`, `{decision}`, `((circle))`, `[[subroutine]]`, `{{hexagon}}`, `[(database)]`.
-- Links: `-->`, `---`, `-.->`, `==>`, `<-->`, with text `-->|text|` or `-- text -->`. Chains (`A --> B --> C`) and groups (`A & B --> C`) work.
-- `"quotes"` for labels with symbols; `<br>` for line breaks.
-- `classDef`, `style`, `class`, `click`, `linkStyle` and `%%` comments are accepted, but colors are ignored in game. `subgraph` shows without its box in game.
-- **Game limits**: up to 40 nodes and 1400 px wide.
-- Other diagram types (`sequenceDiagram`, `pie`, `gantt`...) are **rejected**.
-
-Preview: `python tools/mermaid_png.py diagram.mmd out.png` (needs `pip install pillow`).
-
-### Check before sending (optional)
-
-```
-pip install pillow
-python tools/build_manual.py --check
-```
-
-### Commits and Pull Requests
-
-- One topic per Pull Request, short imperative title: `Skills: complete Carpentry`. Language and section labels are added automatically.
-- If it solves an Issue, write `Closes #123` in the description.
-- Fill in the Pull Request checklist and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-
----
-
-## Para quem cuida do repositório / For maintainers
-
-Triagem, revisão, rótulos, robôs e lançamento de versões: [MANUTENCAO.md](MANUTENCAO.md).
-Triage, review, labels, bots and releases: [MANUTENCAO.md](MANUTENCAO.md#english).
+Triagem, revisão, rótulos, robôs e lançamento de versões: [MAINTAINING.md](MAINTAINING.md#português).

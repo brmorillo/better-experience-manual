@@ -1,16 +1,4 @@
-# Código de Conduta / Code of Conduct
-
-## Português
-
-Este é um projeto de jogadores para jogadores. Para todo mundo se sentir à vontade:
-
-- **Respeito.** Critique o texto, não a pessoa. Nada de ofensa, assédio, preconceito ou ataque pessoal.
-- **Paciência com quem está começando**, no jogo e no Git.
-- **Ajude a acertar.** Discordou de uma informação? Mostre como conferiu no jogo.
-- **Sem spam e sem propaganda.**
-- **Sem spoiler sem aviso** e sem trapaças que estraguem o jogo de outras pessoas.
-
-Quem cuida do repositório pode editar, recusar ou apagar contribuições, comentários e dicas que não sigam estas regras, e bloquear quem insistir. Para avisar de um problema, abra uma Issue ou, se for algo pessoal, use o contato do perfil do mantenedor no GitHub.
+# Code of Conduct / Código de Conduta
 
 ## English
 
@@ -24,4 +12,16 @@ This is a project by players, for players. So everyone feels welcome:
 
 Maintainers may edit, reject or remove contributions, comments and tips that break these rules, and block repeat offenders. To report a problem, open an Issue or, for something personal, use the contact on the maintainer's GitHub profile.
 
-Inspirado no / Inspired by the [Contributor Covenant](https://www.contributor-covenant.org/).
+## Português
+
+Este é um projeto de jogadores para jogadores. Para todo mundo se sentir à vontade:
+
+- **Respeito.** Critique o texto, não a pessoa. Nada de ofensa, assédio, preconceito ou ataque pessoal.
+- **Paciência com quem está começando**, no jogo e no Git.
+- **Ajude a acertar.** Discordou de uma informação? Mostre como conferiu no jogo.
+- **Sem spam e sem propaganda.**
+- **Sem spoiler sem aviso** e sem trapaças que estraguem o jogo de outras pessoas.
+
+Quem cuida do repositório pode editar, recusar ou apagar contribuições, comentários e dicas que não sigam estas regras, e bloquear quem insistir. Para avisar de um problema, abra uma Issue ou, se for algo pessoal, use o contato do perfil do mantenedor no GitHub.
+
+Inspired by the / Inspirado no [Contributor Covenant](https://www.contributor-covenant.org/).

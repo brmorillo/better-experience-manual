@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Cria ou atualiza no GitHub os rotulos de .github/labels.yml (nunca apaga nenhum).
-Roda no GitHub Actions (.github/workflows/labels.yml), com GITHUB_TOKEN e
-GITHUB_REPOSITORY. Para so ver o que mudaria: python tools/sync_labels.py --dry-run
+Creates, renames or updates the GitHub labels from .github/labels.yml (never deletes any).
+A label with `previous: <old name>` renames that old label instead of creating a new one.
+Runs in GitHub Actions (.github/workflows/labels.yml), with GITHUB_TOKEN and
+GITHUB_REPOSITORY. To only see what would change: python tools/sync_labels.py --dry-run
 """
 import argparse
 import json
@@ -35,19 +36,19 @@ def load():
     for lab in labels:
         name = lab["name"]
         if name.lower() in seen:
-            raise SystemExit(f"rotulo repetido: {name}")
+            raise SystemExit(f"duplicate label: {name}")
         seen.add(name.lower())
         lab["color"] = str(lab["color"]).lstrip("#").lower()
         if len(lab["color"]) != 6:
-            raise SystemExit(f"{name}: a cor precisa ter 6 digitos hexadecimais")
+            raise SystemExit(f"{name}: the color must have 6 hex digits")
         if len(lab.get("description", "")) > 100:
-            raise SystemExit(f"{name}: a descricao passa de 100 caracteres")
+            raise SystemExit(f"{name}: the description is longer than 100 characters")
     return labels
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--dry-run", action="store_true")
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--dry-run", action="store_true", help="only show what would change")
     args = ap.parse_args()
     wanted = load()
     repo = os.environ.get("GITHUB_REPOSITORY", "brmorillo/better-experience-manual")
@@ -64,11 +65,24 @@ def main():
         body = {"name": lab["name"], "color": lab["color"], "description": lab.get("description", "")}
         cur = have.get(lab["name"].lower())
         if cur is None:
-            print("criar:", lab["name"])
+            # Renamed label: `previous` holds old names, so existing Issues keep it.
+            prev = lab.get("previous") or []
+            for old in ([prev] if isinstance(prev, str) else prev):
+                cur = have.get(str(old).lower())
+                if cur is not None:
+                    print(f"rename: {cur['name']} -> {lab['name']}")
+                    if not args.dry_run:
+                        call("PATCH", f"/repos/{repo}/labels/{urllib.parse.quote(cur['name'], safe='')}", token,
+                             {"new_name": body["name"], "color": body["color"], "description": body["description"]})
+                    break
+            if cur is not None:
+                continue
+        if cur is None:
+            print("create:", lab["name"])
             if not args.dry_run:
                 call("POST", f"/repos/{repo}/labels", token, body)
         elif (cur["name"], cur["color"].lower(), cur.get("description") or "") != (body["name"], body["color"], body["description"]):
-            print("atualizar:", lab["name"])
+            print("update:", lab["name"])
             if not args.dry_run:
                 call("PATCH", f"/repos/{repo}/labels/{urllib.parse.quote(cur['name'], safe='')}", token,
                      {"new_name": body["name"], "color": body["color"], "description": body["description"]})

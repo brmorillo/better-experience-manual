@@ -1,6 +1,6 @@
-name: Sincronizar rotulos
+name: Sync labels
 
-# Cria ou atualiza os rotulos do repositorio a partir de .github/labels.yml.
+# Creates, renames or updates the repository labels from .github/labels.yml.
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install "pyyaml>=6"
-      - name: Sincronizar
+      - name: Sync
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python tools/sync_labels.py

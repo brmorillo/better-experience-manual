@@ -1,15 +1,15 @@
-# Ajuda / Support
+# Support / Ajuda
 
-| Preciso de... / I need... | Onde / Where |
+| I need... / Preciso de... | Where / Onde |
 |---|---|
-| Uma dúvida sobre o mod ou o jogo / A question about the mod or the game | [Discussions > Q&A](https://github.com/brmorillo/better-experience-manual/discussions/categories/q-a) |
-| Avisar de algo errado no manual / Report something wrong in the manual | [Issue "Correção / Fix"](https://github.com/brmorillo/better-experience-manual/issues/new?template=correcao.yml) |
-| Deixar uma dica / Leave a tip | [Issue "Dica da comunidade / Community tip"](https://github.com/brmorillo/better-experience-manual/issues/new?template=dica.yml), ou o botão **Adicionar dica** no jogo / or the **Add a tip** button in game |
-| Uma ideia / An idea | [Discussions > Ideas](https://github.com/brmorillo/better-experience-manual/discussions/categories/ideas) |
-| Ajudar a escrever / Help write | [STATUS.md](STATUS.md) e / and [CONTRIBUTING.md](CONTRIBUTING.md) |
+| A question about the mod or the game / Uma dúvida sobre o mod ou o jogo | [Discussions > Q&A](https://github.com/brmorillo/better-experience-manual/discussions/categories/q-a) |
+| Report something wrong in the manual / Avisar de algo errado no manual | [Fix issue / Issue "Correção"](https://github.com/brmorillo/better-experience-manual/issues/new?template=fix.yml) |
+| Leave a tip / Deixar uma dica | [Community tip issue / Issue "Dica da comunidade"](https://github.com/brmorillo/better-experience-manual/issues/new?template=tip.yml), or the **Add a tip** button in game / ou o botão **Adicionar dica** no jogo |
+| An idea / Uma ideia | [Discussions > Ideas](https://github.com/brmorillo/better-experience-manual/discussions/categories/ideas) |
+| Help write / Ajudar a escrever | [STATUS.md](STATUS.md) and / e [CONTRIBUTING.md](CONTRIBUTING.md) |
 
-Antes de perguntar, veja as [Perguntas frequentes](docs/pt-BR/01-o-mod/08-perguntas-frequentes.md) / [FAQ](docs/en/01-the-mod/08-faq.md).
-Before asking, check the FAQ.
+Before asking, check the [FAQ](docs/en/01-the-mod/08-faq.md).
+Antes de perguntar, veja as [Perguntas frequentes](docs/pt-BR/01-o-mod/08-perguntas-frequentes.md).
 
-O mod é feito para **um jogador**. Problemas em servidores multiplayer podem não ter solução.
 The mod is made for **single player**. Problems on multiplayer servers may not have a fix.
+O mod é feito para **um jogador**. Problemas em servidores multiplayer podem não ter solução.
