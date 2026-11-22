@@ -12,9 +12,9 @@ In game, open the manual page and click **Add a tip**. Or open a GitHub issue wi
 
 ## Na mão / By hand
 
-Um arquivo por página, com o nome do id da página: `dicas/<idioma>/<id>.md`. O id é o nome do arquivo da página sem o número e sem `.md`. Exemplo: `docs/pt-BR/03-mapa-e-gps/02-gps.md` → `dicas/pt-BR/gps.md`. A página inicial de cada idioma tem o id `inicio`. Uma pasta tem o id do nome dela sem o número.
+Um arquivo por página, com o nome do id da página: `dicas/<idioma>/<id>.md`. O id é o nome do arquivo da página sem o número e sem `.md`. Exemplo: `docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md` → `dicas/pt-BR/gps.md`. A página inicial de cada idioma tem o id `inicio`. Uma pasta tem o id do nome dela sem o número.
 
-One file per page, named after the page id: `dicas/<language>/<id>.md`. The id is the page file name without the number and without `.md`. Example: `docs/en/03-map-and-gps/02-gps.md` → `dicas/en/gps.md`. The start page of each language has the id `inicio`. A folder's id is its name without the number.
+One file per page, named after the page id: `dicas/<language>/<id>.md`. The id is the page file name without the number and without `.md`. Example: `docs/en/01-the-mod/03-map-and-gps/02-gps.md` → `dicas/en/gps.md`. The start page of each language has the id `inicio`. A folder's id is its name without the number.
 
 Cada dica começa com uma linha `## @autor | AAAA-MM-DD` e tem no máximo 600 caracteres. / Each tip starts with a `## @author | YYYY-MM-DD` line and has at most 600 characters.
 

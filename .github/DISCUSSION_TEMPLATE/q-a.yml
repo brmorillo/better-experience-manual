@@ -1,0 +1,18 @@
+title: "[Dúvida] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de perguntar, veja as [Perguntas frequentes](https://github.com/brmorillo/better-experience-manual/blob/main/docs/pt-BR/01-o-mod/08-perguntas-frequentes.md) / [FAQ](https://github.com/brmorillo/better-experience-manual/blob/main/docs/en/01-the-mod/08-faq.md). Quando alguém resolver, marque a resposta como **Answer**.
+        Before asking, check the FAQ. When someone solves it, mark the reply as the **Answer**.
+  - type: textarea
+    id: question
+    attributes:
+      label: "Sua dúvida / Your question"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Versão do mod e do jogo / Mod and game version"
+      placeholder: "ex.: mod 0.4.0, Build 42.12"

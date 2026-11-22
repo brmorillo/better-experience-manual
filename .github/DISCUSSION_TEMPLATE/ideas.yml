@@ -1,0 +1,23 @@
+title: "[Ideia] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideias para o **manual** (páginas novas, organização) ou para o **mod**. Para algo errado numa página, prefira a Issue **Correção**.
+        Ideas for the **manual** (new pages, layout) or for the **mod**. For something wrong on a page, use the **Fix** issue instead.
+  - type: dropdown
+    id: about
+    attributes:
+      label: "Sobre / About"
+      options:
+        - "Manual"
+        - "Mod"
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: "Sua ideia / Your idea"
+      description: "O que você quer e por que ajudaria outros jogadores. / What you want and why it would help other players."
+    validations:
+      required: true

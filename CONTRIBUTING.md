@@ -11,7 +11,18 @@ Obrigado por ajudar! / Thanks for helping! 🇺🇸 [English below](#english)
 | Deixar um truque meu | **Adicionar dica** no jogo, ou a Issue [Dica da comunidade](../../issues/new?template=dica.yml) |
 | Corrigir ou completar uma página | Lápis ✏️ no arquivo > **Propose changes** |
 | Criar uma página nova | Copie um arquivo de [modelos/pt-BR/](modelos/pt-BR/) para a pasta certa de `docs/pt-BR/` |
-| Avisar de um erro ou perguntar | [Issue](../../issues/new/choose) ou [Discussions](../../discussions) |
+| Avisar de um erro | Issue [Correção](../../issues/new?template=correcao.yml) |
+| Pedir uma página no outro idioma | Issue [Tradução](../../issues/new?template=traducao.yml) |
+| Perguntar ou dar uma ideia | [Discussions](../../discussions): Q&A ou Ideas |
+
+### Por onde começar
+
+- O **[painel (STATUS.md)](STATUS.md)** mostra cada página nos dois idiomas: ✅ pronta, 📝 para completar, ❌ não existe ainda. Ele se atualiza sozinho.
+- Issues com o rótulo [`good first issue`](../../labels/good%20first%20issue) são boas para a primeira vez. As com [`help wanted`](../../labels/help%20wanted) precisam de mais gente.
+- Sabe os dois idiomas? Veja as Issues [`tradução`](../../labels/tradu%C3%A7%C3%A3o).
+- Joga muito? Ajude nas Issues [`precisa conferir no jogo`](../../labels/precisa%20conferir%20no%20jogo).
+- Quando terminar uma página, **apague a seção "Ainda falta"**. Assim ela fica ✅ no painel.
+- Vai escrever algo grande? Comente na Issue antes, para duas pessoas não fazerem a mesma página.
 
 ### Guia oficial × dicas
 
@@ -108,11 +119,12 @@ pip install pillow
 python tools/build_manual.py --check
 ```
 
-O GitHub roda essa mesma verificação em todo Pull Request.
+O GitHub roda essa mesma verificação em todo Pull Request. Os rótulos de idioma e seção entram sozinhos.
 
 ### Commits e Pull Requests
 
 - Um assunto por Pull Request. Título curto, no imperativo: `Habilidades: completar Carpintaria`.
+- Se resolve uma Issue, escreva `Closes #123` na descrição.
 - Preencha o checklist do Pull Request.
 - Siga o [Código de Conduta](CODE_OF_CONDUCT.md).
 
@@ -127,7 +139,18 @@ O GitHub roda essa mesma verificação em todo Pull Request.
 | Leave my own trick | **Add a tip** in game, or the [Community tip](../../issues/new?template=dica.yml) issue |
 | Fix or complete a page | Pencil ✏️ on the file > **Propose changes** |
 | Create a new page | Copy a file from [modelos/en/](modelos/en/) into the right `docs/en/` folder |
-| Report a mistake or ask | [Issue](../../issues/new/choose) or [Discussions](../../discussions) |
+| Report a mistake | [Fix](../../issues/new?template=correcao.yml) issue |
+| Ask for a page in the other language | [Translation](../../issues/new?template=traducao.yml) issue |
+| Ask or share an idea | [Discussions](../../discussions): Q&A or Ideas |
+
+### Where to start
+
+- The **[status board (STATUS.md)](STATUS.md)** shows every page in both languages: ✅ done, 📝 to complete, ❌ missing. It updates by itself.
+- Issues labeled [`good first issue`](../../labels/good%20first%20issue) are good for a first time. [`help wanted`](../../labels/help%20wanted) ones need more hands.
+- Know both languages? Check the [`tradução`](../../labels/tradu%C3%A7%C3%A3o) (translation) issues.
+- Play a lot? Help with [`precisa conferir no jogo`](../../labels/precisa%20conferir%20no%20jogo) (needs checking in game).
+- When you finish a page, **delete its "Still missing" section** so it shows ✅ on the board.
+- Writing something big? Comment on the Issue first so two people don't write the same page.
 
 ### Official guide vs tips
 
@@ -201,21 +224,13 @@ python tools/build_manual.py --check
 
 ### Commits and Pull Requests
 
-- One topic per Pull Request, short imperative title: `Skills: complete Carpentry`.
+- One topic per Pull Request, short imperative title: `Skills: complete Carpentry`. Language and section labels are added automatically.
+- If it solves an Issue, write `Closes #123` in the description.
 - Fill in the Pull Request checklist and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ---
 
 ## Para quem cuida do repositório / For maintainers
 
-- **Settings > Actions > General > Workflow permissions**: marque / enable **Allow GitHub Actions to create and approve pull requests** (robô das dicas / tip bot).
-- **Settings > General > Features**: ative / enable **Discussions**.
-- Rótulo / label `dica` (o formulário usa; o robô também aceita títulos que começam com `[Dica]`).
-- Antes de cada versão do mod / Before each mod release:
-
-```
-pip install pillow
-python tools/build_manual.py
-```
-
-Grava `PA_ManualData.lua` e as imagens `media/textures/PA_Manual/d_*.png` na pasta do mod ao lado deste repositório. / Writes `PA_ManualData.lua` and the diagram images into the mod folder next to this repo.
+Triagem, revisão, rótulos, robôs e lançamento de versões: [MANUTENCAO.md](MANUTENCAO.md).
+Triage, review, labels, bots and releases: [MANUTENCAO.md](MANUTENCAO.md#english).

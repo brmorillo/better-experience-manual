@@ -1,0 +1,20 @@
+name: Rotular Pull Request
+
+# Coloca rotulos (idioma, secao, dica...) pelos arquivos que o Pull Request muda.
+# Nao baixa nem roda o codigo do Pull Request: so le a lista de arquivos.
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v5
+        with:
+          sync-labels: false

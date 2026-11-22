@@ -1,0 +1,29 @@
+name: Boas-vindas
+
+# Agradece quem abre a primeira Issue ou o primeiro Pull Request no repositorio.
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ github.token }}
+          issue-message: |
+            Obrigado pela primeira contribuição! 🎉 Alguém que cuida do manual vai olhar em breve. Enquanto isso, o [painel](https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md) mostra as páginas que ainda precisam de ajuda.
+
+            Thanks for your first contribution! 🎉 A maintainer will take a look soon. Meanwhile, the [status board](https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md) lists the pages that still need help.
+          pr-message: |
+            Obrigado pelo primeiro Pull Request! 🎉 A verificação automática confere se o manual continua funcionando no jogo. Se ela reclamar, a mensagem diz o arquivo e o que mudar. Veja também o [CONTRIBUTING.md](https://github.com/brmorillo/better-experience-manual/blob/main/CONTRIBUTING.md).
+
+            Thanks for your first Pull Request! 🎉 The automatic check makes sure the manual still works in game. If it complains, the message names the file and what to change. See also [CONTRIBUTING.md](https://github.com/brmorillo/better-experience-manual/blob/main/CONTRIBUTING.md#english).

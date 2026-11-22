@@ -17,3 +17,5 @@ jobs:
         run: pip install "pillow>=10"
       - name: Converter o manual para o formato do jogo
         run: python tools/build_manual.py --check
+      - name: Gerar o painel (so testa, nao grava na main)
+        run: python tools/status.py

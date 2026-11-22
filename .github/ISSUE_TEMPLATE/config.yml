@@ -1,5 +1,11 @@
 blank_issues_enabled: true
 contact_links:
-  - name: "Conversar / perguntar (Discussions) | Chat / ask (Discussions)"
-    url: https://github.com/brmorillo/better-experience-manual/discussions
-    about: "Dúvidas, ideias e conversas sobre o manual. | Questions, ideas and chat about the manual."
+  - name: "Dúvida sobre o mod ou o jogo | Question about the mod or the game"
+    url: https://github.com/brmorillo/better-experience-manual/discussions/categories/q-a
+    about: "Pergunte nas Discussions (Q&A). | Ask in Discussions (Q&A)."
+  - name: "Ideia | Idea"
+    url: https://github.com/brmorillo/better-experience-manual/discussions/categories/ideas
+    about: "Ideias para o manual ou o mod. | Ideas for the manual or the mod."
+  - name: "O que falta escrever | What is left to write"
+    url: https://github.com/brmorillo/better-experience-manual/blob/main/STATUS.md
+    about: "Painel com as páginas que precisam de ajuda. | Board with the pages that need help."

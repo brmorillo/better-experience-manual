@@ -3,6 +3,8 @@
 # Better Experience - ALL In One: Manual
 
 [![Verificar manual](../../actions/workflows/check.yml/badge.svg)](../../actions/workflows/check.yml)
+[![Painel / Status](https://img.shields.io/badge/painel-o%20que%20falta-c5def5)](STATUS.md)
+[![Discussions](https://img.shields.io/badge/discussions-perguntas%20e%20ideias-0e8a16)](../../discussions)
 
 Manual oficial do mod **Better Experience - ALL In One** e guia comunitário do **Project Zomboid Build 42**, em português e inglês. O código do mod não fica aqui: este repositório tem as explicações, os tutoriais e as dicas dos jogadores.
 
@@ -85,12 +87,32 @@ flowchart LR
 
 ## Ajudar / Contribute
 
+**Comece pelo [painel](STATUS.md):** ele mostra cada página nos dois idiomas, com ✅ pronta, 📝 para completar e ❌ não existe ainda. A maior parte das páginas de habilidades, itens, ações, personagem e mundo ainda é 📝.
+**Start with the [status board](STATUS.md):** it shows every page in both languages, with ✅ done, 📝 to complete and ❌ missing. Most skills, items, actions, character and world pages are still 📝.
+
 - 💬 **Deixar uma dica / Leave a tip**: no jogo, **Adicionar dica**, ou abra uma [Issue "Dica da comunidade"](../../issues/new?template=dica.yml). Um robô cria o Pull Request. / In game, **Add a tip**, or open a ["Community tip" issue](../../issues/new?template=dica.yml). A bot creates the Pull Request.
 - ✏️ **Escrever no guia / Write the guide**: clique no lápis de qualquer página. Use os [modelos](modelos/) e o [glossário](GLOSSARIO.md). / Click the pencil on any page. Use the [templates](modelos/) and the [glossary](GLOSSARIO.md).
-- 🗨️ **Sugerir ou perguntar / Suggest or ask**: [Issues](../../issues/new/choose) ou / or [Discussions](../../discussions).
+- 🌐 **Traduzir / Translate**: Issues [`tradução`](../../labels/tradu%C3%A7%C3%A3o), ou abra uma [Issue "Tradução"](../../issues/new?template=traducao.yml). / Or open a ["Translation" issue](../../issues/new?template=traducao.yml).
+- 🐞 **Avisar de um erro / Report a mistake**: [Issue "Correção"](../../issues/new?template=correcao.yml).
+- 🗨️ **Perguntar ou dar ideias / Ask or share ideas**: [Discussions](../../discussions) ([Q&A](../../discussions/categories/q-a), [Ideas](../../discussions/categories/ideas), [Show and tell](../../discussions/categories/show-and-tell)). Veja também / See also [SUPPORT.md](SUPPORT.md).
+- 🏷️ **Primeira vez? / First time?** Issues [`good first issue`](../../labels/good%20first%20issue).
 
 Leia o [CONTRIBUTING.md](CONTRIBUTING.md) e o [Código de Conduta](CODE_OF_CONDUCT.md). Cada nova versão do mod leva o manual e as dicas para dentro do jogo.
 Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Each new mod release ships the updated manual and tips in game.
+
+## Robôs que ajudam / Helper bots
+
+Ninguém precisa fazer estas tarefas à mão. / Nobody has to do these by hand.
+
+| | Robô / Bot |
+|---|---|
+| ✔️ | Confere todo Pull Request: o manual precisa continuar abrindo no jogo. / Checks every Pull Request: the manual must still open in game. |
+| 💬 | Transforma o formulário de dica num Pull Request. / Turns the tip form into a Pull Request. |
+| 🏷️ | Coloca rótulos de idioma e seção nos Pull Requests. / Labels Pull Requests by language and section. |
+| 📊 | Atualiza o [painel](STATUS.md) a cada mudança. / Updates the [status board](STATUS.md) on every change. |
+| 👋 | Dá boas-vindas a quem contribui pela primeira vez. / Welcomes first-time contributors. |
+
+Detalhes, triagem e revisão / Details, triage and review: [MANUTENCAO.md](MANUTENCAO.md).
 
 ## Estrutura do repositório / Repository layout
 
@@ -98,8 +120,13 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUC
 docs/<idioma>/        guia oficial (a árvore do jogo) / official guide (the in-game tree)
 dicas/<idioma>/       dicas da comunidade, uma por página / community tips, one file per page
 modelos/<idioma>/     modelos de página / page templates
-tools/                build_manual.py, mermaid_png.py, add_tip.py, fontes / fonts
+tools/                build_manual.py, mermaid_png.py, add_tip.py, status.py, sync_labels.py, fontes / fonts
 assets/               imagens do README / README images
+.github/              formulários, robôs e rótulos (labels.yml) / forms, bots and labels
+STATUS.md             painel do que falta (gerado) / status board (generated)
+CONTRIBUTING.md       como escrever / how to write
+MANUTENCAO.md         como revisar e organizar / how to review and organize
+SUPPORT.md            onde pedir ajuda / where to get help
 GLOSSARIO.md          termos oficiais PT ↔ EN / official PT ↔ EN terms
 manual.config.json    repositório, branch e idiomas / repo, branch and languages
 ```

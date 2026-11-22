@@ -1,0 +1,78 @@
+# Rotulos do repositorio. Edite aqui: um robo cria ou atualiza no GitHub
+# (.github/workflows/labels.yml). Rotulos que nao estao nesta lista nao sao apagados.
+# Repository labels. Edit here: a bot creates or updates them on GitHub.
+# Labels missing from this list are never deleted.
+
+# Tipo / Type
+- name: dica
+  color: "0e8a16"
+  description: "Dica da comunidade / Community tip"
+- name: correção
+  color: "d73a4a"
+  description: "Algo errado ou confuso no manual / Something wrong or unclear"
+- name: sugestão
+  color: "a2eeef"
+  description: "Ideia, página nova ou dúvida / Idea, new page or question"
+- name: tradução
+  color: "fbca04"
+  description: "Falta no outro idioma / Missing in the other language"
+- name: completar
+  color: "c5def5"
+  description: "Página com \"Ainda falta\" / Page still has \"Still missing\""
+- name: manual
+  color: "1d76db"
+  description: "Conteúdo do manual (docs/) / Manual content"
+- name: diagrama
+  color: "bfd4f2"
+  description: "Diagramas Mermaid / Mermaid diagrams"
+- name: ferramentas
+  color: "5319e7"
+  description: "Scripts, robôs e verificação / Scripts, bots and checks"
+
+# Idioma / Language
+- name: pt-BR
+  color: "009c3b"
+  description: "Português"
+- name: en
+  color: "3c3b6e"
+  description: "English"
+
+# Seção do manual / Manual section
+- name: "seção: o mod"
+  color: "ededed"
+  description: "O mod / The mod"
+- name: "seção: habilidades"
+  color: "ededed"
+  description: "Habilidades / Skills"
+- name: "seção: itens"
+  color: "ededed"
+  description: "Itens / Items"
+- name: "seção: ações"
+  color: "ededed"
+  description: "Ações / Actions"
+- name: "seção: personagem"
+  color: "ededed"
+  description: "Personagem / Character"
+- name: "seção: mundo"
+  color: "ededed"
+  description: "Mundo / World"
+
+# Andamento / Progress
+- name: good first issue
+  color: "7057ff"
+  description: "Bom para começar / Good for newcomers"
+- name: help wanted
+  color: "008672"
+  description: "Ajuda bem-vinda / Extra help welcome"
+- name: precisa conferir no jogo
+  color: "f9d0c4"
+  description: "Alguém precisa testar no Build 42 / Someone needs to check in Build 42"
+- name: aguardando resposta
+  color: "fef2c0"
+  description: "Esperando quem abriu responder / Waiting for the author"
+- name: duplicate
+  color: "cfd3d7"
+  description: "Já existe / Already exists"
+- name: wontfix
+  color: "ffffff"
+  description: "Não vai entrar / Will not be done"
