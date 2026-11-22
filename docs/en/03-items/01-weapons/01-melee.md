@@ -4,6 +4,7 @@ Axes, long and short blunt, long and short blades and spears. Each type trains i
 
 - Heavy weapons tire you faster.
 - Tools also work as weapons (hammer, pipe wrench, shovel).
+- A swing only hits what is within the weapon's reach and inside a fan in front of you. See **Highlight combat area** for the rules and to see the reach on the ground.
 
 ## Still missing
 

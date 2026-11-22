@@ -13,6 +13,8 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Compass bar at the top of the screen** (default: on): Shows the cardinal points with an equipped compass or a powered GPS. Favorites show when the GPS feature is on; distance only with a powered GPS.
 - **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
 - **Mod manual** (default: on): In-game community manual, from the mod menu or its hotkey.
+- **Highlight combat area** (default: on): While aiming a melee weapon, a circle on the ground shows the reach of the swing and the zombies it would hit get an outline in the same color. See **Highlight combat area**.
+- **Combat area color** (default: red): Red or yellow, for the circle and the outline.
 
 ## Organizer
 

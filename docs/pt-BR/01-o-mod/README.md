@@ -4,7 +4,7 @@ O **Better Experience - ALL In One** junta várias melhorias de qualidade de vid
 
 ## Use só o que quiser
 
-Cada parte do mod pode ser desligada em **Opções > Mods > Better Experience - ALL In One > Funções do mod**: organização da base, comida por validade, busca de itens no mapa, GPS, barra de bússola, beber da mochila e o manual. Quer só o GPS e a bússola? Desligue o resto.
+Cada parte do mod pode ser desligada em **Opções > Mods > Better Experience - ALL In One > Funções do mod**: organização da base, comida por validade, busca de itens no mapa, GPS, barra de bússola, beber da mochila, área de combate e o manual. Quer só o GPS e a bússola? Desligue o resto.
 
 Uma função desligada some dos menus, do mapa e das teclas, para de rodar e não grava nada novo no save. Veja os detalhes em **Opções**.
 

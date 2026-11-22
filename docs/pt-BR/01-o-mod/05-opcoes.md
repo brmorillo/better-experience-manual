@@ -13,6 +13,8 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Barra de bússola no topo da tela** (padrão: ligado): Mostra os pontos cardeais com a bússola equipada ou com o GPS ligado. Os favoritos aparecem quando a função GPS está ligada; a distância, só com o GPS ligado.
 - **Beber automaticamente da mochila** (padrão: ligado): Com o "Beber automaticamente" do jogo ligado, o personagem também bebe da água que estiver em mochilas e bolsas carregadas, não só do inventário principal.
 - **Manual do mod** (padrão: ligado): Manual da comunidade dentro do jogo, no menu do mod ou pela tecla.
+- **Destacar área de combate** (padrão: ligado): Mirando com arma corpo a corpo, um círculo no chão mostra o alcance do golpe e os zumbis que ele pegaria ficam contornados na mesma cor. Veja **Destacar área de combate**.
+- **Cor da área de combate** (padrão: vermelho): Vermelho ou amarelo, para o círculo e o contorno.
 
 ## Organização
 

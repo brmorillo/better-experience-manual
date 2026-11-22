@@ -4,6 +4,7 @@ Machados, contundentes longos e curtos, lâminas longas e curtas e lanças. Cada
 
 - Armas pesadas cansam mais rápido.
 - Ferramentas também servem de arma (martelo, chave de cano, pá).
+- O golpe só pega quem está no alcance da arma e num leque à sua frente. Veja **Destacar área de combate** para as regras e para ver o alcance no chão.
 
 ## Ainda falta
 

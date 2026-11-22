@@ -25,6 +25,7 @@ The same content shows up **in game**: right-click > Better Experience - ALL In 
 | 🛰️ GPS: favorites, navigation and track | GPS | [en](docs/en/01-the-mod/03-map-and-gps/02-gps.md) · [pt-BR](docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md) |
 | 🧭 Compass bar with your favorites | Barra de bússola | [en](docs/en/01-the-mod/03-map-and-gps/03-compass.md) · [pt-BR](docs/pt-BR/01-o-mod/03-mapa-e-gps/03-bussola.md) |
 | 💧 Drink water stored in bags | Beber da mochila | [en](docs/en/01-the-mod/04-drink-from-bags.md) · [pt-BR](docs/pt-BR/01-o-mod/04-beber-da-mochila.md) |
+| ⚔️ Melee reach circle and outline on zombies you can hit | Destacar área de combate | [en](docs/en/01-the-mod/04-highlight-combat-area.md) · [pt-BR](docs/pt-BR/01-o-mod/04-destacar-area-de-combate.md) |
 | ⚙️ Every option and hotkey | Opções | [en](docs/en/01-the-mod/05-options.md) · [pt-BR](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | 📖 This manual in game | Este manual | [en](docs/en/01-the-mod/06-this-manual.md) · [pt-BR](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | 🆕 What's new in each version | Versões | [en](docs/en/01-the-mod/07-versions.md) · [pt-BR](docs/pt-BR/01-o-mod/07-versoes.md) |
