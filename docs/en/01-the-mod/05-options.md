@@ -13,8 +13,11 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Compass bar at the top of the screen** (default: on): Shows the cardinal points with an equipped compass or a powered GPS. Favorites show when the GPS feature is on; distance only with a powered GPS.
 - **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
 - **Mod manual** (default: on): In-game community manual, from the mod menu or its hotkey.
+- **Automatic fishing** (default: on): Right-click on water: fishes on its own, eats, drinks and stores the fish in the tagged containers. See **Automatic fishing**.
 - **Highlight combat area** (default: on): While aiming a melee weapon, a circle on the ground shows the reach of the swing and the zombies it would hit get an outline in the same color. See **Highlight combat area**.
 - **Combat area color** (default: red): Red or yellow, for the circle and the outline.
+- **Pause when a zombie gets close** (default: on): Pauses the game if a zombie comes near while the character is doing something on its own (automatic fishing, organizing, reading, crafting, reloading, foraging). See **Pause when a zombie gets close**.
+- **Zombie distance that pauses** (default: 15, from 5 to 40): In tiles. Counts the same floor and the ones right above and below.
 
 ## Organizer
 
@@ -55,5 +58,6 @@ Equipped compass: a bar at the top of the screen (Skyrim style) with the cardina
 - **Open favorites / GPS on the map** (default: no key)
 - **Show/hide the compass bar** (default: no key)
 - **Open/close the manual** (default: no key)
+- **Fish automatically / stop** (default: no key): Starts automatic fishing on the water under the mouse, or stops it.
 
 > No key is bound by default, so the mod never clashes with other mods.

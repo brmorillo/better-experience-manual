@@ -1,0 +1,33 @@
+# Pausa com zumbi perto
+
+Enquanto o personagem faz algo sozinho, o mod **pausa o jogo** quando um zumbi chega perto. Assim você não perde o personagem lendo um livro ou pescando com o jogo acelerado.
+
+## Quando pausa
+
+O jogo pausa quando um zumbi **novo** entra na distância escolhida enquanto o personagem:
+
+- pesca com a **Pesca automática**;
+- **organiza** a base ou guarda o inventário;
+- faz uma **ação com barra de progresso**, como ler, fabricar, recarregar ou costurar;
+- está no **modo de busca** (procurar na área).
+
+Aparece a mensagem: "Jogo pausado: 2 zumbi(s) perto enquanto pescava. Aperte Pausa para continuar."
+
+## Como continuar
+
+Aperte **Pausa** (ou **Espaço**). O jogo volta **na mesma velocidade** em que estava.
+
+## O que não pausa
+
+- Cada zumbi pausa **uma vez só**. Se você continuar com ele perto, o jogo não pausa de novo por causa dele. Se ele sair da distância e voltar, conta como novo.
+- Um zumbi que já estava perto quando a ação começou não pausa.
+- Parado ou andando, sem fazer nada sozinho, o jogo não pausa.
+
+## A distância
+
+Conta em tiles, no mesmo andar e nos andares logo acima e logo abaixo. O padrão é **15 tiles**, de 5 a 40.
+
+## Opções
+
+- **Opções > Mods > Better Experience - ALL In One > Funções do mod > Pausar quando zumbi chegar perto**: liga e desliga.
+- **Distância do zumbi que pausa**: de 5 a 40 tiles.

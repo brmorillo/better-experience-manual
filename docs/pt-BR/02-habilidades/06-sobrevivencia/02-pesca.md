@@ -118,6 +118,7 @@ O **Engodo** jogado na água atrai peixes para o ponto. A base sozinha não atra
 
 - **Culinária** e **Cozinhar**: para preparar o peixe.
 - **Coleta**: para achar insetos e minhocas para isca.
+- **Pesca automática** (função do mod): o personagem pesca sozinho, come, bebe e guarda os peixes.
 
 <!--
 Números conferidos nos scripts do Build 42 (media/lua/shared/Fishing).

@@ -118,6 +118,7 @@ Each species has favorite baits. If no fish you can catch likes the bait, you on
 
 - **Cooking** and **Cook food**: to prepare the fish.
 - **Foraging**: to find insects and worms for bait.
+- **Automatic fishing** (mod feature): the character fishes on its own, eats, drinks and stores the fish.
 
 <!--
 Numbers checked in the Build 42 scripts (media/lua/shared/Fishing).

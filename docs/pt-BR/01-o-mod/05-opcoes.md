@@ -13,8 +13,11 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Barra de bússola no topo da tela** (padrão: ligado): Mostra os pontos cardeais com a bússola equipada ou com o GPS ligado. Os favoritos aparecem quando a função GPS está ligada; a distância, só com o GPS ligado.
 - **Beber automaticamente da mochila** (padrão: ligado): Com o "Beber automaticamente" do jogo ligado, o personagem também bebe da água que estiver em mochilas e bolsas carregadas, não só do inventário principal.
 - **Manual do mod** (padrão: ligado): Manual da comunidade dentro do jogo, no menu do mod ou pela tecla.
+- **Pesca automática** (padrão: ligado): Clique direito na água: pesca sozinho, come, bebe e guarda os peixes nos contêineres marcados. Veja **Pesca automática**.
 - **Destacar área de combate** (padrão: ligado): Mirando com arma corpo a corpo, um círculo no chão mostra o alcance do golpe e os zumbis que ele pegaria ficam contornados na mesma cor. Veja **Destacar área de combate**.
 - **Cor da área de combate** (padrão: vermelho): Vermelho ou amarelo, para o círculo e o contorno.
+- **Pausar quando zumbi chegar perto** (padrão: ligado): Pausa o jogo se um zumbi chegar perto enquanto o personagem faz algo sozinho (pesca automática, organização, leitura, fabricação, recarga, coleta). Veja **Pausa com zumbi perto**.
+- **Distância do zumbi que pausa** (padrão: 15, de 5 a 40): Em tiles. Conta o mesmo andar e os logo acima e abaixo.
 
 ## Organização
 
@@ -55,5 +58,6 @@ Bússola equipada: barra no topo da tela (estilo Skyrim) com os pontos cardeais 
 - **Abrir favoritos / GPS no mapa** (padrão: sem tecla)
 - **Mostrar/esconder a barra da bússola** (padrão: sem tecla)
 - **Abrir/fechar o manual** (padrão: sem tecla)
+- **Pescar automaticamente / parar** (padrão: sem tecla): Liga a pesca automática na água sob o mouse, ou desliga.
 
 > Nenhuma tecla vem configurada, para não brigar com outros mods.

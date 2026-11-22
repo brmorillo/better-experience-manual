@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 90 | 30 | 60 | 0 | 2 |
-| pt-BR | 90 | 30 | 60 | 0 | 2 |
+| en | 94 | 34 | 60 | 0 | 2 |
+| pt-BR | 94 | 34 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -32,7 +32,11 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item search / Busca de itens | ✅ [01-item-search.md](docs/en/01-the-mod/03-map-and-gps/01-item-search.md) | ✅ [01-busca-de-itens.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/01-busca-de-itens.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPS | ✅ [02-gps.md](docs/en/01-the-mod/03-map-and-gps/02-gps.md) | ✅ [02-gps.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/02-gps.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compass / Bússola | ✅ [03-compass.md](docs/en/01-the-mod/03-map-and-gps/03-compass.md) | ✅ [03-bussola.md](docs/pt-BR/01-o-mod/03-mapa-e-gps/03-bussola.md) |
-| &nbsp;&nbsp;&nbsp;Highlight combat area / Destacar área de combate | ✅ [04-highlight-combat-area.md](docs/en/01-the-mod/04-highlight-combat-area.md) | ✅ [04-destacar-area-de-combate.md](docs/pt-BR/01-o-mod/04-destacar-area-de-combate.md) |
+| &nbsp;&nbsp;&nbsp;**More features / Mais funções** | ✅ [README.md](docs/en/01-the-mod/04-more-features/README.md) | ✅ [README.md](docs/pt-BR/01-o-mod/04-mais-funcoes/README.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drink from bags / Beber da mochila | ✅ [01-drink-from-bags.md](docs/en/01-the-mod/04-more-features/01-drink-from-bags.md) | ✅ [01-beber-da-mochila.md](docs/pt-BR/01-o-mod/04-mais-funcoes/01-beber-da-mochila.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Highlight combat area / Destacar área de combate | ✅ [02-highlight-combat-area.md](docs/en/01-the-mod/04-more-features/02-highlight-combat-area.md) | ✅ [02-destacar-area-de-combate.md](docs/pt-BR/01-o-mod/04-mais-funcoes/02-destacar-area-de-combate.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Automatic fishing / Pesca automática | ✅ [03-auto-fishing.md](docs/en/01-the-mod/04-more-features/03-auto-fishing.md) | ✅ [03-pesca-automatica.md](docs/pt-BR/01-o-mod/04-mais-funcoes/03-pesca-automatica.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause when a zombie gets close / Pausa com zumbi perto | ✅ [04-safe-pause.md](docs/en/01-the-mod/04-more-features/04-safe-pause.md) | ✅ [04-pausa-com-zumbi-perto.md](docs/pt-BR/01-o-mod/04-mais-funcoes/04-pausa-com-zumbi-perto.md) |
 | &nbsp;&nbsp;&nbsp;Options / Opções | ✅ [05-options.md](docs/en/01-the-mod/05-options.md) | ✅ [05-opcoes.md](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | &nbsp;&nbsp;&nbsp;This manual / Este manual | ✅ [06-this-manual.md](docs/en/01-the-mod/06-this-manual.md) | ✅ [06-este-manual.md](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | &nbsp;&nbsp;&nbsp;Versions / Versões | ✅ [07-versions.md](docs/en/01-the-mod/07-versions.md) | ✅ [07-versoes.md](docs/pt-BR/01-o-mod/07-versoes.md) |

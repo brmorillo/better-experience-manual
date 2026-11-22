@@ -4,7 +4,7 @@
 
 ## Use only what you want
 
-Every part of the mod can be turned off in **Options > Mods > Better Experience - ALL In One > Mod features**: base organizer, food by expiration, map item search, GPS, compass bar, drinking from bags, combat area and the manual. Only want the GPS and the compass? Turn the rest off.
+Every part of the mod can be turned off in **Options > Mods > Better Experience - ALL In One > Mod features**: base organizer, food by expiration, map item search, GPS, compass bar, drinking from bags, automatic fishing, combat area, pause when a zombie gets close and the manual. Only want the GPS and the compass? Turn the rest off.
 
 A feature that is off leaves the menus, the map and the hotkeys, stops running and writes nothing new to your save. See **Options** for the details.
 
