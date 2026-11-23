@@ -2,6 +2,13 @@
 
 O que entrou em cada versão do mod.
 
+## 0.8.0
+
+- **Tudo perto**: botão novo na coluna de contêineres da janela de saque que mostra numa lista só os itens de todos os contêineres perto e do chão. Pegar um item tira do contêiner dele; **Pegar Tudo** passa em cada caixa.
+- **Pesquisa no inventário**: caixa **Pesquisar...** na barra de título do inventário e da janela de saque. Sem acento, nome em português ou inglês, categoria e várias palavras.
+- **Barra de frescor na comida**: a dica da comida mostra uma barra de frescor e quanto tempo falta para deixar de ser fresca ou estragar (conta geladeira, freezer e o sandbox).
+- Página nova no manual: **Inventário: Tudo perto e pesquisa**.
+
 ## 0.7.0
 
 - **Barra de bússola** agora fica no canto de baixo, à direita. Arraste com o mouse para mudar de lugar; o lugar fica guardado para todos os saves.

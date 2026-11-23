@@ -34,6 +34,9 @@ Speed of the tasks the character does alone and what auto foraging picks up. Aut
 
 ## Inventory
 
+- **All nearby button in the loot window** (default: on): Adds a button to the loot window's container column that shows the items of every nearby container (and the floor) in one list. It appears when there are 2 or more containers nearby. See **Inventory: All nearby and search**.
+- **Search bar in the inventories** (default: on): A text box in the title bar of the inventory and the loot window that filters the list. No accents needed; finds the item by its name in English too and by category.
+- **Freshness bar in the food tooltip** (default: on): The end of the food tooltip shows a freshness bar and how long until it stops being fresh or spoils. It counts a powered fridge, the freezer and the sandbox rot speed.
 - **Inventory item size (percent)** (default: 100, from 60 to 150): Size of the rows and icons in the inventory and loot lists. 100 is the game's size; lower fits more items in the window. Changes right away. A row never gets smaller than its text: to shrink further, set **Inventory Font** to Small in the game options.
 
 ## Organizer

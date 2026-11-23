@@ -9,5 +9,6 @@ Funções menores do mod, cada uma com a sua página:
 - **Coleta automática**: com a busca do jogo ligada, o personagem anda sozinho até os itens achados e pega.
 - **Acelerar tarefas automáticas**: a pesca automática e a organização rodam com o jogo acelerado (só no single player).
 - **Tirar do fogo quando ficar pronto**: a comida pronta no fogo vai para o inventário antes de queimar.
+- **Inventário: Tudo perto e pesquisa**: um botão que junta todos os contêineres perto numa lista e uma caixa de pesquisa no inventário e no saque, e a barra de frescor na dica da comida.
 
 Todas podem ser desligadas em **Opções > Mods > Better Experience - ALL In One > Funções do mod**. A aceleração fica em **Tarefas automáticas** e vem desligada.

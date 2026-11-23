@@ -34,6 +34,9 @@ Velocidade das tarefas que o personagem faz sozinho e o que a coleta automática
 
 ## Inventário
 
+- **Botão Tudo perto na janela de saque** (padrão: ligado): Coloca um botão na coluna de contêineres da janela de saque que mostra os itens de todos os contêineres perto (e do chão) numa lista só. Aparece quando há 2 ou mais contêineres perto. Veja **Inventário: Tudo perto e pesquisa**.
+- **Barra de pesquisa nos inventários** (padrão: ligado): Caixa de texto na barra de título do inventário e da janela de saque que filtra a lista. Não precisa de acento; acha o item pelo nome em inglês também e pela categoria.
+- **Barra de frescor na dica da comida** (padrão: ligado): No fim da dica da comida aparece uma barra de frescor e quanto tempo falta para deixar de ser fresca ou para estragar. Conta a geladeira com energia, o freezer e a velocidade de apodrecimento do sandbox.
 - **Tamanho dos itens no inventário (porcentagem)** (padrão: 100, de 60 a 150): Tamanho das linhas e dos ícones na lista do inventário e do saque. 100 é o tamanho do jogo; menos que isso cabe mais item na janela. Muda na hora. A linha nunca fica menor que o texto: para diminuir mais, escolha **Fonte do Inventário** Pequena nas opções do jogo.
 
 ## Organização

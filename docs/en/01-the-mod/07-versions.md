@@ -2,6 +2,13 @@
 
 What came in each mod version.
 
+## 0.8.0
+
+- **All nearby**: new button in the loot window's container column that shows in a single list the items of every nearby container and the floor. Taking an item takes it from its own container; **Loot All** goes through each box.
+- **Inventory search**: **Search...** box in the title bar of the inventory and the loot window. No accents needed, name in English or the game's language, category and several words.
+- **Freshness bar on food**: the food tooltip shows a freshness bar and how long until it goes stale or spoils (counts fridge, freezer and the sandbox).
+- New manual page: **Inventory: All nearby and search**.
+
 ## 0.7.0
 
 - **Compass bar** now sits in the bottom right corner. Drag it with the mouse to move it; the spot is saved for every save.
