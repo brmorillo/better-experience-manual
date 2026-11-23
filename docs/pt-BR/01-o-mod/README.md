@@ -4,13 +4,13 @@ O **Better Experience - ALL In One** junta várias melhorias de qualidade de vid
 
 ## Use só o que quiser
 
-Cada parte do mod pode ser desligada em **Opções > Mods > Better Experience - ALL In One > Funções do mod**: organização da base, comida por validade, busca de itens no mapa, GPS, barra de bússola, beber da mochila, pesca automática, área de combate, pausa com zumbi perto e o manual. Quer só o GPS e a bússola? Desligue o resto.
+Cada parte do mod pode ser desligada em **Opções > Mods > Better Experience - ALL In One > Funções do mod**: organização da base, comida por validade, busca de itens no mapa, GPS, barra de bússola, beber da mochila, pesca automática, coleta automática, tirar do fogo, área de combate, pausa com zumbi perto e o manual. Quer só o GPS e a bússola? Desligue o resto.
 
 Uma função desligada some dos menus, do mapa e das teclas, para de rodar e não grava nada novo no save. Veja os detalhes em **Opções**.
 
 ## Onde fica tudo
 
-- **Clique direito no chão ou num móvel** > **Better Experience - ALL In One**: organizar a base, comida por validade, busca no mapa, GPS e este manual. Na água, a pesca automática.
+- **Clique direito no chão ou num móvel** > **Better Experience - ALL In One**: organizar a base, comida por validade, busca no mapa, GPS e este manual. Na água, a pesca automática. Com a busca do jogo ligada, a coleta automática (também no clique direito num item achado pela busca).
 - **No mapa** (tecla M): botão **Better Experience**, com as abas **Itens** e **Favoritos / GPS** (só aparecem as funções ligadas).
 - **Opções** > **Mods** > **Better Experience - ALL In One**: ligar e desligar cada função, os ajustes e as teclas de atalho.
 

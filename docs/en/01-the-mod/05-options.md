@@ -14,11 +14,22 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
 - **Mod manual** (default: on): In-game community manual, from the mod menu or its hotkey.
 - **Automatic fishing** (default: on): Right-click on water: fishes on its own, eats, drinks and stores the fish in the tagged containers. See **Automatic fishing**.
+- **Auto foraging** (default: on): With the game's search mode on: the character walks to the items found and picks them up, near where it started. See **Auto foraging**.
+- **Take food off the heat when done** (default: on): Character nearby and free: food that finished cooking in a stove, oven, microwave, fireplace, barbecue or campfire goes to the inventory before it burns. See **Take food off the heat when done**.
 - **Highlight combat area** (default: on): While aiming a melee weapon, a circle on the ground shows the reach of the swing and the zombies it would hit get an outline in the same color. See **Highlight combat area**.
 - **Combat area color** (default: red): Red or yellow, for the circle and the outline.
 - **Pause when a zombie gets close** (default: on): Pauses the game if a zombie comes near while the character is doing something on its own (automatic fishing, organizing, reading, crafting, reloading, foraging). See **Pause when a zombie gets close**.
 - **Zombie distance that pauses** (default: 15, from 5 to 40): In tiles. Counts the same floor and the ones right above and below.
 - **Also when standing still** (default: off): Also pauses (or warns, in multiplayer) when a zombie comes near and the character is standing still (not walking and not aiming). Good for leaving the game running away from the PC. Off by default: in danger, you decide.
+
+## Automatic tasks
+
+Speed of the tasks the character does alone and what auto foraging picks up. Auto foraging starts from the world right-click menu (with search mode on), from the right-click on an item found by the search, or from its key.
+
+- **Speed up automatic tasks** (default: off; x5, x20 or x40): Automatic fishing and organizing run at this speed and go back to normal when they end or when a zombie comes. While walking it stays at x5 at most. Foraging is not sped up. Single player only. See **Speed up automatic tasks**.
+- **Auto foraging radius** (default: 10, from 3 to 25): Distance (tiles) around where foraging started: the character does not go past it.
+- **What auto foraging picks up** (default: everything): Everything, everything but junk, food only, fishing bait only, medicinal only or materials only (firewood, stones...). Right-clicking an item found by the search lets you pick only that item or only that category. Plants the character knows are poisonous are skipped.
+- **Auto discard** (default: off): While auto foraging, items the search reveals that do not pass the filter disappear from the search instead of staying on screen. The item is not picked up. In multiplayer it disappears only for you.
 
 ## Organizer
 
@@ -62,5 +73,6 @@ In multiplayer, **Require a powered GPS**, **Battery life** and **Cars with a GP
 - **Show/hide the compass bar** (default: no key)
 - **Open/close the manual** (default: no key)
 - **Fish automatically / stop** (default: no key): Starts automatic fishing on the water under the mouse, or stops it.
+- **Auto foraging / stop** (default: no key): Starts auto foraging (turns the game's search mode on if needed), or stops it.
 
 > No key is bound by default, so the mod never clashes with other mods.

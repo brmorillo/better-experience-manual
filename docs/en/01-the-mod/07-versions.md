@@ -2,6 +2,14 @@
 
 What came in each mod version.
 
+## 0.6.0
+
+- **Auto foraging**: with the game's search mode on, the character walks to the items found and picks them up, near where it started. It walks to the "eye" so the search reveals the item. Right-clicking a found item lets you pick only that item or only that category.
+- **Foraging filter**: everything, everything but junk, food only, fishing bait only, medicinal only or materials only.
+- **Auto discard** (off by default): revealed items that do not pass the filter disappear from the search.
+- **Speed up automatic tasks** (off by default): automatic fishing and organizing run at x5, x20 or x40 and go back to normal at the end or when a zombie comes. Single player only.
+- **Take food off the heat when done**: with the character nearby and free, food that finished cooking in a stove, oven, microwave, fireplace, barbecue or campfire goes to the inventory before it burns.
+
 ## 0.5.1
 
 - **Compass bar**: hover a favorite to see its name. While navigating, the arrow sign goes away (the destination is on the bar).

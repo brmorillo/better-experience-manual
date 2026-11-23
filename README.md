@@ -28,6 +28,9 @@ The same content shows up **in game**: right-click > Better Experience - ALL In 
 | ⚔️ Melee reach circle and outline on zombies you can hit | Destacar área de combate | [en](docs/en/01-the-mod/04-more-features/02-highlight-combat-area.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/02-destacar-area-de-combate.md) |
 | 🎣 Automatic fishing: eats, drinks and stores the fish | Pesca automática | [en](docs/en/01-the-mod/04-more-features/03-auto-fishing.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/03-pesca-automatica.md) |
 | ⏸️ Pause when a zombie gets close during automatic tasks | Pausa com zumbi perto | [en](docs/en/01-the-mod/04-more-features/04-safe-pause.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/04-pausa-com-zumbi-perto.md) |
+| 🌿 Auto foraging: walks to what the search finds and picks it up | Coleta automática | [en](docs/en/01-the-mod/04-more-features/05-auto-foraging.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/05-coleta-automatica.md) |
+| ⏩ Speed up automatic tasks (single player) | Acelerar tarefas automáticas | [en](docs/en/01-the-mod/04-more-features/06-speed-up-tasks.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/06-acelerar-tarefas.md) |
+| 🍳 Take food off the heat before it burns | Tirar do fogo quando ficar pronto | [en](docs/en/01-the-mod/04-more-features/07-take-off-the-heat.md) · [pt-BR](docs/pt-BR/01-o-mod/04-mais-funcoes/07-tirar-do-fogo.md) |
 | ⚙️ Every option and hotkey | Opções | [en](docs/en/01-the-mod/05-options.md) · [pt-BR](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | 📖 This manual in game | Este manual | [en](docs/en/01-the-mod/06-this-manual.md) · [pt-BR](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | 🆕 What's new in each version | Versões | [en](docs/en/01-the-mod/07-versions.md) · [pt-BR](docs/pt-BR/01-o-mod/07-versoes.md) |

@@ -14,11 +14,22 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Beber automaticamente da mochila** (padrão: ligado): Com o "Beber automaticamente" do jogo ligado, o personagem também bebe da água que estiver em mochilas e bolsas carregadas, não só do inventário principal.
 - **Manual do mod** (padrão: ligado): Manual da comunidade dentro do jogo, no menu do mod ou pela tecla.
 - **Pesca automática** (padrão: ligado): Clique direito na água: pesca sozinho, come, bebe e guarda os peixes nos contêineres marcados. Veja **Pesca automática**.
+- **Coleta automática** (padrão: ligado): Com a busca do jogo ligada: o personagem anda sozinho até os itens achados e pega, perto de onde começou. Veja **Coleta automática**.
+- **Tirar do fogo quando ficar pronto** (padrão: ligado): Personagem perto e livre: a comida que ficou pronta no fogão, forno, micro-ondas, lareira, churrasqueira ou fogueira vai para o inventário antes de queimar. Veja **Tirar do fogo quando ficar pronto**.
 - **Destacar área de combate** (padrão: ligado): Mirando com arma corpo a corpo, um círculo no chão mostra o alcance do golpe e os zumbis que ele pegaria ficam contornados na mesma cor. Veja **Destacar área de combate**.
 - **Cor da área de combate** (padrão: vermelho): Vermelho ou amarelo, para o círculo e o contorno.
 - **Pausar quando zumbi chegar perto** (padrão: ligado): Pausa o jogo se um zumbi chegar perto enquanto o personagem faz algo sozinho (pesca automática, organização, leitura, fabricação, recarga, coleta). Veja **Pausa com zumbi perto**.
 - **Distância do zumbi que pausa** (padrão: 15, de 5 a 40): Em tiles. Conta o mesmo andar e os logo acima e abaixo.
 - **Também com o personagem parado** (padrão: desligado): Pausa (ou avisa, no multiplayer) também quando um zumbi chega perto e o personagem está parado (sem andar e sem mirar). Bom para deixar o jogo rodando longe do PC. Desligado por padrão: no perigo, quem decide é você.
+
+## Tarefas automáticas
+
+Velocidade das tarefas que o personagem faz sozinho e o que a coleta automática pega. A coleta liga pelo clique direito no mundo (com a busca do jogo ligada), pelo clique direito num item achado pela busca ou pela tecla.
+
+- **Acelerar tarefas automáticas** (padrão: desligado; x5, x20 ou x40): A pesca automática e a organização rodam nesta velocidade e voltam ao normal quando acabam ou quando chega zumbi. Com caminhada fica no máximo em x5. A coleta não acelera. Só no single player. Veja **Acelerar tarefas automáticas**.
+- **Raio da coleta automática** (padrão: 10, de 3 a 25): Distância (tiles) em volta de onde a coleta começou: o personagem não passa disso.
+- **O que a coleta automática pega** (padrão: tudo): Tudo, tudo menos lixo, só comida, só isca de pesca, só medicinal ou só materiais (lenha, pedras...). Pelo clique direito num item achado dá para pegar só aquele item ou só aquela categoria. Plantas que o personagem sabe que são venenosas ficam de fora.
+- **Auto descartar** (padrão: desligado): Durante a coleta automática, os itens revelados pela busca que não passam no filtro somem da busca em vez de ficar na tela. O item não é pego. No multiplayer some só para você.
 
 ## Organização
 
@@ -62,5 +73,6 @@ No multiplayer, **Exigir GPS com pilha**, **Duração da pilha** e **Carros com 
 - **Mostrar/esconder a barra da bússola** (padrão: sem tecla)
 - **Abrir/fechar o manual** (padrão: sem tecla)
 - **Pescar automaticamente / parar** (padrão: sem tecla): Liga a pesca automática na água sob o mouse, ou desliga.
+- **Coleta automática / parar** (padrão: sem tecla): Liga a coleta automática (liga a busca do jogo se precisar), ou desliga.
 
 > Nenhuma tecla vem configurada, para não brigar com outros mods.

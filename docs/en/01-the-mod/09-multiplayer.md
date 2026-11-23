@@ -8,6 +8,9 @@ The mod works on servers. Like any mod, it must be installed **on the server and
 - **Safe pause**: nobody can pause a server. Instead of pausing, the mod **warns with a message and a sound** and **turns off automatic fishing and organizing** if they are running. The rule for when it warns is the same as the pause.
 - **GPS**: the battery and the glove box GPS are handled by the server. Each car is rolled only once, for every player.
 - **Auto fishing**: trash pulled from the water goes to the floor through the game's normal action.
+- **Auto foraging**: uses the game's normal actions (walking and picking up the found item). **Auto discard** removes the item only from your screen.
+- **Take food off the heat when done**: works the same, with the game's normal actions.
+- **Speed up automatic tasks**: does not work, because nobody changes a server's speed.
 
 ## Where your data is kept
 

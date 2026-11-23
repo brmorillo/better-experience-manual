@@ -2,6 +2,14 @@
 
 O que entrou em cada versão do mod.
 
+## 0.6.0
+
+- **Coleta automática**: com a busca do jogo ligada, o personagem anda sozinho até os itens achados e pega, perto de onde começou. Vai até o "olho" para a busca revelar o item. Pelo clique direito num item achado dá para pegar só aquele item ou só aquela categoria.
+- **Filtro da coleta**: tudo, tudo menos lixo, só comida, só isca de pesca, só medicinal ou só materiais.
+- **Auto descartar** (desligado por padrão): os itens revelados que não passam no filtro somem da busca.
+- **Acelerar tarefas automáticas** (desligado por padrão): a pesca automática e a organização rodam em x5, x20 ou x40 e voltam ao normal no fim ou quando chega zumbi. Só no single player.
+- **Tirar do fogo quando ficar pronto**: com o personagem perto e livre, a comida pronta no fogão, forno, micro-ondas, lareira, churrasqueira ou fogueira vai para o inventário antes de queimar.
+
 ## 0.5.1
 
 - **Barra de bússola**: passe o mouse num favorito para ver o nome. Navegando, a placa com seta some (o destino fica na barra).
