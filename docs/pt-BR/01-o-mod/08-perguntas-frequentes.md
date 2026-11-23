@@ -14,7 +14,7 @@ A busca só conhece contêineres que você **já viu de perto**. Passe perto do 
 
 ## A barra da bússola não aparece
 
-Confira se a função **Barra de bússola no topo da tela** está ligada. Segure a bússola na mão, ou desligue **Bússola precisa estar na mão** nas opções. Confira também se você não escondeu a barra com a tecla de atalho.
+Confira se a função **Barra de bússola na tela** está ligada. Segure a bússola na mão, ou desligue **Bússola precisa estar na mão** nas opções. Se você fechou a barra (clique direito nela ou tecla de atalho), reabra pelo clique direito na bússola do inventário > **Mostrar a bússola**. Ela fica no canto de baixo, à direita, se você não mudou de lugar.
 
 ## Não consigo criar favoritos
 

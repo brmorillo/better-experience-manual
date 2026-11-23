@@ -10,7 +10,7 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Comida por validade** (padrão: ligado): Janela com a comida da base e do inventário, do que vence primeiro ao que dura mais.
 - **Busca de itens no mapa** (padrão: ligado): Anota o que tem nos contêineres que você já viu e permite pesquisar no mapa. Desligado, não anota nada.
 - **GPS** (padrão: ligado): Item GPS, favoritos, navegação e trajeto. Desligado, o GPS sai do loot de prédios e porta-luvas (vale ao carregar o save) e a pilha não gasta. GPS que já existir no mundo fica, mas sem função.
-- **Barra de bússola no topo da tela** (padrão: ligado): Mostra os pontos cardeais com a bússola equipada ou com o GPS ligado. Os favoritos aparecem quando a função GPS está ligada; a distância, só com o GPS ligado.
+- **Barra de bússola na tela** (padrão: ligado): Mostra os pontos cardeais com a bússola equipada ou com o GPS ligado. Os favoritos aparecem quando a função GPS está ligada; a distância, só com o GPS ligado. Arraste a barra para mudar de lugar; clique direito nela para fechar.
 - **Beber automaticamente da mochila** (padrão: ligado): Com o "Beber automaticamente" do jogo ligado, o personagem também bebe da água que estiver em mochilas e bolsas carregadas, não só do inventário principal.
 - **Manual do mod** (padrão: ligado): Manual da comunidade dentro do jogo, no menu do mod ou pela tecla.
 - **Pesca automática** (padrão: ligado): Clique direito na água: pesca sozinho, come, bebe e guarda os peixes nos contêineres marcados. Veja **Pesca automática**.
@@ -49,7 +49,7 @@ O assistente anota o que tem nos contêineres que o jogo já mostrou para você 
 
 ## GPS
 
-Bússola equipada: barra no topo da tela (estilo Skyrim) com os pontos cardeais e os seus favoritos. GPS com pilha: cria e gerencia os favoritos, mostra a distância, navega (linha no mapa e seta) e grava o trajeto; também liga a barra. O GPS aparece em lojas de eletrônicos e camping, depósitos militares, kits de sobrevivência e no porta-luvas de poucos carros.
+Bússola equipada: barra na tela (estilo Skyrim, embaixo à direita; dá para arrastar) com os pontos cardeais e os seus favoritos. GPS com pilha: cria e gerencia os favoritos, mostra a distância, navega (linha no mapa e seta) e grava o trajeto; também liga a barra. O GPS aparece em lojas de eletrônicos e camping, depósitos militares, kits de sobrevivência e no porta-luvas de poucos carros.
 
 No multiplayer, **Exigir GPS com pilha**, **Duração da pilha** e **Carros com GPS no porta-luvas** vêm das opções do servidor (veja **Multiplayer**).
 

@@ -14,7 +14,7 @@ The search only knows containers you have **seen up close**. Walk by the furnitu
 
 ## The compass bar does not show
 
-Check that the **Compass bar at the top of the screen** feature is on. Hold the compass in your hand, or turn off **Compass must be held** in the options. Also check that you did not hide the bar with the hotkey.
+Check that the **Compass bar on screen** feature is on. Hold the compass in your hand, or turn off **Compass must be held** in the options. If you closed the bar (right-click on it or the hotkey), reopen it by right-clicking the compass in your inventory > **Show the compass**. It sits in the bottom right corner unless you moved it.
 
 ## I cannot create favorites
 

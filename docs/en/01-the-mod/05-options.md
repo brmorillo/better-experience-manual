@@ -10,7 +10,7 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Food by expiration** (default: on): Window with the food in your base and inventory, from what expires first to what lasts longest.
 - **Map item search** (default: on): Records what is inside containers you have seen and lets you search them on the map. When off, nothing is recorded.
 - **GPS** (default: on): GPS item, favorites, navigation and track. When off, the GPS leaves building and glove box loot (applies when the save loads) and the battery does not drain. A GPS already in the world stays, but does nothing.
-- **Compass bar at the top of the screen** (default: on): Shows the cardinal points with an equipped compass or a powered GPS. Favorites show when the GPS feature is on; distance only with a powered GPS.
+- **Compass bar on screen** (default: on): Shows the cardinal points with an equipped compass or a powered GPS. Favorites show when the GPS feature is on; distance only with a powered GPS. Drag the bar to move it; right-click it to close.
 - **Auto-drink from bags** (default: on): With the game's "Auto drink" option on, the character also drinks water carried in backpacks and bags, not only from the main inventory.
 - **Mod manual** (default: on): In-game community manual, from the mod menu or its hotkey.
 - **Automatic fishing** (default: on): Right-click on water: fishes on its own, eats, drinks and stores the fish in the tagged containers. See **Automatic fishing**.
@@ -49,7 +49,7 @@ The assistant records what is inside containers the game has already shown you (
 
 ## GPS
 
-Equipped compass: a bar at the top of the screen (Skyrim style) with the cardinal points and your favorites. Powered GPS: creates and manages favorites, shows distance, navigates (map line and arrow) and records your track; it also turns the bar on. The GPS is found in electronics and camping stores, military storage, survival gear and in the glove box of a few cars.
+Equipped compass: a bar on screen (Skyrim style, bottom right; you can drag it) with the cardinal points and your favorites. Powered GPS: creates and manages favorites, shows distance, navigates (map line and arrow) and records your track; it also turns the bar on. The GPS is found in electronics and camping stores, military storage, survival gear and in the glove box of a few cars.
 
 In multiplayer, **Require a powered GPS**, **Battery life** and **Cars with a GPS in the glove box** come from the server options (see **Multiplayer**).
 
