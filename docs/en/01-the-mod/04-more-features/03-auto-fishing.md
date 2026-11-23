@@ -5,7 +5,7 @@ The character stays at the water's edge and fishes on its own: casts, reels the 
 ## How to use
 
 1. Carry a **fishing rod with a hook** and **bait** in your inventory.
-2. **Right-click the water** > **Better Experience - ALL In One** > **Fish here automatically**.
+2. **Right-click the water** > **BetterExperience** > **Fish here automatically**.
 
 You can also use the **Fish automatically / stop** hotkey: it starts fishing on the water under the mouse. The key is not set by default; pick one in **Options > Mods > Better Experience - ALL In One > Hotkeys**.
 
@@ -14,7 +14,7 @@ If something is missing, the menu option is greyed out and its tooltip tells you
 ## How to stop
 
 - **Walk** with the character.
-- Or right-click > **Better Experience - ALL In One** > **Stop automatic fishing**.
+- Or right-click > **BetterExperience** > **Stop automatic fishing**.
 - Or press the hotkey again.
 
 When it stops, it tells you how many fish you caught.

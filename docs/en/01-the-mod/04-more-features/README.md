@@ -9,6 +9,7 @@ Smaller features of the mod, each with its own page:
 - **Auto foraging**: with the game's search mode on, the character walks to the items found and picks them up.
 - **Speed up automatic tasks**: automatic fishing and organizing run with the game sped up (single player only).
 - **Take food off the heat when done**: food that finished cooking goes to the inventory before it burns.
-- **Inventory: All nearby and search**: a button that joins every nearby container in one list and a search box in the inventory and loot window, plus the freshness bar in the food tooltip.
+- **Inventory: All nearby and search**: a button that joins every nearby container in one list and a search box in the inventory and loot window, plus the freshness bar in the food tooltip and the trash in the inventory.
+- **Journal and Survival Guide**: a summary of each day (kills, XP, distance, sleep, injuries) and the option to stop the Survival Guide from opening on load.
 
 All of them can be turned off in **Options > Mods > Better Experience - ALL In One > Mod features**. The speed-up is in **Automatic tasks** and is off by default.

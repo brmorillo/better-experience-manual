@@ -5,7 +5,7 @@ O personagem fica parado na beira da água e pesca sozinho: lança, puxa o peixe
 ## Como usar
 
 1. Leve uma **vara de pesca com anzol** e **isca** no inventário.
-2. Clique com o **botão direito na água** > **Better Experience - ALL In One** > **Pescar aqui automaticamente**.
+2. Clique com o **botão direito na água** > **BetterExperience** > **Pescar aqui automaticamente**.
 
 Também dá para usar a tecla **Pescar automaticamente / parar**: ela começa a pescar na água que estiver sob o mouse. A tecla não vem configurada; escolha uma em **Opções > Mods > Better Experience - ALL In One > Teclas de atalho**.
 
@@ -14,7 +14,7 @@ Se algo faltar, a opção do menu fica apagada e a dica diz o motivo.
 ## Como parar
 
 - **Ande** com o personagem.
-- Ou clique com o botão direito > **Better Experience - ALL In One** > **Parar a pesca automática**.
+- Ou clique com o botão direito > **BetterExperience** > **Parar a pesca automática**.
 - Ou aperte a tecla de novo.
 
 Ao parar, aparece quantos peixes você pescou.

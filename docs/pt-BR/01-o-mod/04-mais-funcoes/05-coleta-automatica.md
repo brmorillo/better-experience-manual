@@ -4,7 +4,7 @@ Com o **modo de busca** do jogo ligado, o personagem anda sozinho até os itens 
 
 ## Como ligar
 
-- **Clique direito no chão** > **Better Experience - ALL In One** > **Coletar sozinho por perto**. Aparece quando a busca do jogo está ligada.
+- **Clique direito no chão** > **BetterExperience** > **Coletar sozinho por perto**. Aparece quando a busca do jogo está ligada.
 - **Clique direito num ícone achado pela busca** > **Coletar sozinho**:
   - **Tudo do filtro**: pega o que passa no filtro das opções;
   - **Só** (nome do item): pega só aquele item;

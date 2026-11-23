@@ -1,6 +1,6 @@
 # Este manual
 
-Abra pelo clique direito > **Better Experience - ALL In One** > **Manual do mod**, ou escolha uma tecla em **Opções > Mods > Better Experience - ALL In One > Teclas de atalho**.
+Abra pelo clique direito > **BetterExperience** > **Manual do mod**, ou escolha uma tecla em **Opções > Mods > BetterExperience > Teclas de atalho**.
 
 ## A janela
 

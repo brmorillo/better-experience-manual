@@ -2,6 +2,20 @@
 
 What came in each mod version.
 
+## 0.8.2
+
+- **Several categories per furniture**: the **Categories** option opens a window with checkboxes. You can check whole groups and subcategories together, filter **only categories already in the box** and **check the ones in the box** with one click.
+- **Outlined furniture**: hovering the menu option (and while the window is open) outlines the furniture in the world. Repeated names get a number (**Crate 1**, **Crate 2**).
+- **Same items together**: the organizer puts an item in the furniture that already has the most like it, until full, then moves on to the next one of the same category. **Organize the whole base** gathers identical items that are spread out.
+- **All nearby** is now always the **first** button in the column and **outlines** in the world the boxes in the list.
+- **Trash in the inventory**: last icon of the inventory, stuck to the bottom. An item dropped there stops weighing and is gone for good in 10 minutes; until then you can take it back.
+- The right-click menu is now just **BetterExperience**, shorter.
+- The **freshness bar** now needs knowledge: **Nutritionist** trait, **Cooking 5+** or the new rare magazine **Food Freshness Guide**.
+- **Books, magazines, VHS and CDs** explain themselves in the tooltip: skill book bonus and whether it fits your level, new magazine recipes, and the XP, recipes and mood each tape gives.
+- **Journal**: summary of each day in the right-click menu: kills, XP and levels, distance, sleep, food, recipes and injuries.
+- **Floating XP box**: shows the skill going up, the XP gained, the level bar and how much is left.
+- **Skip the Survival Guide on load**: the guide no longer opens by itself every time (F1 still opens it).
+
 ## 0.8.1
 
 - The **Admin panel** is still off by default and only shows up with the option on. Now, the first time you open the panel in a save, the game asks first. If you confirm, the save is marked: from then on the panel is always available in that save, even if you turn the option off. Other saves do not change.

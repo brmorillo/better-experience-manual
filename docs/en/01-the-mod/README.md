@@ -10,7 +10,7 @@ A feature that is off leaves the menus, the map and the hotkeys, stops running a
 
 ## Where everything is
 
-- **Right-click the floor or a piece of furniture** > **Better Experience - ALL In One**: organize your base, food by expiration, map search, GPS and this manual. On water, automatic fishing. With the game's search mode on, auto foraging (also from the right-click on an item found by the search).
+- **Right-click the floor or a piece of furniture** > **BetterExperience**: organize your base, food by expiration, map search, GPS and this manual. On water, automatic fishing. With the game's search mode on, auto foraging (also from the right-click on an item found by the search).
 - **On the map** (M key): the **Better Experience** button, with the **Items** and **Favorites / GPS** tabs (only for features that are on).
 - **Options** > **Mods** > **Better Experience - ALL In One**: turn each feature on or off, every setting and the hotkeys.
 

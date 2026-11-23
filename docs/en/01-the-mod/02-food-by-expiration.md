@@ -4,7 +4,7 @@ A window with all the food you carry and keep at your base, from what spoils fir
 
 ## How to open
 
-Right-click > **Better Experience - ALL In One** > **Food by expiration**, or use the hotkey.
+Right-click > **BetterExperience** > **Food by expiration**, or use the hotkey.
 
 ## What each column shows
 

@@ -1,6 +1,6 @@
 # This manual
 
-Open it with right-click > **Better Experience - ALL In One** > **Mod manual**, or pick a key in **Options > Mods > Better Experience - ALL In One > Hotkeys**.
+Open it with right-click > **BetterExperience** > **Mod manual**, or pick a key in **Options > Mods > BetterExperience > Hotkeys**.
 
 ## The window
 

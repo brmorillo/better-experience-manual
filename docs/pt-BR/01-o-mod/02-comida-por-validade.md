@@ -4,7 +4,7 @@ Uma janela com toda a comida que está com você e na sua base, da que estraga p
 
 ## Como abrir
 
-Clique direito > **Better Experience - ALL In One** > **Ver comida por validade**, ou use a tecla de atalho.
+Clique direito > **BetterExperience** > **Ver comida por validade**, ou use a tecla de atalho.
 
 ## O que cada coluna mostra
 

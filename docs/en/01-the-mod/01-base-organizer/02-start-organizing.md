@@ -1,6 +1,6 @@
 # Start organizing
 
-Right-click anywhere > **Better Experience - ALL In One**:
+Right-click anywhere > **BetterExperience**:
 
 - **Store my inventory at base**: your character walks to each piece of furniture and stores what you carry.
 - **Organize the whole base**: also empties the inboxes and fixes items stored in the wrong place. It makes several trips, respecting how much weight you can carry.

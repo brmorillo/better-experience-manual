@@ -4,7 +4,7 @@ With the game's **search mode** on, the character walks on its own to the items 
 
 ## How to start
 
-- **Right-click the ground** > **Better Experience - ALL In One** > **Forage around here by myself**. It shows up when the game's search mode is on.
+- **Right-click the ground** > **BetterExperience** > **Forage around here by myself**. It shows up when the game's search mode is on.
 - **Right-click an icon found by the search** > **Forage by myself**:
   - **Everything in the filter**: picks up what passes the filter in the options;
   - **Only** (item name): picks up only that item;

@@ -34,14 +34,15 @@ Speed of the tasks the character does alone and what auto foraging picks up. Aut
 
 ## Inventory
 
-- **All nearby button in the loot window** (default: on): Adds a button to the loot window's container column that shows the items of every nearby container (and the floor) in one list. It appears when there are 2 or more containers nearby. See **Inventory: All nearby and search**.
+- **All nearby button in the loot window** (default: on): Adds a button to the loot window's container column that shows the items of every nearby container (and the floor) in one list. It is always the first button and outlines the boxes in the list. It appears when there are 2 or more containers nearby. See **Inventory: All nearby and search**.
 - **Search bar in the inventories** (default: on): A text box in the title bar of the inventory and the loot window that filters the list. No accents needed; finds the item by its name in English too and by category.
 - **Freshness bar in the food tooltip** (default: on): The end of the food tooltip shows a freshness bar and how long until it stops being fresh or spoils. It counts a powered fridge, the freezer and the sandbox rot speed.
+- **Trash in the inventory** (default: on): Last icon of the inventory column, stuck to the bottom. An item dropped there stops weighing and is gone for good after 10 minutes; until then you can take it back. See **Inventory: All nearby and search**.
 - **Inventory item size (percent)** (default: 100, from 60 to 150): Size of the rows and icons in the inventory and loot lists. 100 is the game's size; lower fits more items in the window. Changes right away. A row never gets smaller than its text: to shrink further, set **Inventory Font** to Small in the game options.
 
 ## Organizer
 
-Tag containers with right-click > Better Experience - ALL In One > Category. Favorite, equipped, worn, hotbar items and keys are never moved.
+Tag containers with right-click > BetterExperience > Category. Favorite, equipped, worn, hotbar items and keys are never moved.
 
 - **Base radius (tiles)** (default: 20, from 5 to 40): Distance from your character in which tagged containers are used.
 - **Floors above/below** (default: 2, from 0 to 4): How many floors above and below your character count as base (includes basements).

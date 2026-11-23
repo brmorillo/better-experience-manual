@@ -2,6 +2,20 @@
 
 O que entrou em cada versão do mod.
 
+## 0.8.2
+
+- **Várias categorias por móvel**: a opção **Categorias** abre uma janela com caixas de marcar. Dá para marcar grupos inteiros e subcategorias juntos, filtrar **só as categorias que já existem na caixa** e **marcar as que existem na caixa** num clique.
+- **Móvel contornado**: ao passar o mouse na opção do menu (e enquanto a janela está aberta), o móvel fica contornado no mundo. Nomes repetidos ganham número (**Caixa 1**, **Caixa 2**).
+- **Itens iguais juntos**: o organizador põe o item no móvel que já tem mais iguais a ele, até encher, e depois passa para o próximo da mesma categoria. **Organizar a base inteira** junta itens iguais espalhados.
+- **Tudo perto** agora é sempre o **primeiro** botão da coluna e **contorna** no mundo as caixas que estão na lista.
+- **Lixeira no inventário**: último ícone do inventário, colado embaixo. O item jogado lá para de pesar e some de vez em 10 minutos; até lá dá para pegar de volta.
+- O menu do clique direito agora se chama só **BetterExperience**, mais curto.
+- A **barra de frescor** agora exige conhecimento: traço **Nutricionista**, **Culinária 5+** ou a nova revista rara **Guia do Frescor dos Alimentos**.
+- **Livros, revistas, VHS e CDs** se explicam na dica: bônus do livro de habilidade e se serve para o seu nível, receitas novas da revista, e a XP, as receitas e o humor de cada fita.
+- **Diário**: resumo de cada dia no menu do clique direito: zumbis mortos, XP e níveis, distância, sono, comida, receitas e ferimentos.
+- **Caixinha flutuante de XP**: mostra a habilidade subindo, a XP ganha, a barra do nível e quanto falta.
+- **Pular o Guia de Sobrevivência ao entrar**: o guia não abre mais sozinho toda vez (o F1 continua abrindo).
+
 ## 0.8.1
 
 - **Painel do admin** continua desligado por padrão e só aparece com a opção ligada. Agora, na primeira vez que você abre o painel num save, o jogo pergunta antes. Se você confirmar, o save fica marcado: dali em diante o painel fica sempre disponível nesse save, mesmo desligando a opção. Os outros saves não mudam.
