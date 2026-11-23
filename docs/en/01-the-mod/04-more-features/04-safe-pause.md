@@ -21,7 +21,15 @@ Press **Pause** (or **Space**). The game resumes **at the same speed** it was ru
 
 - Each zombie pauses **only once**. If you carry on with it nearby, the game will not pause again because of it. If it leaves the distance and comes back, it counts as new.
 - A zombie that was already near when the action started does not pause.
-- Standing still or walking, without doing anything on its own, the game does not pause.
+- Standing still or walking, without doing anything on its own, the game does not pause (unless the **Also when standing still** option, below, is on).
+
+## Also when standing still
+
+Off by default. When on, the game also pauses when a new zombie comes near and the character is **standing still**: not walking and not aiming. Good for leaving the game running away from the PC.
+
+Walking or aiming, it does not pause: you are already seeing the zombie and you decide what to do.
+
+The message: "Paused: 1 zombie(s) nearby while standing still."
 
 ## In multiplayer
 
@@ -35,3 +43,4 @@ Counted in tiles, on the same floor and on the floors right above and right belo
 
 - **Options > Mods > Better Experience - ALL In One > Mod features > Pause when a zombie gets close**: turns it on and off.
 - **Zombie distance that pauses**: from 5 to 40 tiles.
+- **Also when standing still**: also pauses (or warns, in multiplayer) when the character is standing still. Off by default.

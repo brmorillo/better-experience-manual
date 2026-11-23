@@ -18,6 +18,7 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Cor da área de combate** (padrão: vermelho): Vermelho ou amarelo, para o círculo e o contorno.
 - **Pausar quando zumbi chegar perto** (padrão: ligado): Pausa o jogo se um zumbi chegar perto enquanto o personagem faz algo sozinho (pesca automática, organização, leitura, fabricação, recarga, coleta). Veja **Pausa com zumbi perto**.
 - **Distância do zumbi que pausa** (padrão: 15, de 5 a 40): Em tiles. Conta o mesmo andar e os logo acima e abaixo.
+- **Também com o personagem parado** (padrão: desligado): Pausa (ou avisa, no multiplayer) também quando um zumbi chega perto e o personagem está parado (sem andar e sem mirar). Bom para deixar o jogo rodando longe do PC. Desligado por padrão: no perigo, quem decide é você.
 
 ## Organização
 

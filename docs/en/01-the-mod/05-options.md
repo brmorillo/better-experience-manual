@@ -18,6 +18,7 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Combat area color** (default: red): Red or yellow, for the circle and the outline.
 - **Pause when a zombie gets close** (default: on): Pauses the game if a zombie comes near while the character is doing something on its own (automatic fishing, organizing, reading, crafting, reloading, foraging). See **Pause when a zombie gets close**.
 - **Zombie distance that pauses** (default: 15, from 5 to 40): In tiles. Counts the same floor and the ones right above and below.
+- **Also when standing still** (default: off): Also pauses (or warns, in multiplayer) when a zombie comes near and the character is standing still (not walking and not aiming). Good for leaving the game running away from the PC. Off by default: in danger, you decide.
 
 ## Organizer
 

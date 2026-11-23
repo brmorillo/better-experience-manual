@@ -21,7 +21,15 @@ Aperte **Pausa** (ou **Espaço**). O jogo volta **na mesma velocidade** em que e
 
 - Cada zumbi pausa **uma vez só**. Se você continuar com ele perto, o jogo não pausa de novo por causa dele. Se ele sair da distância e voltar, conta como novo.
 - Um zumbi que já estava perto quando a ação começou não pausa.
-- Parado ou andando, sem fazer nada sozinho, o jogo não pausa.
+- Parado ou andando, sem fazer nada sozinho, o jogo não pausa (a não ser com a opção **Também com o personagem parado**, abaixo).
+
+## Também com o personagem parado
+
+Opção desligada por padrão. Ligada, o jogo pausa também quando um zumbi novo chega perto e o personagem está **parado**: sem andar e sem mirar. Serve para quem deixa o jogo rodando e sai do PC.
+
+Andando ou mirando, não pausa: você já está vendo o zumbi e decide o que fazer.
+
+Aparece: "Jogo pausado: 1 zumbi(s) perto enquanto estava parado."
 
 ## No multiplayer
 
@@ -35,3 +43,4 @@ Conta em tiles, no mesmo andar e nos andares logo acima e logo abaixo. O padrão
 
 - **Opções > Mods > Better Experience - ALL In One > Funções do mod > Pausar quando zumbi chegar perto**: liga e desliga.
 - **Distância do zumbi que pausa**: de 5 a 40 tiles.
+- **Também com o personagem parado**: pausa (ou avisa, no multiplayer) também com o personagem parado. Desligada por padrão.

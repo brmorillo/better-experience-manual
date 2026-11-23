@@ -7,6 +7,7 @@ What came in each mod version.
 - **Compass bar**: hover a favorite to see its name. While navigating, the arrow sign goes away (the destination is on the bar).
 - **Favorites range on the bar** is now 600 tiles by default (about one town), so the bar does not get cluttered.
 - The map button is now called **Better Experience**.
+- **Safe pause**: new **Also when standing still** option (off by default), for leaving the game running away from the PC.
 
 ## 0.5.0
 

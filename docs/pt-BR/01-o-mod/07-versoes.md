@@ -7,6 +7,7 @@ O que entrou em cada versão do mod.
 - **Barra de bússola**: passe o mouse num favorito para ver o nome. Navegando, a placa com seta some (o destino fica na barra).
 - **Alcance dos favoritos na barra** agora é 600 tiles por padrão (mais ou menos uma cidade), para a barra não ficar poluída.
 - O botão no mapa agora se chama **Better Experience**.
+- **Pausa com zumbi perto**: nova opção **Também com o personagem parado** (desligada por padrão), para quem deixa o jogo rodando longe do PC.
 
 ## 0.5.0
 
