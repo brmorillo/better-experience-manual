@@ -2,6 +2,10 @@
 
 O que entrou em cada versão do mod.
 
+## 0.8.1
+
+- **Painel do admin** continua desligado por padrão e só aparece com a opção ligada. Agora, na primeira vez que você abre o painel num save, o jogo pergunta antes. Se você confirmar, o save fica marcado: dali em diante o painel fica sempre disponível nesse save, mesmo desligando a opção. Os outros saves não mudam.
+
 ## 0.8.0
 
 - **Tudo perto**: botão novo na coluna de contêineres da janela de saque que mostra numa lista só os itens de todos os contêineres perto e do chão. Pegar um item tira do contêiner dele; **Pegar Tudo** passa em cada caixa.

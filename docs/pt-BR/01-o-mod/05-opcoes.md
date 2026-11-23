@@ -16,7 +16,7 @@ Ligue só o que você quer usar. Uma função desligada some dos menus, do mapa 
 - **Pesca automática** (padrão: ligado): Clique direito na água: pesca sozinho, come, bebe e guarda os peixes nos contêineres marcados. Veja **Pesca automática**.
 - **Coleta automática** (padrão: ligado): Com a busca do jogo ligada: o personagem anda sozinho até os itens achados e pega, perto de onde começou. Veja **Coleta automática**.
 - **Tirar do fogo quando ficar pronto** (padrão: ligado): Personagem perto e livre: a comida que ficou pronta no fogão, forno, micro-ondas, lareira, churrasqueira ou fogueira vai para o inventário antes de queimar. Veja **Tirar do fogo quando ficar pronto**.
-- **Painel do admin** (padrão: desligado): Itens com busca sem acento, poderes (fantasma, imortal, voo livre) e status (curar, buffs e debuffs). No single player é trapaça, por isso vem desligado. No servidor só abre para quem tem cargo de admin. Abre pelo clique direito > **Better Experience** > **Painel do admin** ou pela tecla.
+- **Painel do admin** (padrão: desligado): Itens com busca sem acento, poderes (fantasma, imortal, voo livre) e status (curar, buffs e debuffs). No single player é trapaça, por isso vem desligado. Na primeira vez que você abre o painel num save, ele pergunta antes; se confirmar, o save fica marcado e o painel fica sempre disponível nesse save, mesmo desligando esta opção. No servidor só abre para quem tem cargo de admin. Abre pelo clique direito > **Better Experience** > **Painel do admin** ou pela tecla.
 - **Destacar área de combate** (padrão: ligado): Mirando com arma corpo a corpo, um círculo no chão mostra o alcance do golpe e os zumbis que ele pegaria ficam contornados na mesma cor. Veja **Destacar área de combate**.
 - **Cor da área de combate** (padrão: vermelho): Vermelho ou amarelo, para o círculo e o contorno.
 - **Pausar quando zumbi chegar perto** (padrão: ligado): Pausa o jogo se um zumbi chegar perto enquanto o personagem faz algo sozinho (pesca automática, organização, leitura, fabricação, recarga, coleta). Veja **Pausa com zumbi perto**.
@@ -82,6 +82,6 @@ No multiplayer, **Exigir GPS com pilha**, **Duração da pilha** e **Carros com 
 - **Abrir/fechar o manual** (padrão: sem tecla)
 - **Pescar automaticamente / parar** (padrão: sem tecla): Liga a pesca automática na água sob o mouse, ou desliga.
 - **Coleta automática / parar** (padrão: sem tecla): Liga a coleta automática (liga a busca do jogo se precisar), ou desliga.
-- **Painel do admin** (padrão: sem tecla): Abre ou fecha o painel do admin (precisa da função **Painel do admin** ligada).
+- **Painel do admin** (padrão: sem tecla): Abre ou fecha o painel do admin (precisa da função **Painel do admin** ligada ou de um save onde o painel já foi usado).
 
 > Nenhuma tecla vem configurada, para não brigar com outros mods.

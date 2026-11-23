@@ -2,6 +2,10 @@
 
 What came in each mod version.
 
+## 0.8.1
+
+- The **Admin panel** is still off by default and only shows up with the option on. Now, the first time you open the panel in a save, the game asks first. If you confirm, the save is marked: from then on the panel is always available in that save, even if you turn the option off. Other saves do not change.
+
 ## 0.8.0
 
 - **All nearby**: new button in the loot window's container column that shows in a single list the items of every nearby container and the floor. Taking an item takes it from its own container; **Loot All** goes through each box.
