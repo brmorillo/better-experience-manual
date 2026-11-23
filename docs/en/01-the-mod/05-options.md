@@ -31,6 +31,10 @@ Speed of the tasks the character does alone and what auto foraging picks up. Aut
 - **What auto foraging picks up** (default: everything): Everything, everything but junk, food only, fishing bait only, medicinal only or materials only (firewood, stones...). Right-clicking an item found by the search lets you pick only that item or only that category. Plants the character knows are poisonous are skipped.
 - **Auto discard** (default: off): While auto foraging, items the search reveals that do not pass the filter disappear from the search instead of staying on screen. The item is not picked up. In multiplayer it disappears only for you.
 
+## Inventory
+
+- **Inventory item size (percent)** (default: 100, from 60 to 150): Size of the rows and icons in the inventory and loot lists. 100 is the game's size; lower fits more items in the window. Changes right away. A row never gets smaller than its text: to shrink further, set **Inventory Font** to Small in the game options.
+
 ## Organizer
 
 Tag containers with right-click > Better Experience - ALL In One > Category. Favorite, equipped, worn, hotbar items and keys are never moved.

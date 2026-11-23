@@ -31,6 +31,10 @@ Velocidade das tarefas que o personagem faz sozinho e o que a coleta automática
 - **O que a coleta automática pega** (padrão: tudo): Tudo, tudo menos lixo, só comida, só isca de pesca, só medicinal ou só materiais (lenha, pedras...). Pelo clique direito num item achado dá para pegar só aquele item ou só aquela categoria. Plantas que o personagem sabe que são venenosas ficam de fora.
 - **Auto descartar** (padrão: desligado): Durante a coleta automática, os itens revelados pela busca que não passam no filtro somem da busca em vez de ficar na tela. O item não é pego. No multiplayer some só para você.
 
+## Inventário
+
+- **Tamanho dos itens no inventário (porcentagem)** (padrão: 100, de 60 a 150): Tamanho das linhas e dos ícones na lista do inventário e do saque. 100 é o tamanho do jogo; menos que isso cabe mais item na janela. Muda na hora. A linha nunca fica menor que o texto: para diminuir mais, escolha **Fonte do Inventário** Pequena nas opções do jogo.
+
 ## Organização
 
 Marque contêineres com o botão direito > Better Experience - ALL In One > Categoria. Itens favoritos, equipados, vestidos, na hotbar e chaves nunca são movidos.
