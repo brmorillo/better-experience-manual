@@ -27,8 +27,8 @@ Usage:
                                                 # write somewhere else (to look
                                                 # at the diagram images)
 
-Without --out/--images, it writes into the sibling mod folder (../PersonalAssistant/...):
-    42/media/lua/client/PersonalAssistant/PA_ManualData.lua
+Without --out/--images, it writes into the sibling mod folder (../BetterExperience/...):
+    42/media/lua/client/BetterExperience/PA_ManualData.lua
     42/media/textures/PA_Manual/d_*.png
 Requires Pillow:  pip install pillow
 
@@ -58,8 +58,8 @@ TIPS = ROOT / "tips"
 BUILDS = ROOT / "builds"
 CONFIG = ROOT / "manual.config.json"
 REMOVED_RE = re.compile(r"^\s*<!--\s*removed\s*-->\s*$", re.I)
-MOD_MEDIA = ROOT.parent / "PersonalAssistant" / "Contents" / "mods" / "PersonalAssistant" / "42" / "media"
-DEFAULT_OUT = MOD_MEDIA / "lua" / "client" / "PersonalAssistant" / "PA_ManualData.lua"
+MOD_MEDIA = ROOT.parent / "BetterExperience" / "Contents" / "mods" / "BetterExperience" / "42" / "media"
+DEFAULT_OUT = MOD_MEDIA / "lua" / "client" / "BetterExperience" / "PA_ManualData.lua"
 DEFAULT_IMAGES = MOD_MEDIA / "textures" / "PA_Manual"
 GAME_IMAGE_DIR = "media/textures/PA_Manual"   # path the game uses in getTexture
 
