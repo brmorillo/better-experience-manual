@@ -21,4 +21,4 @@ A bússola **não cria favoritos**. Para isso, precisa do GPS.
 
 - **Barra de bússola na tela**: liga ou desliga a barra.
 - **Bússola precisa estar na mão**: desligado, basta ter a bússola no inventário, na mochila ou no chaveiro.
-- **Alcance dos favoritos na barra**: favoritos mais longe não aparecem na barra (padrão 600 tiles, mais ou menos uma cidade). No mapa eles continuam.
+- **Alcance dos favoritos na barra**: favoritos mais longe não aparecem na barra (padrão 500 tiles, mais ou menos uma cidade). No mapa eles continuam.

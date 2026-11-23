@@ -2,6 +2,18 @@
 
 O que entrou em cada versão do mod.
 
+## 0.9.0
+
+- **Painel do admin** continua aparecendo só com a opção ligada (mesmo para admin do servidor). No single player sem debug ele lista só os poderes que funcionam de verdade.
+- **Painel do admin: aba Jogadores** (em servidor): cargo, distância e situação de cada jogador, e ações: dar cargo (admin, moderador, GM, comum), ir até, trazer, expulsar, banir, desbanir pelo nome e silenciar ou liberar a voz.
+- O painel do admin agora acompanha o tamanho da janela.
+- **Botão "?"** ao lado de cada opção do mod abre a explicação completa. A do painel do admin avisa que o save fica marcado depois de usar o painel.
+- **Tudo perto** já vem escolhido ao abrir o saque num lugar novo.
+- **Comida por validade** mostra a distância, a direção e o andar de cada móvel. Clique na linha para contornar o móvel no mundo; clique duplo para andar até lá.
+- **Novos padrões do GPS**: pilha dura 240 horas, GPS em 0,5% dos carros, alcance dos favoritos na barra 500 tiles.
+- **Caixinha flutuante de XP**: ícone por habilidade, barra maior e texto sem sobrepor.
+- Correções na dica de livros, dia repetido no diário e caixinha de XP sobre os moodles.
+
 ## 0.8.2
 
 - **Várias categorias por móvel**: a opção **Categorias** abre uma janela com caixas de marcar. Dá para marcar grupos inteiros e subcategorias juntos, filtrar **só as categorias que já existem na caixa** e **marcar as que existem na caixa** num clique.

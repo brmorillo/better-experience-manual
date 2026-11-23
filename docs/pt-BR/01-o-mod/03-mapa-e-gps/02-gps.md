@@ -6,7 +6,7 @@ O **GPS portátil** é um item novo, que usa pilha comum. Ele cria e gerencia os
 
 - Lojas de eletrônicos e de camping.
 - Depósitos militares e kits de sobrevivência.
-- Porta-luvas de cerca de **1%** dos carros.
+- Porta-luvas de cerca de **0,5%** dos carros.
 
 Para trocar a pilha, clique direito no GPS, como numa lanterna.
 
@@ -21,7 +21,7 @@ A navegação é em **linha reta**: o GPS mostra a direção, não a rota pelas 
 
 ## Pilha
 
-A pilha só gasta enquanto você **navega** ou **grava** o trajeto. Com a duração padrão, uma pilha dura 48 horas de jogo de uso contínuo.
+A pilha só gasta enquanto você **navega** ou **grava** o trajeto. Com a duração padrão, uma pilha dura 240 horas de jogo de uso contínuo.
 
 ## Opções
 

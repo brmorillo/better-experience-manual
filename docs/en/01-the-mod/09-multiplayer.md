@@ -25,7 +25,7 @@ The file is written when the game saves, when you leave the server and every 2 m
 Whoever creates the server sets up the GPS in **Server options > Sandbox > Better Experience**:
 
 - **GPS: require a powered GPS** (default: on).
-- **GPS: battery life** (default: 48 hours of use, from 6 to 240).
-- **GPS: cars with a GPS in the glove box** (default: 1%, from 0 to 5).
+- **GPS: battery life** (default: 240 hours of use, from 6 to 240).
+- **GPS: cars with a GPS in the glove box** (default: 0.5%, from 0 to 5).
 
 In multiplayer these three replace the same mod options. All other mod options stay per player.

@@ -21,4 +21,4 @@ The compass **does not create favorites**. For that you need the GPS.
 
 - **Compass bar on screen**: turns the bar on or off.
 - **Compass must be held**: when off, having the compass in your inventory, a bag or the key ring is enough.
-- **Favorites range on the bar**: farther favorites do not show on the bar (default 600 tiles, about one town). They stay on the map.
+- **Favorites range on the bar**: farther favorites do not show on the bar (default 500 tiles, about one town). They stay on the map.

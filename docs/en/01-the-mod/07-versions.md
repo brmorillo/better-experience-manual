@@ -2,6 +2,18 @@
 
 What came in each mod version.
 
+## 0.9.0
+
+- **Admin panel** is still only shown with the option on (even for server admins). In single player without debug it lists only the powers that really work there.
+- **Admin panel: Players tab** (on servers): each player's role, distance and status, and actions: give a role (admin, moderator, GM, none), go to, bring, kick, ban, unban by name and mute or unmute voice.
+- The admin panel now follows the window size.
+- **"?" button** next to each mod option opens the full explanation. The admin panel one warns that a save stays marked once the panel is used.
+- **All nearby** is selected by itself when you open the loot window in a new place.
+- **Food by expiration** shows the distance, direction and floor of each furniture. Click a row to outline the furniture in the world; double click to walk there.
+- **New GPS defaults**: battery lasts 240 hours, GPS in 0.5% of cars, favorites range on the bar 500 tiles.
+- **Floating XP box**: icon per skill, bigger bar and text no longer overlaps.
+- Fixes in the book tooltip, repeated day in the journal and XP box over the moodles.
+
 ## 0.8.2
 
 - **Several categories per furniture**: the **Categories** option opens a window with checkboxes. You can check whole groups and subcategories together, filter **only categories already in the box** and **check the ones in the box** with one click.

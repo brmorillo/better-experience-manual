@@ -6,7 +6,7 @@ The **portable GPS** is a new item that uses a regular battery. It creates and m
 
 - Electronics and camping stores.
 - Military storage and survival kits.
-- The glove box of about **1%** of cars.
+- The glove box of about **0.5%** of cars.
 
 To swap the battery, right-click the GPS, like a flashlight.
 

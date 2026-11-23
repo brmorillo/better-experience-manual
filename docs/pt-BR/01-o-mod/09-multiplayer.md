@@ -25,7 +25,7 @@ O arquivo é gravado quando o jogo salva, ao sair do servidor e a cada 2 minutos
 Quem cria o servidor ajusta o GPS em **Opções do servidor > Sandbox > Better Experience**:
 
 - **GPS: exigir GPS com pilha** (padrão: ligado).
-- **GPS: duração da pilha** (padrão: 48 horas de uso, de 6 a 240).
-- **GPS: carros com GPS no porta-luvas** (padrão: 1%, de 0 a 5).
+- **GPS: duração da pilha** (padrão: 240 horas de uso, de 6 a 240).
+- **GPS: carros com GPS no porta-luvas** (padrão: 0,5%, de 0 a 5).
 
 No multiplayer, essas três valem no lugar das mesmas opções do mod. As outras opções do mod continuam sendo de cada jogador.
