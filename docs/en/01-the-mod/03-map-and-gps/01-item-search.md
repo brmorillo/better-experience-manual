@@ -4,7 +4,7 @@ Your character takes notes of what is inside the containers the game has shown y
 
 ## How to search
 
-1. Open the map (M key) and click **Assistant**, **Items** tab.
+1. Open the map (M key) and click **Better Experience**, **Items** tab.
 2. Type what you are looking for, in English or Portuguese: **knife**, **hammer**, **ammo**, **faca**...
 3. The list shows the buildings that have the item, with distance and direction.
 

@@ -45,7 +45,7 @@ In multiplayer, **Require a powered GPS**, **Battery life** and **Cars with a GP
 - **Battery life (in-game hours of use)** (default: 48, from 6 to 240): The battery only drains while navigating or recording.
 - **Cars with a GPS in the glove box (%)** (default: 1, from 0 to 5): Rolled once per car, the first time you open the glove box. Not affected by the save's loot rarity.
 - **Compass must be held** (default: on): On: hold the compass (the off hand works). Off: having it in your inventory, a bag or the key ring is enough.
-- **Favorites range on the bar (tiles)** (default: 2000, from 100 to 10000): Favorites farther than this are left off the bar. The GPS destination is always shown.
+- **Favorites range on the bar (tiles)** (default: 600, from 50 to 5000): Only favorites closer than this show on the bar (600 is about one town), so far-away ones do not clutter it. They stay on the map, and the GPS destination is always shown.
 
 ## Manual
 

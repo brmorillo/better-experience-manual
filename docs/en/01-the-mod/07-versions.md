@@ -2,6 +2,12 @@
 
 What came in each mod version.
 
+## 0.5.1
+
+- **Compass bar**: hover a favorite to see its name. While navigating, the arrow sign goes away (the destination is on the bar).
+- **Favorites range on the bar** is now 600 tiles by default (about one town), so the bar does not get cluttered.
+- The map button is now called **Better Experience**.
+
 ## 0.5.0
 
 - **Multiplayer**: the mod works on servers. Drinking from bags uses the game's action, the GPS (battery and glove box) is handled by the server, and favorites, track and seen items are kept in a file on your PC.

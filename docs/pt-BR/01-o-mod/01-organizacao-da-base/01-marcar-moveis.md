@@ -8,4 +8,4 @@ Clique direito num móvel (geladeira, armário, caixa, prateleira...) > **Better
 - **Lixo / estragados**: comida estragada e lixo vão para lá.
 - **Geral**: o que não tiver lugar melhor.
 
-Clique direito num item do inventário: o menu mostra **Assistente guarda em: ...**.
+Clique direito num item do inventário: o menu mostra **Better Experience guarda em: ...**.

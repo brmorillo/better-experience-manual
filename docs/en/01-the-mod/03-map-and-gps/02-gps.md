@@ -13,7 +13,7 @@ To swap the battery, right-click the GPS, like a flashlight.
 ## What it does
 
 - **Save a favorite**: right-click the map > **GPS: save this point**, or right-click the floor > **GPS: save my position**.
-- **Navigate**: right-click the map > **GPS: navigate here**. A green line shows on the map and an arrow on screen shows the distance.
+- **Navigate**: right-click the map > **GPS: navigate here**. A green line shows on the map, and the destination shows on the compass bar with its distance (without the bar, an arrow sign shows instead).
 - **Record your track**: **Favorites / GPS** tab > **Record track**. Your path is drawn in blue.
 - **Manage favorites**: the **Favorites / GPS** tab lets you rename, delete and navigate.
 

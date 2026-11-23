@@ -13,7 +13,7 @@ Para trocar a pilha, clique direito no GPS, como numa lanterna.
 ## O que ele faz
 
 - **Favoritar**: clique direito no mapa > **GPS: favoritar este ponto**, ou clique direito no chão > **GPS: favoritar minha posição**.
-- **Navegar**: clique direito no mapa > **GPS: navegar até aqui**. Aparece uma linha verde no mapa e uma seta na tela com a distância.
+- **Navegar**: clique direito no mapa > **GPS: navegar até aqui**. Aparece uma linha verde no mapa, e o destino fica na barra da bússola com a distância (sem a barra, aparece uma placa com seta).
 - **Gravar trajeto**: aba **Favoritos / GPS** > **Gravar trajeto**. O caminho fica desenhado em azul.
 - **Gerenciar favoritos**: na aba **Favoritos / GPS** dá para renomear, apagar e navegar.
 

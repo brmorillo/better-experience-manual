@@ -45,7 +45,7 @@ No multiplayer, **Exigir GPS com pilha**, **Duração da pilha** e **Carros com 
 - **Duração da pilha (horas de uso no jogo)** (padrão: 48, de 6 a 240): A pilha só gasta enquanto navega ou grava trajeto.
 - **Carros com GPS no porta-luvas (%)** (padrão: 1, de 0 a 5): Sorteado uma vez por carro, na primeira vez que você abre o porta-luvas. Não muda com a raridade de loot do save.
 - **Bússola precisa estar na mão** (padrão: ligado): Ligado: segure a bússola (a mão secundária serve). Desligado: basta ter no inventário, na mochila ou no chaveiro.
-- **Alcance dos favoritos na barra (tiles)** (padrão: 2000, de 100 a 10000): Favoritos mais longe que isso não aparecem na barra. O destino do GPS sempre aparece.
+- **Alcance dos favoritos na barra (tiles)** (padrão: 600, de 50 a 5000): Só os favoritos mais perto que isso aparecem na barra (600 é mais ou menos uma cidade), para os distantes não poluírem. Eles continuam no mapa, e o destino do GPS sempre aparece.
 
 ## Manual
 

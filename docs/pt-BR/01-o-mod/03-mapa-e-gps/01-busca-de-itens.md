@@ -4,7 +4,7 @@ O personagem anota o que tem dentro dos contêineres que o jogo já mostrou para
 
 ## Como pesquisar
 
-1. Abra o mapa (tecla M) e clique em **Assistente**, aba **Itens**.
+1. Abra o mapa (tecla M) e clique em **Better Experience**, aba **Itens**.
 2. Digite o que procura, em português ou inglês: **faca**, **martelo**, **munição**, **knife**...
 3. A lista mostra as construções que têm o item, com a distância e a direção.
 

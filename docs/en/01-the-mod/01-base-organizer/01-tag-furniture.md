@@ -8,4 +8,4 @@ Right-click a piece of furniture (fridge, cabinet, crate, shelf...) > **Better E
 - **Trash / spoiled**: rotten food and junk go there.
 - **General**: anything without a better place.
 
-Right-click an item in your inventory: the menu shows **Assistant stores in: ...**.
+Right-click an item in your inventory: the menu shows **Better Experience stores in: ...**.

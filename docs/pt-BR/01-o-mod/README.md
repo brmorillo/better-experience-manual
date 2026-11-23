@@ -11,7 +11,7 @@ Uma função desligada some dos menus, do mapa e das teclas, para de rodar e nã
 ## Onde fica tudo
 
 - **Clique direito no chão ou num móvel** > **Better Experience - ALL In One**: organizar a base, comida por validade, busca no mapa, GPS e este manual. Na água, a pesca automática.
-- **No mapa** (tecla M): botão **Assistente**, com as abas **Itens** e **Favoritos / GPS** (só aparecem as funções ligadas).
+- **No mapa** (tecla M): botão **Better Experience**, com as abas **Itens** e **Favoritos / GPS** (só aparecem as funções ligadas).
 - **Opções** > **Mods** > **Better Experience - ALL In One**: ligar e desligar cada função, os ajustes e as teclas de atalho.
 
 ## Teclas de atalho

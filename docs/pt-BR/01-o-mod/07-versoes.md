@@ -2,6 +2,12 @@
 
 O que entrou em cada versão do mod.
 
+## 0.5.1
+
+- **Barra de bússola**: passe o mouse num favorito para ver o nome. Navegando, a placa com seta some (o destino fica na barra).
+- **Alcance dos favoritos na barra** agora é 600 tiles por padrão (mais ou menos uma cidade), para a barra não ficar poluída.
+- O botão no mapa agora se chama **Better Experience**.
+
 ## 0.5.0
 
 - **Multiplayer**: o mod funciona em servidores. Beber da mochila usa a ação do jogo, o GPS (pilha e porta-luvas) é cuidado pelo servidor, e favoritos, trajeto e itens vistos ficam num arquivo no seu PC.
