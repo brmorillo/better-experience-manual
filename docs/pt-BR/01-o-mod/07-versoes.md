@@ -2,6 +2,14 @@
 
 O que entrou em cada versão do mod.
 
+## 0.7.0
+
+- **Barra de bússola** agora fica no canto de baixo, à direita. Arraste com o mouse para mudar de lugar; o lugar fica guardado para todos os saves.
+- **Fechar e reabrir a bússola**: clique direito na barra > **Fechar a bússola** (ou **Voltar a bússola para o lugar padrão**). Reabre pelo clique direito na bússola ou no GPS do inventário, pelo menu **Better Experience** do mundo ou pela tecla.
+- Sem GPS no inventário, a placa e a barra não mostram mais o aviso "precisa de um GPS". O destino continua guardado.
+- **Tamanho dos itens no inventário** (nova opção, de 60 a 150; 100 = como o jogo faz): deixa menores as linhas e os ícones da lista do inventário e do saque.
+- **Painel do admin** (desligado por padrão): itens com busca sem acento, poderes (fantasma, imortal, voo livre) e status (curar, buffs e debuffs). No servidor só abre para quem tem cargo de admin.
+
 ## 0.6.0
 
 - **Coleta automática**: com a busca do jogo ligada, o personagem anda sozinho até os itens achados e pega, perto de onde começou. Vai até o "olho" para a busca revelar o item. Pelo clique direito num item achado dá para pegar só aquele item ou só aquela categoria.

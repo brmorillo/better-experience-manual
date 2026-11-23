@@ -16,6 +16,7 @@ Turn on only what you want to use. A feature that is off leaves the menus, the m
 - **Automatic fishing** (default: on): Right-click on water: fishes on its own, eats, drinks and stores the fish in the tagged containers. See **Automatic fishing**.
 - **Auto foraging** (default: on): With the game's search mode on: the character walks to the items found and picks them up, near where it started. See **Auto foraging**.
 - **Take food off the heat when done** (default: on): Character nearby and free: food that finished cooking in a stove, oven, microwave, fireplace, barbecue or campfire goes to the inventory before it burns. See **Take food off the heat when done**.
+- **Admin panel** (default: off): Items with accent-free search, powers (ghost, god mode, free flight) and status (heal, buffs and debuffs). In single player it is cheating, so it starts off. On a server it only opens for admin roles. Open it with right-click > **Better Experience** > **Admin panel** or with the hotkey.
 - **Highlight combat area** (default: on): While aiming a melee weapon, a circle on the ground shows the reach of the swing and the zombies it would hit get an outline in the same color. See **Highlight combat area**.
 - **Combat area color** (default: red): Red or yellow, for the circle and the outline.
 - **Pause when a zombie gets close** (default: on): Pauses the game if a zombie comes near while the character is doing something on its own (automatic fishing, organizing, reading, crafting, reloading, foraging). See **Pause when a zombie gets close**.
@@ -78,5 +79,6 @@ In multiplayer, **Require a powered GPS**, **Battery life** and **Cars with a GP
 - **Open/close the manual** (default: no key)
 - **Fish automatically / stop** (default: no key): Starts automatic fishing on the water under the mouse, or stops it.
 - **Auto foraging / stop** (default: no key): Starts auto foraging (turns the game's search mode on if needed), or stops it.
+- **Admin panel** (default: no key): Opens or closes the admin panel (needs the **Admin panel** feature on).
 
 > No key is bound by default, so the mod never clashes with other mods.

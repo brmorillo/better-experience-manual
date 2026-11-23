@@ -2,6 +2,14 @@
 
 What came in each mod version.
 
+## 0.7.0
+
+- **Compass bar** now sits in the bottom right corner. Drag it with the mouse to move it; the spot is saved for every save.
+- **Close and reopen the compass**: right-click the bar > **Close the compass** (or **Move the compass back to its default spot**). Reopen it by right-clicking the compass or the GPS in your inventory, from the world's **Better Experience** menu or with the hotkey.
+- Without a GPS in your inventory, the sign and the bar no longer show the "needs a GPS" warning. The destination stays saved.
+- **Inventory item size** (new option, from 60 to 150; 100 = the game's size): makes the rows and icons in the inventory and loot lists smaller.
+- **Admin panel** (off by default): items with accent-free search, powers (ghost, god mode, free flight) and status (heal, buffs and debuffs). On a server it only opens for admin roles.
+
 ## 0.6.0
 
 - **Auto foraging**: with the game's search mode on, the character walks to the items found and picks them up, near where it started. It walks to the "eye" so the search reveals the item. Right-clicking a found item lets you pick only that item or only that category.
