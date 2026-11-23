@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 98 | 38 | 60 | 0 | 2 |
-| pt-BR | 98 | 38 | 60 | 0 | 2 |
+| en | 99 | 39 | 60 | 0 | 2 |
+| pt-BR | 99 | 39 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -40,6 +40,7 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto foraging / Coleta automática | ✅ [05-auto-foraging.md](docs/en/01-the-mod/04-more-features/05-auto-foraging.md) | ✅ [05-coleta-automatica.md](docs/pt-BR/01-o-mod/04-mais-funcoes/05-coleta-automatica.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Speed up automatic tasks / Acelerar tarefas automáticas | ✅ [06-speed-up-tasks.md](docs/en/01-the-mod/04-more-features/06-speed-up-tasks.md) | ✅ [06-acelerar-tarefas.md](docs/pt-BR/01-o-mod/04-mais-funcoes/06-acelerar-tarefas.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take food off the heat when done / Tirar do fogo quando ficar pronto | ✅ [07-take-off-the-heat.md](docs/en/01-the-mod/04-more-features/07-take-off-the-heat.md) | ✅ [07-tirar-do-fogo.md](docs/pt-BR/01-o-mod/04-mais-funcoes/07-tirar-do-fogo.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inventory: All nearby and search / Inventário: Tudo perto e pesquisa | ✅ [08-inventory.md](docs/en/01-the-mod/04-more-features/08-inventory.md) | ✅ [08-inventario.md](docs/pt-BR/01-o-mod/04-mais-funcoes/08-inventario.md) |
 | &nbsp;&nbsp;&nbsp;Options / Opções | ✅ [05-options.md](docs/en/01-the-mod/05-options.md) | ✅ [05-opcoes.md](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | &nbsp;&nbsp;&nbsp;This manual / Este manual | ✅ [06-this-manual.md](docs/en/01-the-mod/06-this-manual.md) | ✅ [06-este-manual.md](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | &nbsp;&nbsp;&nbsp;Versions / Versões | ✅ [07-versions.md](docs/en/01-the-mod/07-versions.md) | ✅ [07-versoes.md](docs/pt-BR/01-o-mod/07-versoes.md) |
