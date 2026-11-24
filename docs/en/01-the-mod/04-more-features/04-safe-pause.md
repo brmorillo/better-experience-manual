@@ -20,6 +20,7 @@ Press **Pause** (or **Space**). The game resumes **at the same speed** it was ru
 ## What does not pause
 
 - Each zombie pauses **only once**. If you carry on with it nearby, the game will not pause again because of it. If it leaves the distance and comes back, it counts as new.
+- After a pause, the game waits **at least 1 minute** before pausing again (in multiplayer, before warning again). So reloading with zombies arriving one by one does not keep pausing.
 - A zombie that was already near when the action started does not pause.
 - Standing still or walking, without doing anything on its own, the game does not pause (unless the **Also when standing still** option, below, is on).
 

@@ -20,6 +20,7 @@ Aperte **Pausa** (ou **Espaço**). O jogo volta **na mesma velocidade** em que e
 ## O que não pausa
 
 - Cada zumbi pausa **uma vez só**. Se você continuar com ele perto, o jogo não pausa de novo por causa dele. Se ele sair da distância e voltar, conta como novo.
+- Depois de uma pausa, o jogo espera **pelo menos 1 minuto** antes de pausar de novo (no multiplayer, antes de avisar de novo). Assim recarregar com zumbis chegando aos poucos não fica pausando toda hora.
 - Um zumbi que já estava perto quando a ação começou não pausa.
 - Parado ou andando, sem fazer nada sozinho, o jogo não pausa (a não ser com a opção **Também com o personagem parado**, abaixo).
 
