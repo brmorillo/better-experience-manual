@@ -10,6 +10,7 @@ Bem-vindo ao manual do **Better Experience - ALL In One**: o guia do mod e um gu
 - **Ações**: dirigir, construir, cozinhar, saquear e conseguir água potável.
 - **Personagem**: profissões, traços, estados e saúde.
 - **Mundo**: mapa, zumbis, luz e água, clima e animais.
+- **Better Survival**: a trincheira e a furtividade do mod Better Survive (precisa do mod ativado).
 
 ## Como usar este manual
 

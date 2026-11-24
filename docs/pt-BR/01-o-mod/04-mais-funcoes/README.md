@@ -11,5 +11,6 @@ Funções menores do mod, cada uma com a sua página:
 - **Tirar do fogo quando ficar pronto**: a comida pronta no fogo vai para o inventário antes de queimar.
 - **Inventário: Tudo perto e pesquisa**: um botão que junta todos os contêineres perto numa lista e uma caixa de pesquisa no inventário e no saque, a barra de frescor na dica da comida e a lixeira no inventário.
 - **Diário e Guia de Sobrevivência**: um resumo de cada dia (zumbis mortos, XP, distância, sono, ferimentos) e a opção de não abrir o Guia de Sobrevivência ao entrar.
+- **Barra de vida dos zumbis**: uma barrinha de vida em cima dos zumbis perto e o dano de cada golpe subindo em cima deles.
 
 Todas podem ser desligadas em **Opções > Mods > Better Experience - ALL In One > Funções do mod**. A aceleração fica em **Tarefas automáticas** e vem desligada.

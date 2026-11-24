@@ -2,6 +2,12 @@
 
 What came in each mod version.
 
+## Next version
+
+- **Zombie health bar**: a small health bar above nearby zombies you can see (green, yellow, red) and the damage of each hit rising above them, in red for the killing blow. Turn it on or off in **Mod features**.
+- **Admin panel: Mobs tab**: spawns zombies (normal, crawler, playing dead, sitting) and animals of every breed near you, in the chosen amount (up to 50). On a server it needs the create horde power (zombies) or animal cheats (animals).
+- **Floating XP box**: Fitness now has a bicep icon.
+
 ## 0.9.1
 
 - **Pause when a zombie is near** now waits at least **1 minute** between one pause and the next (in multiplayer, between warnings). Reloading with zombies arriving one by one no longer keeps pausing.

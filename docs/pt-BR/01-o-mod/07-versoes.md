@@ -2,6 +2,12 @@
 
 O que entrou em cada versão do mod.
 
+## Próxima versão
+
+- **Barra de vida dos zumbis**: uma barrinha de vida em cima dos zumbis perto que você está vendo (verde, amarela, vermelha) e o dano de cada golpe subindo em cima deles, em vermelho no golpe que mata. Liga e desliga em **Funções do mod**.
+- **Painel do admin: aba Mobs**: cria zumbis (normal, rastejante, fingindo de morto, sentado) e animais de cada raça perto de você, na quantidade escolhida (até 50). No servidor precisa do poder de criar hordas (zumbis) ou de trapaças de animais (animais).
+- **Caixinha flutuante de XP**: a Aptidão Física ganhou ícone de bíceps.
+
 ## 0.9.1
 
 - **Pausa com zumbi perto** agora espera pelo menos **1 minuto** entre uma pausa e outra (no multiplayer, entre um aviso e outro). Recarregar com zumbis chegando aos poucos não fica mais pausando toda hora.

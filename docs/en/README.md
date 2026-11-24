@@ -10,6 +10,7 @@ Welcome to the **Better Experience - ALL In One** manual: the mod's guide plus a
 - **Actions**: driving, building, cooking, looting and getting safe water.
 - **Character**: occupations, traits, moodles and health.
 - **World**: map, zombies, power and water, weather and animals.
+- **Better Survival**: the trench and stealth from the Better Survive mod (needs the mod enabled).
 
 ## How to use this manual
 
