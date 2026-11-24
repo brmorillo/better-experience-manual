@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 100 | 40 | 60 | 0 | 2 |
-| pt-BR | 100 | 40 | 60 | 0 | 2 |
+| en | 106 | 46 | 60 | 0 | 2 |
+| pt-BR | 106 | 46 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -42,6 +42,7 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take food off the heat when done / Tirar do fogo quando ficar pronto | ✅ [07-take-off-the-heat.md](docs/en/01-the-mod/04-more-features/07-take-off-the-heat.md) | ✅ [07-tirar-do-fogo.md](docs/pt-BR/01-o-mod/04-mais-funcoes/07-tirar-do-fogo.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inventory: All nearby and search / Inventário: Tudo perto e pesquisa | ✅ [08-inventory.md](docs/en/01-the-mod/04-more-features/08-inventory.md) | ✅ [08-inventario.md](docs/pt-BR/01-o-mod/04-mais-funcoes/08-inventario.md) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Journal, XP box and Survival Guide / Diário, caixinha de XP e Guia de Sobrevivência | ✅ [09-journal.md](docs/en/01-the-mod/04-more-features/09-journal.md) | ✅ [09-diario.md](docs/pt-BR/01-o-mod/04-mais-funcoes/09-diario.md) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zombie health bar / Barra de vida dos zumbis | ✅ [10-zombie-health-bar.md](docs/en/01-the-mod/04-more-features/10-zombie-health-bar.md) | ✅ [10-barra-de-vida-dos-zumbis.md](docs/pt-BR/01-o-mod/04-mais-funcoes/10-barra-de-vida-dos-zumbis.md) |
 | &nbsp;&nbsp;&nbsp;Options / Opções | ✅ [05-options.md](docs/en/01-the-mod/05-options.md) | ✅ [05-opcoes.md](docs/pt-BR/01-o-mod/05-opcoes.md) |
 | &nbsp;&nbsp;&nbsp;This manual / Este manual | ✅ [06-this-manual.md](docs/en/01-the-mod/06-this-manual.md) | ✅ [06-este-manual.md](docs/pt-BR/01-o-mod/06-este-manual.md) |
 | &nbsp;&nbsp;&nbsp;Versions / Versões | ✅ [07-versions.md](docs/en/01-the-mod/07-versions.md) | ✅ [07-versoes.md](docs/pt-BR/01-o-mod/07-versoes.md) |
@@ -157,3 +158,15 @@ To do / Para fazer: **10**
 | &nbsp;&nbsp;&nbsp;Electricity and water / Eletricidade e água | 📝 [03-electricity-and-water.md](docs/en/06-world/03-electricity-and-water.md) | 📝 [03-eletricidade-e-agua.md](docs/pt-BR/06-mundo/03-eletricidade-e-agua.md) |
 | &nbsp;&nbsp;&nbsp;Weather and seasons / Clima e estações | 📝 [04-weather-and-seasons.md](docs/en/06-world/04-weather-and-seasons.md) | 📝 [04-clima-e-estacoes.md](docs/pt-BR/06-mundo/04-clima-e-estacoes.md) |
 | &nbsp;&nbsp;&nbsp;Animals / Animais | 📝 [05-animals.md](docs/en/06-world/05-animals.md) | 📝 [05-animais.md](docs/pt-BR/06-mundo/05-animais.md) |
+
+## Better Survival
+
+All done! / Tudo pronto!
+
+| Page / Página | en | pt-BR |
+|---|---|---|
+| **Better Survival** | ✅ [README.md](docs/en/07-better-survival/README.md) | ✅ [README.md](docs/pt-BR/07-better-survival/README.md) |
+| &nbsp;&nbsp;&nbsp;Trench / Trincheira | ✅ [01-trench.md](docs/en/07-better-survival/01-trench.md) | ✅ [01-trincheira.md](docs/pt-BR/07-better-survival/01-trincheira.md) |
+| &nbsp;&nbsp;&nbsp;Stealth / Furtividade | ✅ [02-backstab.md](docs/en/07-better-survival/02-backstab.md) | ✅ [02-ataque-pelas-costas.md](docs/pt-BR/07-better-survival/02-ataque-pelas-costas.md) |
+| &nbsp;&nbsp;&nbsp;Rope Stake / Estaca com Corda | ✅ [03-rope-stake.md](docs/en/07-better-survival/03-rope-stake.md) | ✅ [03-estaca-com-corda.md](docs/pt-BR/07-better-survival/03-estaca-com-corda.md) |
+| &nbsp;&nbsp;&nbsp;Salting and Smoker / Salga e Defumador | ✅ [04-salting-and-smoker.md](docs/en/07-better-survival/04-salting-and-smoker.md) | ✅ [04-salga-e-defumador.md](docs/pt-BR/07-better-survival/04-salga-e-defumador.md) |
