@@ -2,6 +2,10 @@
 
 O que entrou em cada versão do mod.
 
+## 0.9.1
+
+- **Pausa com zumbi perto** agora espera pelo menos **1 minuto** entre uma pausa e outra (no multiplayer, entre um aviso e outro). Recarregar com zumbis chegando aos poucos não fica mais pausando toda hora.
+
 ## 0.9.0
 
 - **Painel do admin** continua aparecendo só com a opção ligada (mesmo para admin do servidor). No single player sem debug ele lista só os poderes que funcionam de verdade.

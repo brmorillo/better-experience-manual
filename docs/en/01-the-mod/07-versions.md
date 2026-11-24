@@ -2,6 +2,10 @@
 
 What came in each mod version.
 
+## 0.9.1
+
+- **Pause when a zombie is near** now waits at least **1 minute** between one pause and the next (in multiplayer, between warnings). Reloading with zombies arriving one by one no longer keeps pausing.
+
 ## 0.9.0
 
 - **Admin panel** is still only shown with the option on (even for server admins). In single player without debug it lists only the powers that really work there.
