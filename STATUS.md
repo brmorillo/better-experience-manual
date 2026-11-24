@@ -10,8 +10,8 @@ O que já está escrito e o que falta, nos dois idiomas. **Quer ajudar? Escolha 
 
 | Language / Idioma | Pages / Páginas | ✅ | 📝 | ❌ | 💬 |
 |---|---|---|---|---|---|
-| en | 106 | 46 | 60 | 0 | 2 |
-| pt-BR | 106 | 46 | 60 | 0 | 2 |
+| en | 111 | 51 | 60 | 0 | 2 |
+| pt-BR | 111 | 51 | 60 | 0 | 2 |
 
 How to complete a page: [CONTRIBUTING.md](CONTRIBUTING.md#english). / Como completar uma página: [CONTRIBUTING.md](CONTRIBUTING.md#português).
 
@@ -170,3 +170,8 @@ All done! / Tudo pronto!
 | &nbsp;&nbsp;&nbsp;Stealth / Furtividade | ✅ [02-backstab.md](docs/en/07-better-survival/02-backstab.md) | ✅ [02-ataque-pelas-costas.md](docs/pt-BR/07-better-survival/02-ataque-pelas-costas.md) |
 | &nbsp;&nbsp;&nbsp;Rope Stake / Estaca com Corda | ✅ [03-rope-stake.md](docs/en/07-better-survival/03-rope-stake.md) | ✅ [03-estaca-com-corda.md](docs/pt-BR/07-better-survival/03-estaca-com-corda.md) |
 | &nbsp;&nbsp;&nbsp;Salting and Smoker / Salga e Defumador | ✅ [04-salting-and-smoker.md](docs/en/07-better-survival/04-salting-and-smoker.md) | ✅ [04-salga-e-defumador.md](docs/pt-BR/07-better-survival/04-salga-e-defumador.md) |
+| &nbsp;&nbsp;&nbsp;Fire and Light / Fogo e Luz | ✅ [05-fire-and-light.md](docs/en/07-better-survival/05-fire-and-light.md) | ✅ [05-fogo-e-luz.md](docs/pt-BR/07-better-survival/05-fogo-e-luz.md) |
+| &nbsp;&nbsp;&nbsp;Zombie Guts Camouflage / Camuflagem com Tripas | ✅ [06-zombie-guts-camouflage.md](docs/en/07-better-survival/06-zombie-guts-camouflage.md) | ✅ [06-camuflagem-com-tripas.md](docs/pt-BR/07-better-survival/06-camuflagem-com-tripas.md) |
+| &nbsp;&nbsp;&nbsp;Traps / Armadilhas | ✅ [07-ground-traps.md](docs/en/07-better-survival/07-ground-traps.md) | ✅ [07-armadilhas-de-chao.md](docs/pt-BR/07-better-survival/07-armadilhas-de-chao.md) |
+| &nbsp;&nbsp;&nbsp;Tools / Ferramentas | ✅ [08-survival-tools.md](docs/en/07-better-survival/08-survival-tools.md) | ✅ [08-ferramentas-de-sobrevivencia.md](docs/pt-BR/07-better-survival/08-ferramentas-de-sobrevivencia.md) |
+| &nbsp;&nbsp;&nbsp;Food and Water / Comida e Água | ✅ [09-food-and-water.md](docs/en/07-better-survival/09-food-and-water.md) | ✅ [09-comida-e-agua.md](docs/pt-BR/07-better-survival/09-comida-e-agua.md) |
